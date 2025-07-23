@@ -7,8 +7,8 @@ interface Props {
 const { class: className = '', hover = true } = Astro.props;
 
 const classes = `
-  bg-gray-800 rounded-lg p-6 
-  ${hover ? 'transition-all duration-300 hover:bg-gray-700 hover:shadow-xl hover:-translate-y-1' : ''}
+  card
+  ${hover ? 'card-hover' : ''}
   ${className}
 `;
 ---
@@ -16,3 +16,43 @@ const classes = `
 <div class={classes}>
   <slot />
 </div>
+
+<style>
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .card-hover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(217, 70, 239, 0.05) 50%,
+      rgba(236, 72, 153, 0.05) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-border-hover);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-hover:hover::before {
+    opacity: 1;
+  }
+</style>

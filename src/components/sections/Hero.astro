@@ -1,76 +1,105 @@
 ---
 import Button from '../common/Button.astro';
+import TechBackground from '../background/TechBackground.astro';
+import StaticTechLogos from '../background/StaticTechLogos.astro';
 ---
 
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background gradient -->
-  <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20">
-  </div>
+<section class="hero-section">
+  <TechBackground />
+  <StaticTechLogos />
+  <div class="hero-gradient"></div>
 
-  <!-- Animated background elements -->
-  <div class="absolute inset-0">
-    <div
-      class="absolute top-20 left-10 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl animate-pulse"
-    >
-    </div>
-    <div
-      class="absolute bottom-20 right-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse animation-delay-2000"
-    >
-    </div>
-  </div>
-
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">
         I build and design
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
-          performant sites
-        </span>
+        <span class="gradient-text">performant sites</span>
         for real business needs.
       </h1>
 
-      <p
-        class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto opacity-0 animate-fade-in animation-delay-500"
-      >
+      <p class="hero-description">
         Full-stack developer specializing in creating modern, responsive, and user-friendly web
         applications that deliver exceptional digital experiences.
       </p>
 
-      <div
-        class="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in animation-delay-1000"
-      >
-        <Button href="/projects" size="lg"> View My Work </Button>
-        <Button href="/contact" variant="outline" size="lg"> Get In Touch </Button>
-      </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div
-      class="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 animate-fade-in animation-delay-2000"
-    >
-      <div class="animate-bounce">
-        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
+      <div class="hero-actions">
+        <Button href="/projects" size="lg">View My Work</Button>
+        <Button href="/contact" variant="outline" size="lg">Get In Touch</Button>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .hero-title {
-    letter-spacing: -0.025em;
-    line-height: 1.1;
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 4rem 0;
   }
 
-  @keyframes fade-in {
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(217, 70, 239, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 50%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fade-up 0.8s ease-out forwards;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    opacity: 0;
+    animation: fade-up 0.8s ease-out 0.2s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    opacity: 0;
+    animation: fade-up 0.8s ease-out 0.4s forwards;
+  }
+
+  @keyframes fade-up {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -78,40 +107,14 @@ import Button from '../common/Button.astro';
     }
   }
 
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out forwards;
-  }
+  @media (min-width: 768px) {
+    .hero-title {
+      margin-bottom: 2rem;
+    }
 
-  .animation-delay-500 {
-    animation-delay: 0.5s;
-  }
-
-  .animation-delay-1000 {
-    animation-delay: 1s;
-  }
-
-  .animation-delay-2000 {
-    animation-delay: 2s;
+    .hero-description {
+      font-size: 1.25rem;
+      margin-bottom: 3rem;
+    }
   }
 </style>
-
-<script>
-  // Add typewriter effect to the title
-  const title = document.querySelector('.hero-title') as HTMLElement;
-  if (title) {
-    const text = title.textContent || '';
-    title.textContent = '';
-    title.style.opacity = '1';
-
-    let index = 0;
-    const typeWriter = () => {
-      if (index < text.length) {
-        title.textContent += text.charAt(index);
-        index++;
-        setTimeout(typeWriter, 30);
-      }
-    };
-
-    setTimeout(typeWriter, 300);
-  }
-</script>

@@ -1,0 +1,100 @@
+---
+interface Props {
+  name: string;
+  size?: number;
+  className?: string;
+}
+
+const { name, size = 40, className = '' } = Astro.props;
+
+// Technology brand colors from their official guidelines
+const brandColors: Record<string, string> = {
+  typescript: '#3178C6',
+  react: '#61DAFB',
+  javascript: '#F7DF1E',
+  nodejs: '#339933',
+  vue: '#4FC08D',
+  nextjs: '#000000',
+  docker: '#2496ED',
+  aws: '#FF9900',
+  postgresql: '#4169E1',
+  git: '#F05032',
+  angular: '#DD0031',
+  mongodb: '#47A248',
+  redis: '#DC382D',
+  jest: '#C21325',
+  cypress: '#17202C',
+  github: '#181717',
+  tailwindcss: '#06B6D4',
+  astro: '#FF5D01',
+  express: '#000000',
+  fastify: '#000000',
+  vitest: '#6E9F18',
+  playwright: '#2EAD33',
+  // Architecture patterns (if logos exist)
+  ddd: '#4A90E2',
+  hexagonal: '#7B68EE',
+  clean: '#32CD32',
+};
+
+// Get the SVG file path
+const svgPath = `/src/assets/tech-logos/${name.toLowerCase()}.svg`;
+const brandColor = brandColors[name.toLowerCase()] || '#666666';
+---
+
+<div
+  class={`tech-logo-wrapper ${className}`}
+  style={`--brand-color: ${brandColor}; --logo-size: ${size}px;`}
+>
+  <img src={svgPath} alt={`${name} logo`} width={size} height={size} class="tech-logo-svg" />
+</div>
+
+<style>
+  .tech-logo-wrapper {
+    display: inline-block;
+    width: var(--logo-size);
+    height: var(--logo-size);
+  }
+
+  .tech-logo-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  /* Apply brand color as filter for SVGs */
+  .tech-logo-svg {
+    filter: brightness(0) saturate(100%) invert(1);
+  }
+
+  /* Override filter with brand colors for specific technologies */
+  .tech-logo-wrapper[style*='--brand-color: #3178C6'] .tech-logo-svg {
+    filter: brightness(0) saturate(100%) invert(24%) sepia(89%) saturate(1686%) hue-rotate(209deg)
+      brightness(94%) contrast(89%);
+  }
+
+  .tech-logo-wrapper[style*='--brand-color: #61DAFB'] .tech-logo-svg {
+    filter: brightness(0) saturate(100%) invert(70%) sepia(96%) saturate(441%) hue-rotate(158deg)
+      brightness(103%) contrast(103%);
+  }
+
+  .tech-logo-wrapper[style*='--brand-color: #F7DF1E'] .tech-logo-svg {
+    filter: brightness(0) saturate(100%) invert(89%) sepia(58%) saturate(2618%) hue-rotate(28deg)
+      brightness(104%) contrast(94%);
+  }
+
+  .tech-logo-wrapper[style*='--brand-color: #339933'] .tech-logo-svg {
+    filter: brightness(0) saturate(100%) invert(35%) sepia(100%) saturate(1468%) hue-rotate(92deg)
+      brightness(96%) contrast(94%);
+  }
+
+  .tech-logo-wrapper[style*='--brand-color: #4FC08D'] .tech-logo-svg {
+    filter: brightness(0) saturate(100%) invert(65%) sepia(20%) saturate(1488%) hue-rotate(108deg)
+      brightness(91%) contrast(87%);
+  }
+
+  .tech-logo-wrapper:hover .tech-logo-svg {
+    transform: scale(1.1);
+  }
+</style>

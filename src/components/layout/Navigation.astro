@@ -1,16 +1,11 @@
 ---
+import { NAVIGATION_ITEMS } from '../../config/constants';
+
 interface Props {
   currentPath: string;
 }
 
 const { currentPath } = Astro.props;
-
-const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
-];
 
 const isActive = (href: string) => {
   if (href === '/') {
@@ -22,10 +17,9 @@ const isActive = (href: string) => {
 
 <nav class="desktop-nav">
   {
-    navItems.map((item) => (
+    NAVIGATION_ITEMS.map((item) => (
       <a href={item.href} class={`nav-link ${isActive(item.href) ? 'active' : ''}`}>
-        <span class="nav-link-text">{item.label}</span>
-        <span class="nav-link-underline" />
+        {item.label}
       </a>
     ))
   }
@@ -60,7 +54,7 @@ const isActive = (href: string) => {
 
     <nav class="mobile-nav">
       {
-        navItems.map((item) => (
+        NAVIGATION_ITEMS.map((item) => (
           <a href={item.href} class={`mobile-nav-link ${isActive(item.href) ? 'active' : ''}`}>
             {item.label}
           </a>
@@ -75,7 +69,7 @@ const isActive = (href: string) => {
   .desktop-nav {
     display: none;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.25rem;
   }
 
   @media (min-width: 768px) {
@@ -86,13 +80,10 @@ const isActive = (href: string) => {
 
   .nav-link {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     color: var(--color-text-secondary);
     text-decoration: none;
-    font-size: var(--text-sm);
+    font-size: 0.875rem;
     font-weight: 500;
     transition: color 0.2s ease;
   }
@@ -102,31 +93,23 @@ const isActive = (href: string) => {
   }
 
   .nav-link.active {
-    color: var(--color-primary);
+    color: var(--color-text);
   }
 
-  .nav-link-text {
-    position: relative;
-    z-index: 1;
-  }
-
-  .nav-link-underline {
+  .nav-link::after {
+    content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
     width: 0;
     height: 2px;
-    background: var(--color-primary);
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
     transform: translateX(-50%);
-    transition: width 0.3s ease;
+    transition: width 0.2s ease;
   }
 
-  .nav-link:hover .nav-link-underline {
-    width: calc(100% - 2rem);
-  }
-
-  .nav-link.active .nav-link-underline {
-    width: calc(100% - 2rem);
+  .nav-link.active::after {
+    width: 24px;
   }
 
   /* Mobile Menu Button */
@@ -135,14 +118,12 @@ const isActive = (href: string) => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     padding: 0;
     border: none;
     background: transparent;
     cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.2s ease;
   }
 
   @media (min-width: 768px) {
@@ -151,13 +132,9 @@ const isActive = (href: string) => {
     }
   }
 
-  .mobile-menu-button:hover {
-    background: var(--color-surface-hover);
-  }
-
   .burger-line {
     display: block;
-    width: 20px;
+    width: 18px;
     height: 2px;
     background: var(--color-text);
     margin: 2px 0;
@@ -165,7 +142,7 @@ const isActive = (href: string) => {
   }
 
   .mobile-menu-button.active .burger-line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(4px, 4px);
   }
 
   .mobile-menu-button.active .burger-line:nth-child(2) {
@@ -173,7 +150,7 @@ const isActive = (href: string) => {
   }
 
   .mobile-menu-button.active .burger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    transform: rotate(-45deg) translate(4px, -4px);
   }
 
   /* Mobile Menu */
@@ -224,8 +201,8 @@ const isActive = (href: string) => {
   }
 
   .mobile-logo {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 600;
     color: var(--color-text);
     text-decoration: none;
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
@@ -235,8 +212,8 @@ const isActive = (href: string) => {
   }
 
   .mobile-menu-close {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -244,12 +221,6 @@ const isActive = (href: string) => {
     background: transparent;
     color: var(--color-text);
     cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.2s ease;
-  }
-
-  .mobile-menu-close:hover {
-    background: var(--color-surface-hover);
   }
 
   .mobile-nav {
@@ -264,7 +235,7 @@ const isActive = (href: string) => {
     padding: 0.75rem 1rem;
     color: var(--color-text-secondary);
     text-decoration: none;
-    font-size: var(--text-base);
+    font-size: 0.9375rem;
     font-weight: 500;
     border-radius: 8px;
     transition: all 0.2s ease;
@@ -276,8 +247,8 @@ const isActive = (href: string) => {
   }
 
   .mobile-nav-link.active {
-    background: var(--color-primary-light);
-    color: var(--color-primary);
+    color: var(--color-text);
+    background: var(--color-surface-hover);
   }
 </style>
 

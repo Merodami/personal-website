@@ -1,0 +1,191 @@
+---
+import { technologies } from '../../data/technologies';
+
+// Generate random positions for each technology
+const techItems = technologies.map((tech, index) => ({
+  ...tech,
+  id: `tech-${index}`,
+  // Random position between 0-100%
+  x: Math.random() * 100,
+  y: Math.random() * 100,
+  // Random animation delay
+  animationDelay: Math.random() * 20,
+  // Random animation duration
+  animationDuration: 15 + Math.random() * 10,
+  // Random initial rotation
+  rotation: Math.random() * 360,
+}));
+---
+
+<div class="tech-background" id="tech-background">
+  {
+    techItems.map((tech) => (
+      <div
+        class={`tech-item tech-${tech.size || 'md'}`}
+        data-tech={tech.name}
+        style={`
+          left: ${tech.x}%;
+          top: ${tech.y}%;
+          animation-delay: ${tech.animationDelay}s;
+          animation-duration: ${tech.animationDuration}s;
+          --rotation: ${tech.rotation}deg;
+        `}
+      >
+        <span class="tech-icon" style={tech.color ? `color: ${tech.color}` : ''}>
+          {tech.icon}
+        </span>
+        <span class="tech-name">{tech.name}</span>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .tech-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .tech-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--rotation));
+    animation: float-tech linear infinite;
+    transition: transform 0.3s ease;
+  }
+
+  .tech-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    filter: grayscale(0.3);
+    transition: all 0.3s ease;
+  }
+
+  .tech-name {
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  /* Size variations */
+  .tech-sm .tech-icon {
+    font-size: 1.25rem;
+  }
+
+  .tech-lg .tech-icon {
+    font-size: 2rem;
+  }
+
+  /* Hover effects */
+  .tech-background:hover .tech-item {
+    animation-play-state: paused;
+  }
+
+  .tech-item:hover {
+    z-index: 10;
+    pointer-events: auto;
+  }
+
+  .tech-item:hover .tech-icon {
+    filter: grayscale(0) brightness(1.2);
+    transform: scale(1.2);
+  }
+
+  .tech-item:hover .tech-name {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Floating animation */
+  @keyframes float-tech {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(var(--rotation)) translateY(20px);
+    }
+    10% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.15;
+      transform: translate(-50%, -50%) rotate(calc(var(--rotation) + 180deg)) translateY(-20px);
+    }
+    90% {
+      opacity: 0.1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(calc(var(--rotation) + 360deg)) translateY(20px);
+    }
+  }
+
+  /* Dark theme adjustments */
+  [data-theme='dark'] .tech-item {
+    filter: brightness(0.8);
+  }
+
+  [data-theme='dark'] .tech-icon {
+    filter: grayscale(0.5);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .tech-item {
+      display: none;
+    }
+
+    /* Show fewer items on mobile */
+    .tech-item:nth-child(-n + 10) {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  // Add parallax effect on mouse move
+  const techBg = document.getElementById('tech-background');
+  const techItems = techBg?.querySelectorAll('.tech-item') as NodeListOf<HTMLElement>;
+
+  if (techBg && techItems.length > 0) {
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    // Smooth animation using requestAnimationFrame
+    function animate() {
+      currentX += (mouseX - currentX) * 0.05;
+      currentY += (mouseY - currentY) * 0.05;
+
+      techItems.forEach((item, index) => {
+        const depth = (index % 3) + 1; // Create 3 layers of depth
+        const moveX = (currentX * depth) / 50;
+        const moveY = (currentY * depth) / 50;
+
+        item.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) rotate(var(--rotation))`;
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    // Update mouse position
+    document.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+      mouseY = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+    });
+
+    // Start animation
+    animate();
+  }
+</script>

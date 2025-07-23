@@ -6,21 +6,15 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="header" id="main-header">
-  <div class="header-blur"></div>
-  <div class="header-content">
-    <div class="container">
-      <div class="header-inner">
-        <a href="/" class="logo group">
-          <span class="logo-text">Damian</span>
-          <span class="logo-dot"></span>
-        </a>
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <span class="logo-text">Damian</span>
+      </a>
 
-        <div class="nav-wrapper">
-          <Navigation currentPath={currentPath} />
-          <div class="nav-actions">
-            <ThemeToggle />
-          </div>
-        </div>
+      <div class="nav-wrapper">
+        <Navigation currentPath={currentPath} />
+        <ThemeToggle />
       </div>
     </div>
   </div>
@@ -34,7 +28,8 @@ const currentPath = Astro.url.pathname;
     right: 0;
     z-index: 50;
     height: var(--header-height-mobile);
-    transition: all 0.3s ease;
+    background: transparent;
+    transition: transform 0.3s ease;
   }
 
   @media (min-width: 768px) {
@@ -43,24 +38,8 @@ const currentPath = Astro.url.pathname;
     }
   }
 
-  .header-blur {
-    position: absolute;
-    inset: 0;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--glass-border);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .header.scrolled .header-blur {
-    opacity: 1;
-  }
-
-  .header-content {
-    position: relative;
-    height: 100%;
+  .header.hidden {
+    transform: translateY(-100%);
   }
 
   .header-inner {
@@ -71,24 +50,21 @@ const currentPath = Astro.url.pathname;
   }
 
   .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.125rem;
+    font-weight: 600;
     color: var(--color-text);
     text-decoration: none;
-    transition: transform 0.2s ease;
+    transition: opacity 0.2s ease;
   }
 
   @media (min-width: 768px) {
     .logo {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
     }
   }
 
   .logo:hover {
-    transform: translateY(-2px);
+    opacity: 0.8;
   }
 
   .logo-text {
@@ -96,64 +72,40 @@ const currentPath = Astro.url.pathname;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: -0.025em;
-  }
-
-  .logo-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    opacity: 0;
-    transform: scale(0);
-    transition: all 0.3s ease;
-  }
-
-  .logo:hover .logo-dot {
-    opacity: 1;
-    transform: scale(1);
   }
 
   .nav-wrapper {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-  }
-
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    gap: 2rem;
   }
 </style>
 
 <script>
+  let lastScrollY = 0;
+  let ticking = false;
+
   const header = document.getElementById('main-header');
 
-  const updateHeader = () => {
-    if (window.scrollY > 20) {
-      header?.classList.add('scrolled');
+  function updateHeader() {
+    const scrollY = window.scrollY;
+
+    if (scrollY > lastScrollY && scrollY > 100) {
+      header?.classList.add('hidden');
     } else {
-      header?.classList.remove('scrolled');
+      header?.classList.remove('hidden');
     }
-  };
 
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  updateHeader();
+    lastScrollY = scrollY;
+    ticking = false;
+  }
 
-  // Add smooth reveal animation
-  header?.style.setProperty('animation', 'slide-down 0.5s ease-out');
-</script>
-
-<style is:global>
-  @keyframes slide-down {
-    from {
-      opacity: 0;
-      transform: translateY(-100%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  function requestTick() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeader);
+      ticking = true;
     }
   }
-</style>
+
+  window.addEventListener('scroll', requestTick, { passive: true });
+</script>

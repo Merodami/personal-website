@@ -1,0 +1,170 @@
+---
+import TechLogo from '../icons/TechLogo.astro';
+
+// Key technologies from your CV with proper brand colors
+const mainTechnologies = [
+  // Top row (above text)
+  { name: 'TypeScript', key: 'typescript', size: 50, x: 25, y: 30, color: '#3178C6' },
+  { name: 'React', key: 'react', size: 55, x: 45, y: 25, color: '#61DAFB' },
+  { name: 'Node.js', key: 'nodejs', size: 60, x: 65, y: 28, color: '#339933' },
+  { name: 'AWS', key: 'aws', size: 50, x: 85, y: 32, color: '#FF9900' },
+
+  // Middle row (sides of text)
+  { name: 'Vue.js', key: 'vue', size: 50, x: 15, y: 50, color: '#4FC08D' },
+  { name: 'Docker', key: 'docker', size: 45, x: 85, y: 55, color: '#2496ED' },
+
+  // Bottom row (below text)
+  { name: 'JavaScript', key: 'javascript', size: 50, x: 20, y: 70, color: '#F7DF1E' },
+  { name: 'Next.js', key: 'nextjs', size: 50, x: 40, y: 75, color: '#000000' },
+  { name: 'PostgreSQL', key: 'postgresql', size: 45, x: 60, y: 72, color: '#4169E1' },
+  { name: 'Git', key: 'git', size: 45, x: 80, y: 68, color: '#F05032' },
+
+  // Backend & Database technologies
+  { name: 'Angular', key: 'angular', size: 48, x: 10, y: 35, color: '#DD0031' },
+  { name: 'MongoDB', key: 'mongodb', size: 48, x: 90, y: 40, color: '#47A248' },
+  { name: 'Express', key: 'express', size: 42, x: 8, y: 65, color: '#000000' },
+  { name: 'Fastify', key: 'fastify', size: 42, x: 92, y: 72, color: '#000000' },
+  { name: 'Redis', key: 'redis', size: 40, x: 5, y: 80, color: '#DC382D' },
+
+  // Testing frameworks
+  { name: 'Jest', key: 'jest', size: 40, x: 75, y: 80, color: '#C21325' },
+  { name: 'Cypress', key: 'cypress', size: 40, x: 85, y: 85, color: '#17202C' },
+  { name: 'Vitest', key: 'vitest', size: 40, x: 15, y: 85, color: '#6E9F18' },
+  { name: 'Playwright', key: 'playwright', size: 40, x: 95, y: 60, color: '#2EAD33' },
+
+  // Additional tools
+  { name: 'GitHub', key: 'github', size: 40, x: 5, y: 45, color: '#181717' },
+  { name: 'Tailwind', key: 'tailwindcss', size: 40, x: 25, y: 85, color: '#06B6D4' },
+  { name: 'Astro', key: 'astro', size: 40, x: 95, y: 25, color: '#FF5D01' },
+];
+
+// Keep them horizontal with slight position variation
+const randomizedTechs = mainTechnologies.map((tech) => ({
+  ...tech,
+  x: tech.x + (Math.random() - 0.5) * 3, // ±1.5% variation
+  y: tech.y + (Math.random() - 0.5) * 3, // ±1.5% variation
+}));
+---
+
+<div class="static-tech-logos">
+  {
+    randomizedTechs.map((tech) => (
+      <div
+        class="static-tech-item"
+        style={`
+          left: ${tech.x}%;
+          top: ${tech.y}%;
+          transform: translate(-50%, -50%);
+        `}
+      >
+        <div class="tech-content">
+          <div class="tech-icon-wrapper">
+            <TechLogo name={tech.key} size={tech.size} />
+          </div>
+          <span class="tech-label" style={`color: ${tech.color}`}>
+            {tech.name}
+          </span>
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .static-tech-logos {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .static-tech-item {
+    position: absolute;
+    opacity: 0.8; /* Much more visible */
+    transition: all 0.3s ease;
+  }
+
+  .static-tech-item:hover {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .tech-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .static-tech-item:hover .tech-content {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .tech-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+  }
+
+  .tech-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Ensure SVG icons use their brand colors */
+  :global(.static-tech-item svg) {
+    transition: all 0.3s ease;
+  }
+
+  /* Responsive - hide some on mobile and make them smaller */
+  @media (max-width: 768px) {
+    .static-tech-item:nth-child(n + 7) {
+      display: none;
+    }
+
+    .static-tech-item {
+      opacity: 0.5;
+    }
+
+    .tech-content {
+      padding: 0.5rem 0.75rem;
+      gap: 0.5rem;
+    }
+
+    .tech-label {
+      font-size: 0.7rem;
+    }
+  }
+
+  /* Dark theme adjustments */
+  :global([data-theme='dark'] .static-tech-item) {
+    opacity: 0.7;
+  }
+
+  :global([data-theme='dark'] .static-tech-item:hover) {
+    opacity: 1;
+  }
+
+  :global([data-theme='dark'] .tech-content) {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  :global([data-theme='dark'] .static-tech-item:hover .tech-content) {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+</style>
