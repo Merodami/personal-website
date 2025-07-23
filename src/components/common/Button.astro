@@ -101,4 +101,17 @@ const externalProps = external ? { target: '_blank', rel: 'noopener noreferrer' 
     border-color: var(--color-primary);
     color: var(--color-primary);
   }
+
+  /* Light theme outline button improvements */
+  :global([data-theme='light']) :global(.button-outline) {
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    color: var(--color-primary);
+    background: rgba(139, 92, 246, 0.05);
+  }
+
+  :global([data-theme='light']) :global(.button-outline:hover) {
+    border: 2px solid rgba(139, 92, 246, 0.6);
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--color-primary);
+  }
 </style>

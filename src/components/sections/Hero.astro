@@ -3,6 +3,7 @@ import Button from '../common/Button.astro';
 import FloatingTechLogos from '../background/FloatingTechLogos.astro';
 import StaticTechLogos from '../background/StaticTechLogos.astro';
 import DynamicText from '../ui/DynamicText.astro';
+import { FEATURE_FLAGS } from '../../config/constants';
 
 // Dynamic words with colors matching technology brands
 const dynamicWords = [
@@ -38,7 +39,9 @@ const dynamicWords = [
       </p>
 
       <div class="hero-actions">
-        <Button href="/projects" size="lg">View My Work</Button>
+        {FEATURE_FLAGS.showProjects && (
+          <Button href="/projects" size="lg">View My Work</Button>
+        )}
         <Button href="/contact" variant="outline" size="lg">Get In Touch</Button>
       </div>
     </div>
