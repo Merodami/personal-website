@@ -36,3 +36,7 @@ export const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/in/dmeroni',
   twitter: 'https://twitter.com/yourusername',
 } as const;
+
+export const FEATURE_FLAGS = {
+  showProjects: false, // Toggle this to false to hide the projects section
+} as const;

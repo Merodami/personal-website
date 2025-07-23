@@ -3,39 +3,39 @@ import TechLogo from '../icons/TechLogo.astro';
 
 // Key technologies positioned to surround the text (avoiding center area)
 const mainTechnologies = [
-  // Top arc (above text)
-  { name: 'TypeScript', key: 'typescript', size: 50, x: 20, y: 15, color: '#3178C6' },
-  { name: 'React', key: 'react', size: 55, x: 40, y: 10, color: '#61DAFB' },
-  { name: 'Node.js', key: 'nodejs', size: 60, x: 60, y: 10, color: '#339933' },
-  { name: 'AWS', key: 'aws', size: 50, x: 80, y: 15, color: '#FF9900' },
+  // Top arc (above text) - moved 5% further up
+  { name: 'TypeScript', key: 'typescript', size: 50, x: 25, y: 17, color: '#3178C6' },
+  { name: 'React', key: 'react', size: 55, x: 42, y: 13, color: '#61DAFB' },
+  { name: 'Node.js', key: 'nodejs', size: 60, x: 58, y: 13, color: '#339933' },
+  { name: 'AWS', key: 'aws', size: 50, x: 75, y: 17, color: '#FF9900' },
 
-  // Left side (avoiding center)
-  { name: 'Vue.js', key: 'vue', size: 50, x: 8, y: 35, color: '#4FC08D' },
-  { name: 'Angular', key: 'angular', size: 48, x: 5, y: 50, color: '#DD0031' },
-  { name: 'Express', key: 'express', size: 42, x: 8, y: 65, color: '#000000' },
+  // Left side (closer to center)
+  { name: 'Vue.js', key: 'vue', size: 50, x: 15, y: 35, color: '#4FC08D' },
+  { name: 'Angular', key: 'angular', size: 48, x: 12, y: 50, color: '#DD0031' },
+  { name: 'Redux', key: 'redux', size: 42, x: 15, y: 65, color: '#764ABC' },
 
-  // Right side (avoiding center)
-  { name: 'Docker', key: 'docker', size: 45, x: 92, y: 35, color: '#2496ED' },
-  { name: 'MongoDB', key: 'mongodb', size: 48, x: 95, y: 50, color: '#47A248' },
-  { name: 'Fastify', key: 'fastify', size: 42, x: 92, y: 65, color: '#000000' },
+  // Right side (closer to center)
+  { name: 'Docker', key: 'docker', size: 45, x: 85, y: 35, color: '#2496ED' },
+  { name: 'MongoDB', key: 'mongodb', size: 48, x: 88, y: 50, color: '#47A248' },
+  { name: 'Fastify', key: 'fastify', size: 42, x: 85, y: 65, color: '#000000' },
 
-  // Bottom arc (below text)
-  { name: 'JavaScript', key: 'javascript', size: 50, x: 20, y: 85, color: '#F7DF1E' },
-  { name: 'PostgreSQL', key: 'postgresql', size: 45, x: 35, y: 90, color: '#4169E1' },
-  { name: 'Git', key: 'git', size: 45, x: 50, y: 92, color: '#F05032' },
-  { name: 'Next.js', key: 'nextjs', size: 50, x: 65, y: 90, color: '#000000' },
-  { name: 'Jest', key: 'jest', size: 40, x: 80, y: 85, color: '#C21325' },
+  // Bottom arc (below text) - moved 5% further down
+  { name: 'JavaScript', key: 'javascript', size: 50, x: 25, y: 83, color: '#F7DF1E' },
+  { name: 'PostgreSQL', key: 'postgresql', size: 45, x: 38, y: 87, color: '#4169E1' },
+  { name: 'Git', key: 'git', size: 45, x: 50, y: 89, color: '#F05032' },
+  { name: 'Next.js', key: 'nextjs', size: 50, x: 62, y: 87, color: '#666666' },
+  { name: 'Jest', key: 'jest', size: 40, x: 75, y: 83, color: '#C21325' },
 
-  // Outer corners
-  { name: 'GitHub', key: 'github', size: 40, x: 2, y: 20, color: '#181717' },
-  { name: 'Redis', key: 'redis', size: 40, x: 2, y: 80, color: '#DC382D' },
-  { name: 'Astro', key: 'astro', size: 40, x: 98, y: 20, color: '#FF5D01' },
-  { name: 'Playwright', key: 'playwright', size: 40, x: 98, y: 80, color: '#2EAD33' },
+  // Outer corners - adjusted accordingly
+  { name: 'GitHub', key: 'github', size: 40, x: 8, y: 20, color: '#666666' },
+  { name: 'Redis', key: 'redis', size: 40, x: 8, y: 80, color: '#DC382D' },
+  { name: 'Astro', key: 'astro', size: 40, x: 92, y: 20, color: '#FF5D01' },
+  { name: 'Playwright', key: 'playwright', size: 40, x: 92, y: 80, color: '#2EAD33' },
 
-  // Additional spacing
-  { name: 'Cypress', key: 'cypress', size: 40, x: 15, y: 5, color: '#17202C' },
-  { name: 'Vitest', key: 'vitest', size: 40, x: 85, y: 5, color: '#6E9F18' },
-  { name: 'Tailwind', key: 'tailwindcss', size: 40, x: 15, y: 95, color: '#06B6D4' },
+  // Additional spacing - adjusted positioning
+  { name: 'Cypress', key: 'cypress', size: 40, x: 20, y: 7, color: '#69D3A7' },
+  { name: 'Vitest', key: 'vitest', size: 40, x: 80, y: 7, color: '#6E9F18' },
+  { name: 'Tailwind', key: 'tailwindcss', size: 40, x: 20, y: 93, color: '#06B6D4' },
 ];
 
 // Keep them horizontal with slight position variation
@@ -57,7 +57,9 @@ const randomizedTechs = mainTechnologies.map((tech) => ({
           transform: translate(-50%, -50%);
         `}
       >
-        <div class="tech-icon-wrapper">
+        <div
+          class={`tech-icon-wrapper ${['github', 'nextjs', 'fastify'].includes(tech.key) ? 'dark-logo' : ''}`}
+        >
           <TechLogo name={tech.key} size={tech.size} />
         </div>
         <span class="tech-label" style={`color: ${tech.color}`}>
@@ -98,6 +100,10 @@ const randomizedTechs = mainTechnologies.map((tech) => ({
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* Only apply shadows in dark theme */
+  :global([data-theme='dark']) .tech-icon-wrapper {
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
   }
 
@@ -106,6 +112,10 @@ const randomizedTechs = mainTechnologies.map((tech) => ({
     font-weight: 600;
     text-align: center;
     white-space: nowrap;
+  }
+
+  /* Only apply text shadows in dark theme */
+  :global([data-theme='dark']) .tech-label {
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
   }
@@ -138,5 +148,12 @@ const randomizedTechs = mainTechnologies.map((tech) => ({
 
   :global([data-theme='dark'] .static-tech-item:hover) {
     opacity: 1;
+  }
+
+  /* Light theme adjustments for dark logos */
+  :global([data-theme='light'] .dark-logo) {
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    padding: 4px;
   }
 </style>

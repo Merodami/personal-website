@@ -37,15 +37,16 @@ const email = 'hello@damianmeroni.dev';
   }
 
   .nav-container {
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--glass-bg);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
     padding: 0.75rem 1.5rem;
     display: flex;
     align-items: center;
     gap: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-lg);
   }
 
   .profile-section {
@@ -59,12 +60,12 @@ const email = 'hello@damianmeroni.dev';
     height: 32px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--glass-border);
   }
 
   .email {
     font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text-secondary);
     font-weight: 500;
   }
 

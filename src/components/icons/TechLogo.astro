@@ -31,6 +31,7 @@ const brandColors: Record<string, string> = {
   fastify: '#000000',
   vitest: '#6E9F18',
   playwright: '#2EAD33',
+  redux: '#764ABC',
   // Architecture patterns (if logos exist)
   ddd: '#4A90E2',
   hexagonal: '#7B68EE',
@@ -63,33 +64,53 @@ const brandColor = brandColors[name.toLowerCase()] || '#666666';
     transition: all 0.3s ease;
   }
 
-  /* Apply brand color as filter for SVGs */
-  .tech-logo-svg {
+  /* In dark theme, apply filter to make logos bright */
+  :global([data-theme='dark']) .tech-logo-svg:not(.floating-logo .tech-logo-svg) {
     filter: brightness(0) saturate(100%) invert(1);
   }
 
-  /* Override filter with brand colors for specific technologies */
-  .tech-logo-wrapper[style*='--brand-color: #3178C6'] .tech-logo-svg {
+  /* In light theme, use original colors */
+  :global([data-theme='light']) .tech-logo-svg {
+    filter: none;
+  }
+
+  /* Floating logos should always show original colors */
+  :global(.floating-logo .tech-logo-svg) {
+    filter: none !important;
+  }
+
+  /* Apply filters only in dark theme and not for floating logos */
+  :global([data-theme='dark'])
+    .tech-logo-wrapper[style*='--brand-color: #3178C6']:not(.floating-logo)
+    .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(24%) sepia(89%) saturate(1686%) hue-rotate(209deg)
       brightness(94%) contrast(89%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #61DAFB'] .tech-logo-svg {
+  :global([data-theme='dark'])
+    .tech-logo-wrapper[style*='--brand-color: #61DAFB']:not(.floating-logo)
+    .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(70%) sepia(96%) saturate(441%) hue-rotate(158deg)
       brightness(103%) contrast(103%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #F7DF1E'] .tech-logo-svg {
+  :global([data-theme='dark'])
+    .tech-logo-wrapper[style*='--brand-color: #F7DF1E']:not(.floating-logo)
+    .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(89%) sepia(58%) saturate(2618%) hue-rotate(28deg)
       brightness(104%) contrast(94%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #339933'] .tech-logo-svg {
+  :global([data-theme='dark'])
+    .tech-logo-wrapper[style*='--brand-color: #339933']:not(.floating-logo)
+    .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(35%) sepia(100%) saturate(1468%) hue-rotate(92deg)
       brightness(96%) contrast(94%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #4FC08D'] .tech-logo-svg {
+  :global([data-theme='dark'])
+    .tech-logo-wrapper[style*='--brand-color: #4FC08D']:not(.floating-logo)
+    .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(65%) sepia(20%) saturate(1488%) hue-rotate(108deg)
       brightness(91%) contrast(87%);
   }

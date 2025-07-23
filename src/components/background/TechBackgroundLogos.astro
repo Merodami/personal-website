@@ -1,5 +1,34 @@
 ---
-import { technologies } from '../../data/technologies';
+import TechLogo from '../icons/TechLogo.astro';
+
+// Technologies to show in the background with their positions
+const technologies = [
+  // Frontend
+  { name: 'React', key: 'react', color: '#61DAFB', size: 'lg' },
+  { name: 'Vue', key: 'vue', color: '#4FC08D', size: 'md' },
+  { name: 'TypeScript', key: 'typescript', color: '#3178C6', size: 'lg' },
+  { name: 'JavaScript', key: 'javascript', color: '#F7DF1E', size: 'md' },
+  { name: 'Angular', key: 'angular', color: '#DD0031', size: 'lg' },
+  { name: 'Next.js', key: 'nextjs', color: '#000000', size: 'md' },
+  { name: 'Astro', key: 'astro', color: '#FF5D01', size: 'lg' },
+  { name: 'Tailwind', key: 'tailwindcss', color: '#06B6D4', size: 'md' },
+
+  // Backend & Tools
+  { name: 'Node.js', key: 'nodejs', color: '#339933', size: 'lg' },
+  { name: 'Docker', key: 'docker', color: '#2496ED', size: 'md' },
+  { name: 'Git', key: 'git', color: '#F05032', size: 'sm' },
+  { name: 'AWS', key: 'aws', color: '#FF9900', size: 'lg' },
+  { name: 'PostgreSQL', key: 'postgresql', color: '#4169E1', size: 'md' },
+  { name: 'MongoDB', key: 'mongodb', color: '#47A248', size: 'md' },
+  { name: 'Redis', key: 'redis', color: '#DC382D', size: 'sm' },
+  { name: 'Jest', key: 'jest', color: '#C21325', size: 'sm' },
+  { name: 'Cypress', key: 'cypress', color: '#17202C', size: 'md' },
+  { name: 'GitHub', key: 'github', color: '#181717', size: 'md' },
+  { name: 'Vitest', key: 'vitest', color: '#6E9F18', size: 'sm' },
+  { name: 'Playwright', key: 'playwright', color: '#2EAD33', size: 'md' },
+  { name: 'Redux', key: 'redux', color: '#764ABC', size: 'sm' },
+  { name: 'Fastify', key: 'fastify', color: '#000000', size: 'sm' },
+];
 
 // Generate random positions for each technology
 const techItems = technologies.map((tech, index) => ({
@@ -15,13 +44,20 @@ const techItems = technologies.map((tech, index) => ({
   // Random initial rotation
   rotation: Math.random() * 360,
 }));
+
+// Size mappings - reduced by half
+const sizeMap = {
+  sm: 15,
+  md: 20,
+  lg: 25,
+};
 ---
 
 <div class="tech-background" id="tech-background">
   {
     techItems.map((tech) => (
       <div
-        class={`tech-item tech-${tech.size || 'md'}`}
+        class={`tech-item tech-${tech.size}`}
         data-tech={tech.name}
         style={`
           left: ${tech.x}%;
@@ -31,10 +67,11 @@ const techItems = technologies.map((tech, index) => ({
           --rotation: ${tech.rotation}deg;
         `}
       >
-        <span class="tech-icon" style={tech.color ? `color: ${tech.color}` : ''}>
-          {tech.icon}
-        </span>
-        <span class="tech-name">{tech.name}</span>
+        <div
+          class={`tech-logo-wrapper ${['github', 'nextjs', 'fastify'].includes(tech.key) ? 'dark-logo' : ''}`}
+        >
+          <TechLogo name={tech.key} size={sizeMap[tech.size || 'md']} className="floating-logo" />
+        </div>
       </div>
     ))
   }
@@ -52,7 +89,6 @@ const techItems = technologies.map((tech, index) => ({
   .tech-item {
     position: absolute;
     display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 0.5rem;
     opacity: 0;
@@ -61,33 +97,12 @@ const techItems = technologies.map((tech, index) => ({
     transition: transform 0.3s ease;
   }
 
-  .tech-icon {
+  .tech-logo-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    font-weight: 700;
-    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
-    filter: grayscale(0.3);
     transition: all 0.3s ease;
-  }
-
-  .tech-name {
-    font-size: 0.75rem;
-    color: var(--color-text-tertiary);
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    white-space: nowrap;
-  }
-
-  /* Size variations */
-  .tech-sm .tech-icon {
-    font-size: 0.875rem;
-  }
-
-  .tech-lg .tech-icon {
-    font-size: 1.5rem;
+    opacity: 0.6;
   }
 
   /* Hover effects */
@@ -100,14 +115,9 @@ const techItems = technologies.map((tech, index) => ({
     pointer-events: auto;
   }
 
-  .tech-item:hover .tech-icon {
-    filter: grayscale(0) brightness(1.2);
-    transform: scale(1.2);
-  }
-
-  .tech-item:hover .tech-name {
+  .tech-item:hover .tech-logo-wrapper {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1.2);
   }
 
   /* Floating animation */
@@ -133,12 +143,15 @@ const techItems = technologies.map((tech, index) => ({
   }
 
   /* Dark theme adjustments */
-  [data-theme='dark'] .tech-item {
-    filter: brightness(0.8);
+  [data-theme='dark'] .tech-logo-wrapper {
+    opacity: 0.5;
   }
 
-  [data-theme='dark'] .tech-icon {
-    filter: grayscale(0.5);
+  /* Light theme adjustments for dark logos */
+  :global([data-theme='light'] .dark-logo) {
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    padding: 4px;
   }
 
   /* Responsive */

@@ -5,12 +5,13 @@ import About from '../components/sections/About.astro';
 import Experience from '../components/sections/Experience.astro';
 import Projects from '../components/sections/Projects.astro';
 import Contact from '../components/sections/Contact.astro';
+import { FEATURE_FLAGS } from '../config/constants';
 ---
 
 <BaseLayout>
   <Hero />
   <About />
   <Experience />
-  <Projects />
+  {FEATURE_FLAGS.showProjects && <Projects />}
   <Contact />
 </BaseLayout>

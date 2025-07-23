@@ -1,5 +1,5 @@
 ---
-import { NAVIGATION_ITEMS } from '../../config/constants';
+import { NAVIGATION_ITEMS, FEATURE_FLAGS } from '../../config/constants';
 
 interface Props {
   currentPath: string;
@@ -13,11 +13,19 @@ const isActive = (href: string) => {
   }
   return currentPath.startsWith(href);
 };
+
+// Filter navigation items based on feature flags
+const filteredNavItems = NAVIGATION_ITEMS.filter((item) => {
+  if (item.href === '/projects' && !FEATURE_FLAGS.showProjects) {
+    return false;
+  }
+  return true;
+});
 ---
 
 <nav class="desktop-nav">
   {
-    NAVIGATION_ITEMS.map((item) => (
+    filteredNavItems.map((item) => (
       <a href={item.href} class={`nav-link ${isActive(item.href) ? 'active' : ''}`}>
         {item.label}
       </a>
@@ -54,7 +62,7 @@ const isActive = (href: string) => {
 
     <nav class="mobile-nav">
       {
-        NAVIGATION_ITEMS.map((item) => (
+        filteredNavItems.map((item) => (
           <a href={item.href} class={`mobile-nav-link ${isActive(item.href) ? 'active' : ''}`}>
             {item.label}
           </a>
@@ -81,22 +89,22 @@ const isActive = (href: string) => {
   .nav-link {
     position: relative;
     padding: 0.5rem 0.75rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-text-secondary);
     text-decoration: none;
     font-size: 0.875rem;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
     border-radius: 6px;
   }
 
   .nav-link:hover {
-    color: rgba(255, 255, 255, 0.9);
-    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
+    background: var(--color-surface);
   }
 
   .nav-link.active {
-    color: rgba(255, 255, 255, 1);
-    background: rgba(255, 255, 255, 0.15);
+    color: var(--color-text);
+    background: var(--color-surface);
   }
 
   /* Mobile Menu Button */
