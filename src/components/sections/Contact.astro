@@ -11,8 +11,8 @@ const contactMethods = [
         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     </svg>`,
     link: {
-      href: 'mailto:damianmarconeroni@gmail.com',
-      text: 'damianmarconeroni@gmail.com',
+      href: 'mailto:hello@damianmeroni.dev',
+      text: 'hello@damianmeroni.dev',
     },
   },
   {
@@ -36,7 +36,7 @@ const contactMethods = [
         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
     </svg>`,
     button: {
-      href: 'https://calendly.com/damianmeroni',
+      href: 'https://calendly.com/meroni-damian/30min',
       text: 'Book Meeting',
       external: true,
     },
@@ -52,23 +52,20 @@ const contactMethods = [
         <span class="gradient-text"> Amazing</span>
       </h2>
       <p class="text-secondary text-lg md:text-xl max-w-2xl mx-auto">
-        Ready to transform your ideas into reality? Choose your preferred way to connect.
+        Ready to transform your ideas into reality?<br />
+        Choose your preferred way to connect.
       </p>
     </div>
 
     <div class="contact-grid">
-      {contactMethods.map((method) => (
-        <ContactCard {...method} />
-      ))}
+      {contactMethods.map((method) => <ContactCard {...method} />)}
     </div>
 
     <!-- Quick Contact CTA -->
     <div class="mt-16 text-center">
       <div class="cta-box">
         <p class="text-lg text-secondary mb-2">Prefer a quick chat?</p>
-        <p class="text-xl font-medium text-primary">
-          I typically respond within 24 hours
-        </p>
+        <p class="text-xl font-medium text-primary">I typically respond within 24 hours</p>
       </div>
     </div>
   </div>
@@ -83,10 +80,27 @@ const contactMethods = [
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    /* Fallback for browsers that don't support background-clip */
+    color: var(--color-primary);
+  }
+
+  /* Ensure gradient works in both themes */
+  :global([data-theme='dark']) .gradient-text {
+    background: linear-gradient(135deg, #d946ef 0%, #f472b6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #d946ef;
+  }
+
+  :global([data-theme='light']) .gradient-text {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #a855f7;
   }
 
   .cta-box {
@@ -103,12 +117,7 @@ const contactMethods = [
     content: '';
     position: absolute;
     inset: -2px;
-    background: linear-gradient(
-      45deg,
-      transparent,
-      rgba(139, 92, 246, 0.2),
-      transparent
-    );
+    background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.2), transparent);
     border-radius: 12px;
     opacity: 0;
     transition: opacity 0.3s ease;

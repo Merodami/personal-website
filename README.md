@@ -13,12 +13,14 @@
 
 - **⚡ Lightning Fast** - Built with Astro for optimal performance
 - **📱 Fully Responsive** - Mobile-first design that works on all devices  
-- **🌙 Dark/Light Mode** - Theme toggle with system preference detection
+- **🌙 Dark Mode by Default** - Dark theme as default with persistent theme switching
 - **🌍 Internationalization** - Multi-language support with automatic detection
 - **♿ Accessible** - WCAG 2.1 AA compliant with semantic HTML
 - **🔍 SEO Optimized** - Meta tags, structured data, and sitemap generation
 - **📊 Performance Monitored** - Lighthouse CI integration for quality assurance
 - **🚀 Edge Functions** - Cloudflare Workers for intelligent routing
+- **🔧 State Management** - Zustand for scalable app state with persistence
+- **🐛 Dev Tools** - Redux DevTools integration and custom state inspector
 
 ## 🛠️ Tech Stack
 
@@ -27,6 +29,7 @@
 - **[TypeScript 5.x](https://www.typescriptlang.org/)** - Type-safe development
 - **[Tailwind CSS 4.x](https://tailwindcss.com/)** - Utility-first styling
 - **[Sharp](https://sharp.pixelplumbing.com/)** - High-performance image processing
+- **[Zustand](https://zustand.docs.pmnd.rs/)** - Lightweight state management with persistence
 
 ### Development Tools
 - **[ESLint](https://eslint.org/)** - Code linting and quality
@@ -42,7 +45,7 @@
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ LTS
+- Node.js 20+ LTS (required for latest dependencies)
 - npm (included with Node.js)
 
 ### Installation
@@ -83,6 +86,53 @@ npm run open-lighthouse  # Generate Lighthouse report
 npm update               # Update all dependencies to latest
 ```
 
+## 🔧 State Management & Development Tools
+
+### Theme System
+The application uses a robust theme system with dark mode as the default:
+
+- **Default Theme**: Dark mode for better user experience
+- **Persistent Storage**: Theme preference saved across sessions
+- **Industry Standards**: Centralized configuration and utility functions
+- **Type Safety**: Full TypeScript support for theme values
+
+### State Management with Zustand
+```typescript
+// Access theme state anywhere in the app
+import { useTheme } from '../stores/appStore';
+
+const { theme, setTheme, toggleTheme } = useTheme();
+```
+
+### Development Tools
+
+#### Redux DevTools Integration
+- Install [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+- View state changes in real-time during development
+- Track all theme and state mutations
+
+#### Custom State Inspector
+- **Development only**: Bottom-right corner widget
+- **Real-time monitoring**: Shows current state, DOM attributes, localStorage
+- **Interactive controls**: Toggle theme, refresh state
+- **Mobile responsive**: Adapts to different screen sizes
+
+#### File Structure for State Management
+```
+src/
+├── config/
+│   └── theme.ts             # Theme constants and types
+├── stores/
+│   └── appStore.ts          # Zustand store with persistence
+├── utils/
+│   └── theme.ts             # Theme utility functions
+├── scripts/
+│   └── theme-init.ts        # Initial theme loading script
+└── components/
+    └── dev/
+        └── StateInspector.astro  # Development state inspector
+```
+
 ## 📁 Project Structure
 
 ```
@@ -106,17 +156,20 @@ personal-website/
 │   │   ├── cards/          # Card components
 │   │   ├── background/     # Background components
 │   │   ├── icons/          # Icon components
-│   │   └── seo/            # SEO components
-│   ├── config/             # Configuration files
+│   │   ├── seo/            # SEO components
+│   │   └── dev/            # Development-only components
+│   ├── config/             # Configuration files (theme constants)
+│   ├── scripts/            # Utility scripts (theme initialization)
 │   ├── content/            # Content collections
 │   ├── data/               # Static data and constants
+│   ├── stores/             # Zustand state management
 │   ├── hooks/              # Custom hooks
 │   ├── layouts/            # Page layouts
 │   ├── pages/              # Route pages
 │   ├── styles/             # Global styles and CSS
 │   │   └── base/           # Base styles, themes, typography
 │   ├── types/              # TypeScript type definitions
-│   └── utils/              # Utility functions
+│   └── utils/              # Utility functions (theme utilities)
 ├── astro.config.mjs        # Astro configuration
 ├── tailwind.config.js      # Tailwind CSS configuration
 ├── tsconfig.json           # TypeScript configuration

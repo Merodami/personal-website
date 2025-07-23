@@ -1,0 +1,217 @@
+---
+// Import all SVG files
+import typescriptLogo from '../../assets/tech-logos/typescript.svg?raw';
+import reactLogo from '../../assets/tech-logos/react.svg?raw';
+import nodejsLogo from '../../assets/tech-logos/nodejs.svg?raw';
+import awsLogo from '../../assets/tech-logos/aws.svg?raw';
+import dockerLogo from '../../assets/tech-logos/docker.svg?raw';
+import postgresqlLogo from '../../assets/tech-logos/postgresql.svg?raw';
+import mongodbLogo from '../../assets/tech-logos/mongodb.svg?raw';
+import gitLogo from '../../assets/tech-logos/git.svg?raw';
+import angularLogo from '../../assets/tech-logos/angular.svg?raw';
+import vueLogo from '../../assets/tech-logos/vue.svg?raw';
+import nextjsLogo from '../../assets/tech-logos/nextjs.svg?raw';
+import tailwindcssLogo from '../../assets/tech-logos/tailwindcss.svg?raw';
+import jestLogo from '../../assets/tech-logos/jest.svg?raw';
+import cypressLogo from '../../assets/tech-logos/cypress.svg?raw';
+import githubLogo from '../../assets/tech-logos/github.svg?raw';
+import redisLogo from '../../assets/tech-logos/redis.svg?raw';
+import vitestLogo from '../../assets/tech-logos/vitest.svg?raw';
+import playwrightLogo from '../../assets/tech-logos/playwright.svg?raw';
+import javascriptLogo from '../../assets/tech-logos/javascript.svg?raw';
+import astroLogo from '../../assets/tech-logos/astro.svg?raw';
+import fastifyLogo from '../../assets/tech-logos/fastify.svg?raw';
+import reduxLogo from '../../assets/tech-logos/redux.svg?raw';
+import expressLogo from '../../assets/tech-logos/express.svg?raw';
+
+// Technologies with their SVG content and colors
+const technologies = [
+  { name: 'TypeScript', svg: typescriptLogo, color: '#3178C6', size: 30 },
+  { name: 'React', svg: reactLogo, color: '#61DAFB', size: 35 },
+  { name: 'Node.js', svg: nodejsLogo, color: '#339933', size: 40 },
+  { name: 'AWS', svg: awsLogo, color: '#FF9900', size: 30 },
+  { name: 'Docker', svg: dockerLogo, color: '#2496ED', size: 30 },
+  { name: 'PostgreSQL', svg: postgresqlLogo, color: '#4169E1', size: 25 },
+  { name: 'MongoDB', svg: mongodbLogo, color: '#47A248', size: 30 },
+  { name: 'Git', svg: gitLogo, color: '#F05032', size: 25 },
+  { name: 'Angular', svg: angularLogo, color: '#DD0031', size: 35 },
+  { name: 'Vue', svg: vueLogo, color: '#4FC08D', size: 30 },
+  { name: 'Next.js', svg: nextjsLogo, color: '#000000', size: 30 },
+  { name: 'Tailwind', svg: tailwindcssLogo, color: '#06B6D4', size: 25 },
+  { name: 'Jest', svg: jestLogo, color: '#C21325', size: 20 },
+  { name: 'Cypress', svg: cypressLogo, color: '#17202C', size: 25 },
+  { name: 'GitHub', svg: githubLogo, color: '#181717', size: 25 },
+  { name: 'Redis', svg: redisLogo, color: '#DC382D', size: 20 },
+  { name: 'Vitest', svg: vitestLogo, color: '#6E9F18', size: 20 },
+  { name: 'Playwright', svg: playwrightLogo, color: '#2EAD33', size: 25 },
+  { name: 'JavaScript', svg: javascriptLogo, color: '#F7DF1E', size: 30 },
+  { name: 'Astro', svg: astroLogo, color: '#FF5D01', size: 35 },
+  { name: 'Fastify', svg: fastifyLogo, color: '#000000', size: 20 },
+  { name: 'Redux', svg: reduxLogo, color: '#764ABC', size: 20 },
+  { name: 'Express', svg: expressLogo, color: '#000000', size: 25 },
+];
+
+// Generate random positions for each technology (20% more instances)
+const techItems = [];
+for (let i = 0; i < Math.ceil(technologies.length * 1.2); i++) {
+  const tech = technologies[i % technologies.length];
+  techItems.push({
+    ...tech,
+    id: `tech-${i}`,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    animationDelay: Math.random() * 0.5, // Appear within 0.5 seconds
+    animationDuration: 15 + Math.random() * 10,
+    rotation: Math.random() * 360,
+  });
+}
+---
+
+<div class="floating-tech-logos" id="floating-tech-logos">
+  {
+    techItems.map((tech) => (
+      <div
+        class="tech-float-item"
+        data-tech={tech.name}
+        style={`
+          left: ${tech.x}%;
+          top: ${tech.y}%;
+          animation-delay: ${tech.animationDelay}s;
+          animation-duration: ${tech.animationDuration}s;
+          --rotation: ${tech.rotation}deg;
+          --tech-color: ${tech.color};
+          --tech-size: ${tech.size}px;
+        `}
+      >
+        <div class="logo-wrapper" set:html={tech.svg} />
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .floating-tech-logos {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .tech-float-item {
+    position: absolute;
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--rotation));
+    animation: float-logo linear infinite;
+    transition: transform 0.3s ease;
+    width: var(--tech-size);
+    height: var(--tech-size);
+  }
+
+  .logo-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Apply color to SVG */
+  .logo-wrapper :global(svg) {
+    width: 100%;
+    height: 100%;
+    fill: var(--tech-color);
+    opacity: 0.45;
+    transition: opacity 0.3s ease;
+  }
+
+  /* For SVGs that use stroke instead of fill */
+  .logo-wrapper :global(svg path) {
+    fill: var(--tech-color);
+  }
+
+  /* Dark theme adjustments */
+  [data-theme='dark'] .logo-wrapper :global(svg) {
+    opacity: 0.4;
+  }
+
+  /* Light theme - slightly higher opacity for dark logos */
+  [data-theme='light'] .tech-float-item[data-tech='Next.js'] .logo-wrapper :global(svg),
+  [data-theme='light'] .tech-float-item[data-tech='GitHub'] .logo-wrapper :global(svg),
+  [data-theme='light'] .tech-float-item[data-tech='Fastify'] .logo-wrapper :global(svg) {
+    opacity: 0.35;
+  }
+
+  /* Hover effects */
+  .floating-tech-logos:hover .tech-float-item {
+    animation-play-state: paused;
+  }
+
+  /* Floating animation */
+  @keyframes float-logo {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(var(--rotation)) translateY(20px);
+    }
+    2% {
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(calc(var(--rotation) + 180deg)) translateY(-20px);
+    }
+    98% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(calc(var(--rotation) + 360deg)) translateY(20px);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .tech-float-item {
+      display: none;
+    }
+
+    /* Show fewer items on mobile */
+    .tech-float-item:nth-child(-n + 12) {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  // Add parallax effect on mouse move
+  const container = document.getElementById('floating-tech-logos');
+  const items = container?.querySelectorAll('.tech-float-item') as NodeListOf<HTMLElement>;
+
+  if (container && items.length > 0) {
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    function animate() {
+      currentX += (mouseX - currentX) * 0.05;
+      currentY += (mouseY - currentY) * 0.05;
+
+      items.forEach((item, index) => {
+        const depth = (index % 3) + 1;
+        const moveX = (currentX * depth) / 50;
+        const moveY = (currentY * depth) / 50;
+
+        item.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) rotate(var(--rotation))`;
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+      mouseY = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+    });
+
+    animate();
+  }
+</script>
