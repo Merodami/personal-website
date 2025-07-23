@@ -25,7 +25,7 @@ export default defineConfig({
       logger: 1,
     }),
   ],
-  output: 'server',
+  output: 'static',
   adapter: cloudflare(),
   image: {
     service: {
