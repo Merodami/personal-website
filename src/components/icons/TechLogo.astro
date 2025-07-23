@@ -66,10 +66,11 @@ const logoAssets = {
 const logoKey = name.toLowerCase() as keyof typeof logoAssets;
 const logoSrc = logoAssets[logoKey]?.src;
 const brandColor = brandColors[logoKey] || '#666666';
+const logoClass = `tech-${logoKey}`;
 ---
 
 <div
-  class={`tech-logo-wrapper ${className}`}
+  class={`tech-logo-wrapper ${logoClass} ${className}`}
   style={`--brand-color: ${brandColor}; --logo-size: ${size}px;`}
 >
   {logoSrc ? (
@@ -86,6 +87,7 @@ const brandColor = brandColors[logoKey] || '#666666';
     display: inline-block;
     width: var(--logo-size);
     height: var(--logo-size);
+    background: transparent;
   }
 
   .tech-logo-svg {
@@ -93,6 +95,8 @@ const brandColor = brandColors[logoKey] || '#666666';
     height: 100%;
     display: block;
     transition: all 0.3s ease;
+    background: transparent;
+    border: none;
   }
 
   .fallback-logo {
@@ -108,93 +112,96 @@ const brandColor = brandColors[logoKey] || '#666666';
     border-radius: 4px;
   }
 
-  /* Apply brand colors to SVG logos using CSS filters */
-  .tech-logo-wrapper[style*='--brand-color: #3178C6'] .tech-logo-svg {
+  /* Apply brand colors to SVG logos using CSS filters - class-based approach for better production compatibility */
+  .tech-logo-wrapper.tech-typescript .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(24%) sepia(89%) saturate(1686%) hue-rotate(209deg) brightness(94%) contrast(89%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #61DAFB'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-react .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(70%) sepia(96%) saturate(441%) hue-rotate(158deg) brightness(103%) contrast(103%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #F7DF1E'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-javascript .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(89%) sepia(58%) saturate(2618%) hue-rotate(28deg) brightness(104%) contrast(94%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #339933'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-nodejs .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(35%) sepia(100%) saturate(1468%) hue-rotate(92deg) brightness(96%) contrast(94%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #4FC08D'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-vue .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(65%) sepia(20%) saturate(1488%) hue-rotate(108deg) brightness(91%) contrast(87%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #2496ED'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-docker .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(41%) sepia(95%) saturate(1346%) hue-rotate(195deg) brightness(95%) contrast(85%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #FF9900'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-aws .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(2166%) hue-rotate(14deg) brightness(104%) contrast(105%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #4169E1'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-postgresql .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(31%) sepia(100%) saturate(1817%) hue-rotate(230deg) brightness(97%) contrast(88%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #F05032'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-git .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(43%) sepia(93%) saturate(4086%) hue-rotate(346deg) brightness(96%) contrast(93%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #DD0031'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-angular .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(15%) sepia(99%) saturate(3959%) hue-rotate(334deg) brightness(94%) contrast(96%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #47A248'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-mongodb .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(53%) sepia(34%) saturate(1481%) hue-rotate(87deg) brightness(95%) contrast(86%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #DC382D'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-redis .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(29%) sepia(95%) saturate(3434%) hue-rotate(343deg) brightness(85%) contrast(87%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #C21325'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-jest .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(11%) sepia(100%) saturate(4115%) hue-rotate(338deg) brightness(88%) contrast(89%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #17202C'] .tech-logo-svg {
-    filter: brightness(0) saturate(100%) invert(58%) sepia(29%) saturate(1274%) hue-rotate(115deg) brightness(91%) contrast(85%);
-  }
-
-  .tech-logo-wrapper[style*='--brand-color: #181717'] .tech-logo-svg {
-    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-  }
-
-  .tech-logo-wrapper[style*='--brand-color: #06B6D4'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-tailwindcss .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(68%) sepia(56%) saturate(2618%) hue-rotate(157deg) brightness(91%) contrast(85%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #FF5D01'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-astro .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(48%) sepia(100%) saturate(1969%) hue-rotate(7deg) brightness(103%) contrast(104%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #000000'] .tech-logo-svg {
-    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-  }
-
-  .tech-logo-wrapper[style*='--brand-color: #6E9F18'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-vitest .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(54%) sepia(59%) saturate(1273%) hue-rotate(54deg) brightness(90%) contrast(86%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #2EAD33'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-playwright .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(56%) sepia(88%) saturate(1466%) hue-rotate(88deg) brightness(91%) contrast(89%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #764ABC'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-redux .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(38%) sepia(56%) saturate(1635%) hue-rotate(246deg) brightness(91%) contrast(82%);
   }
 
-  .tech-logo-wrapper[style*='--brand-color: #FF3E00'] .tech-logo-svg {
+  .tech-logo-wrapper.tech-svelte .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(24%) sepia(100%) saturate(7474%) hue-rotate(8deg) brightness(102%) contrast(103%);
+  }
+
+  /* Dark theme filters for specific logos (GitHub, Cypress, Next.js, Express, Fastify) */
+  .tech-logo-wrapper.tech-cypress .tech-logo-svg {
+    filter: brightness(0) saturate(100%) invert(58%) sepia(29%) saturate(1274%) hue-rotate(115deg) brightness(91%) contrast(85%);
+  }
+
+  .tech-logo-wrapper.tech-github .tech-logo-svg {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  }
+
+  .tech-logo-wrapper.tech-nextjs .tech-logo-svg,
+  .tech-logo-wrapper.tech-express .tech-logo-svg,
+  .tech-logo-wrapper.tech-fastify .tech-logo-svg {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
   }
 
   .tech-logo-wrapper:hover .tech-logo-svg {
@@ -205,16 +212,24 @@ const brandColor = brandColors[logoKey] || '#666666';
     transform: scale(1.1);
   }
 
-  /* Light theme overrides for dark logos */
-  :global([data-theme='light']) .tech-logo-wrapper[style*='--brand-color: #17202C'] .tech-logo-svg {
-    filter: brightness(0) saturate(100%) invert(13%) sepia(7%) saturate(3815%) hue-rotate(185deg) brightness(92%) contrast(90%);
+  /* Light theme overrides - make all logos 15% more solid (less transparent) */
+  :global([data-theme='light']) .tech-logo-svg {
+    opacity: 1;
+    filter-brightness: 1.15;
   }
 
-  :global([data-theme='light']) .tech-logo-wrapper[style*='--brand-color: #181717'] .tech-logo-svg {
-    filter: brightness(0) saturate(100%) invert(9%) sepia(3%) saturate(1076%) hue-rotate(314deg) brightness(97%) contrast(97%);
+  /* Light theme overrides for dark logos - use original dark colors */
+  :global([data-theme='light']) .tech-logo-wrapper.tech-cypress .tech-logo-svg {
+    filter: brightness(0) saturate(100%) invert(13%) sepia(7%) saturate(3815%) hue-rotate(185deg) brightness(107%) contrast(105%);
   }
 
-  :global([data-theme='light']) .tech-logo-wrapper[style*='--brand-color: #000000'] .tech-logo-svg {
-    filter: brightness(0) saturate(100%) invert(0%);
+  :global([data-theme='light']) .tech-logo-wrapper.tech-github .tech-logo-svg {
+    filter: brightness(0) saturate(100%) invert(9%) sepia(3%) saturate(1076%) hue-rotate(314deg) brightness(112%) contrast(112%);
+  }
+
+  :global([data-theme='light']) .tech-logo-wrapper.tech-nextjs .tech-logo-svg,
+  :global([data-theme='light']) .tech-logo-wrapper.tech-express .tech-logo-svg,
+  :global([data-theme='light']) .tech-logo-wrapper.tech-fastify .tech-logo-svg {
+    filter: brightness(0) saturate(100%) invert(0%) brightness(115%);
   }
 </style>

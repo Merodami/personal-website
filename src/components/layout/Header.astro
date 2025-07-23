@@ -108,7 +108,13 @@ const email = 'hello@damianmeroni.dev';
 
     .nav-container {
       padding: 0.5rem 1rem;
-      gap: 1rem;
+      gap: 0.75rem;
+      justify-content: space-between;
+    }
+
+    .profile-section {
+      gap: 0.5rem;
+      flex-shrink: 0;
     }
 
     .profile-image {
@@ -117,17 +123,47 @@ const email = 'hello@damianmeroni.dev';
     }
 
     .email {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
+      white-space: nowrap;
     }
 
     .nav-section {
-      gap: 1rem;
+      gap: 0.75rem;
+      flex-shrink: 0;
     }
   }
 
-  @media (max-width: 540px) {
+  @media (max-width: 480px) {
+    .nav-container {
+      padding: 0.4rem 0.75rem;
+      gap: 0.5rem;
+    }
+
+    .profile-section {
+      gap: 0.4rem;
+    }
+
+    .profile-image {
+      width: 24px;
+      height: 24px;
+    }
+
+    .email {
+      font-size: 0.7rem;
+    }
+
+    .nav-section {
+      gap: 0.5rem;
+    }
+  }
+
+  @media (max-width: 400px) {
     .email {
       display: none;
+    }
+
+    .nav-container {
+      padding: 0.4rem 0.75rem;
     }
   }
 </style>

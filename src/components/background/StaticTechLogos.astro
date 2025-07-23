@@ -125,19 +125,10 @@ const randomizedTechs = mainTechnologies.map((tech) => ({
     transition: all 0.3s ease;
   }
 
-  /* Responsive - hide some on mobile and make them smaller */
+  /* Responsive - hide all static icons on mobile */
   @media (max-width: 768px) {
-    .static-tech-item:nth-child(n + 7) {
-      display: none;
-    }
-
     .static-tech-item {
-      opacity: 0.5;
-      gap: 0.25rem;
-    }
-
-    .tech-label {
-      font-size: 0.7rem;
+      display: none;
     }
   }
 

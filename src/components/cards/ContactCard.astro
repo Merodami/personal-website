@@ -239,8 +239,12 @@ const { title, description, icon, link, button } = Astro.props;
   .icon-wrapper :global(svg) {
     width: 2rem;
     height: 2rem;
-    color: white;
+    color: #000000;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  :global([data-theme='dark']) .icon-wrapper :global(svg) {
+    color: #ffffff;
   }
 
   .contact-card:hover .icon-wrapper {

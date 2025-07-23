@@ -53,6 +53,14 @@
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    .theme-toggle {
+      width: 32px;
+      height: 32px;
+    }
   }
 
   .theme-toggle:hover {
