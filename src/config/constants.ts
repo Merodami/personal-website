@@ -32,7 +32,7 @@ export const BREAKPOINTS = {
 } as const;
 
 export const SOCIAL_LINKS = {
-  github: 'https://github.com/yourusername',
-  linkedin: 'https://linkedin.com/in/yourusername',
+  github: 'https://github.com/Merodami',
+  linkedin: 'https://www.linkedin.com/in/dmeroni',
   twitter: 'https://twitter.com/yourusername',
 } as const;

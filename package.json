@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "astro dev --port 3000",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "NODE_VERSION=20 astro check && astro build",
     "preview": "astro preview --port 3001",
     "astro": "astro",
     "lint": "eslint . --ext .js,.ts",
     "format": "prettier --write .",
-    "prepare": "husky install",
+    "prepare": "node .husky/install.mjs || true",
     "open-lighthouse": "lighthouse http://localhost:3001 --view --output-path=./lighthouse/$(date +%Y%m%d_%H%M%S).report.html",
     "update": "npm update"
   },

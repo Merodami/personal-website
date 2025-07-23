@@ -1,6 +1,6 @@
 # Damian Meroni - Personal Website
 
-[![Build Status](https://github.com/damianmeroni/personal-website/workflows/CI%20&%20Deploy%20to%20Cloudflare%20Pages/badge.svg)](https://github.com/damianmeroni/personal-website/actions)
+[![Build Status](https://github.com/Merodami/personal-website/workflows/CI%20&%20Deploy%20to%20Cloudflare%20Pages/badge.svg)](https://github.com/Merodami/personal-website/actions)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue.svg)](https://www.typescriptlang.org/)
 [![Astro](https://img.shields.io/badge/Astro-5.12+-orange.svg)](https://astro.build)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1+-38bdf8.svg)](https://tailwindcss.com/)
@@ -49,7 +49,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/damianmeroni/personal-website.git
+git clone https://github.com/Merodami/personal-website.git
 cd personal-website
 
 # Install dependencies

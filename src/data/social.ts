@@ -8,13 +8,13 @@ export interface SocialLink {
 export const socialLinks: SocialLink[] = [
   {
     name: 'GitHub',
-    url: 'https://github.com/yourusername',
+    url: 'https://github.com/Merodami',
     icon: 'github',
     ariaLabel: 'Visit my GitHub profile',
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/yourusername',
+    url: 'https://www.linkedin.com/in/dmeroni',
     icon: 'linkedin',
     ariaLabel: 'Connect on LinkedIn',
   },
