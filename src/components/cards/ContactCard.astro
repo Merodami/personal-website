@@ -1,0 +1,195 @@
+---
+import Button from '../common/Button.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  iconType?: 'stroke' | 'fill';
+  link?: {
+    href: string;
+    text: string;
+    external?: boolean;
+  };
+  button?: {
+    href: string;
+    text: string;
+    external?: boolean;
+  };
+}
+
+const { title, description, icon, iconType = 'stroke', link, button } = Astro.props;
+---
+
+<div class="contact-card group">
+  <div class="card-glow"></div>
+  <div class="card-content">
+    <div class="icon-wrapper mb-6">
+      <Fragment set:html={icon} />
+    </div>
+    
+    <h3 class="text-2xl font-semibold text-primary mb-3">{title}</h3>
+    <p class="text-secondary mb-6">{description}</p>
+    
+    {link && (
+      <a
+        href={link.href}
+        target={link.external ? "_blank" : undefined}
+        rel={link.external ? "noopener noreferrer" : undefined}
+        class="inline-flex items-center gap-2 text-accent font-medium hover-link"
+      >
+        {link.text}
+        <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    )}
+    
+    {button && (
+      <Button 
+        href={button.href} 
+        size="md" 
+        variant="primary" 
+        external={button.external}
+      >
+        {button.text}
+      </Button>
+    )}
+  </div>
+</div>
+
+<style>
+  .contact-card {
+    position: relative;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.05) 0%,
+      rgba(236, 72, 153, 0.05) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .contact-card:hover::before {
+    opacity: 1;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 
+      0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 8px 10px -6px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(139, 92, 246, 0.1);
+  }
+
+  :global([data-theme='dark']) .contact-card {
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+  }
+
+  :global([data-theme='dark']) .contact-card:hover {
+    box-shadow: 
+      0 10px 25px -5px rgba(0, 0, 0, 0.3),
+      0 8px 10px -6px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(139, 92, 246, 0.2),
+      0 0 30px rgba(139, 92, 246, 0.1);
+  }
+
+  .card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(139, 92, 246, 0.1) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .contact-card:hover .card-glow {
+    opacity: 1;
+  }
+
+  .card-content {
+    position: relative;
+    padding: 3rem;
+    z-index: 1;
+  }
+
+  .icon-wrapper {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);
+    border-radius: 16px;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .icon-wrapper :global(svg) {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .contact-card:hover .icon-wrapper {
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  .hover-link {
+    position: relative;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .hover-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width 0.3s ease;
+  }
+
+  .hover-link:hover::after {
+    width: 100%;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .card-content {
+      padding: 2rem;
+    }
+
+    .icon-wrapper {
+      width: 56px;
+      height: 56px;
+    }
+    
+    .icon-wrapper :global(svg) {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  }
+</style>

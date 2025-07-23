@@ -65,18 +65,13 @@ const brandColor = brandColors[name.toLowerCase()] || '#666666';
   }
 
   /* In dark theme, apply filter to make logos bright */
-  :global([data-theme='dark']) .tech-logo-svg:not(.floating-logo .tech-logo-svg) {
+  :global([data-theme='dark']) .tech-logo-svg {
     filter: brightness(0) saturate(100%) invert(1);
   }
 
   /* In light theme, use original colors */
   :global([data-theme='light']) .tech-logo-svg {
     filter: none;
-  }
-
-  /* Floating logos should always show original colors */
-  :global(.floating-logo .tech-logo-svg) {
-    filter: none !important;
   }
 
   /* Apply filters only in dark theme and not for floating logos */

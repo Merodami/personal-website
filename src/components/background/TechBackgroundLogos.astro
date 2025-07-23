@@ -37,19 +37,19 @@ const techItems = technologies.map((tech, index) => ({
   // Random position between 0-100%
   x: Math.random() * 100,
   y: Math.random() * 100,
-  // Random animation delay
-  animationDelay: Math.random() * 20,
+  // Random animation delay - much faster, within 1 second
+  animationDelay: Math.random() * 1,
   // Random animation duration
   animationDuration: 15 + Math.random() * 10,
   // Random initial rotation
   rotation: Math.random() * 360,
 }));
 
-// Size mappings - reduced by half
+// Size mappings - reduced by 30%
 const sizeMap = {
-  sm: 15,
-  md: 20,
-  lg: 25,
+  sm: 21,  // was 30, now 70% of original
+  md: 28,  // was 40, now 70% of original  
+  lg: 35,  // was 50, now 70% of original
 };
 ---
 
@@ -102,7 +102,7 @@ const sizeMap = {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    opacity: 0.6;
+    opacity: 1;
   }
 
   /* Hover effects */
@@ -127,14 +127,14 @@ const sizeMap = {
       transform: translate(-50%, -50%) rotate(var(--rotation)) translateY(20px);
     }
     2% {
-      opacity: 0.7;
+      opacity: 0.4;
     }
     50% {
-      opacity: 0.85;
+      opacity: 0.5;
       transform: translate(-50%, -50%) rotate(calc(var(--rotation) + 180deg)) translateY(-20px);
     }
     98% {
-      opacity: 0.7;
+      opacity: 0.4;
     }
     100% {
       opacity: 0;
@@ -144,7 +144,7 @@ const sizeMap = {
 
   /* Dark theme adjustments */
   [data-theme='dark'] .tech-logo-wrapper {
-    opacity: 0.5;
+    opacity: 1;
   }
 
   /* Light theme adjustments for dark logos */

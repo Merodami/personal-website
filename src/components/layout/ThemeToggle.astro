@@ -92,38 +92,15 @@
 </style>
 
 <script>
-  // Theme toggle logic
+  import { themeUtils } from '../../utils/theme';
+
+  // Initialize theme
+  themeUtils.initTheme();
+
+  // Set up toggle button
   const toggle = document.getElementById('theme-toggle');
-
-  function getTheme() {
-    if (typeof localStorage !== 'undefined' && localStorage.theme) {
-      return localStorage.theme;
-    }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    return 'light';
-  }
-
-  function setTheme(theme: string) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.theme = theme;
-  }
-
-  // Set initial theme
-  setTheme(getTheme());
-
-  // Toggle theme
+  
   toggle?.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-  });
-
-  // Watch for system theme changes
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.theme) {
-      setTheme(e.matches ? 'dark' : 'light');
-    }
+    themeUtils.toggleTheme();
   });
 </script>
