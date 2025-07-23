@@ -64,4 +64,5 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          NODE_VERSION: 20
         run: wrangler pages deploy dist --project-name=personal-website --branch=${{ github.ref_name }}
