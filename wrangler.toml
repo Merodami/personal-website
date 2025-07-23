@@ -1,0 +1,6 @@
+# Cloudflare Pages configuration
+name = "personal-website"
+compatibility_date = "2023-12-01"
+
+# Pages configuration
+pages_build_output_dir = "dist"

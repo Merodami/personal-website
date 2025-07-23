@@ -1,0 +1,21 @@
+---
+interface Props {
+  text: string;
+  variant?: 'default' | 'primary' | 'success' | 'warning';
+}
+
+const { text, variant = 'default' } = Astro.props;
+
+const variantClasses = {
+  default: 'bg-gray-700 text-gray-300',
+  primary: 'bg-purple-600/20 text-purple-400',
+  success: 'bg-green-600/20 text-green-400',
+  warning: 'bg-yellow-600/20 text-yellow-400',
+};
+---
+
+<span
+  class={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${variantClasses[variant]}`}
+>
+  {text}
+</span>
