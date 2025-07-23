@@ -5,7 +5,7 @@ import compress from 'astro-compress';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yourdomain.com', // TODO: Update with your production domain
+  site: 'https://damianmeroni.dev',
   integrations: [
     sitemap({
       filter: (page) => !page.includes('404'),
