@@ -75,8 +75,25 @@ const email = 'hello@damianmeroni.dev';
     gap: 1.5rem;
   }
 
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
+  /* Medium screens - better spacing for tablet/small desktop */
+  @media (max-width: 1024px) and (min-width: 640px) {
+    .nav-container {
+      padding: 0.6rem 1.25rem;
+      gap: 1.5rem;
+    }
+
+    .profile-image {
+      width: 30px;
+      height: 30px;
+    }
+
+    .email {
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Responsive adjustments for mobile */
+  @media (max-width: 639px) {
     .header {
       top: 0.5rem;
       left: 0.5rem;
