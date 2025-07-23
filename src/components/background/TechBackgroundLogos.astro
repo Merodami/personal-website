@@ -47,9 +47,9 @@ const techItems = technologies.map((tech, index) => ({
 
 // Size mappings - reduced by 30%
 const sizeMap = {
-  sm: 21,  // was 30, now 70% of original
-  md: 28,  // was 40, now 70% of original  
-  lg: 35,  // was 50, now 70% of original
+  sm: 21, // was 30, now 70% of original
+  md: 28, // was 40, now 70% of original
+  lg: 35, // was 50, now 70% of original
 };
 ---
 
@@ -70,7 +70,11 @@ const sizeMap = {
         <div
           class={`tech-logo-wrapper ${['github', 'nextjs', 'fastify'].includes(tech.key) ? 'dark-logo' : ''}`}
         >
-          <TechLogo name={tech.key} size={sizeMap[tech.size || 'md']} className="floating-logo" />
+          <TechLogo
+            name={tech.key}
+            size={sizeMap[tech.size as keyof typeof sizeMap] || sizeMap.md}
+            className="floating-logo"
+          />
         </div>
       </div>
     ))

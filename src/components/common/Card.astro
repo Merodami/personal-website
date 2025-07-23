@@ -27,6 +27,23 @@ const classes = `
     overflow: hidden;
   }
 
+  /* Light theme improvements */
+  :global([data-theme='light']) .card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(120%);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    box-shadow:
+      0 4px 16px -4px rgba(139, 92, 246, 0.08),
+      0 2px 8px -2px rgba(236, 72, 153, 0.03);
+  }
+
+  /* Dark theme enhancements */
+  :global([data-theme='dark']) .card {
+    background: rgba(20, 20, 20, 0.5);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
   .card-hover {
     transition: all 0.3s ease;
     cursor: pointer;

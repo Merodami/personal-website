@@ -11,7 +11,7 @@ export function getInitialTheme(): string {
       const parsed = JSON.parse(stored);
       return parsed.state?.theme || THEME_CONFIG.DEFAULT_THEME;
     }
-  } catch (e) {
+  } catch {
     // Silent fail - return default
   }
   return THEME_CONFIG.DEFAULT_THEME;

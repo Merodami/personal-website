@@ -19,12 +19,6 @@ export const socialLinks: SocialLink[] = [
     ariaLabel: 'Connect on LinkedIn',
   },
   {
-    name: 'Twitter',
-    url: 'https://twitter.com/yourusername',
-    icon: 'twitter',
-    ariaLabel: 'Follow me on Twitter',
-  },
-  {
     name: 'Email',
     url: 'mailto:hello@damianmeroni.dev',
     icon: 'email',

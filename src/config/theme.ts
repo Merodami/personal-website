@@ -7,4 +7,4 @@ export const THEME_CONFIG = {
   },
 } as const;
 
-export type Theme = typeof THEME_CONFIG.THEMES[keyof typeof THEME_CONFIG.THEMES];
+export type Theme = (typeof THEME_CONFIG.THEMES)[keyof typeof THEME_CONFIG.THEMES];

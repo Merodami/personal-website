@@ -3,7 +3,7 @@ import { THEME_CONFIG, type Theme } from '../config/theme';
 interface StorageState {
   state: {
     theme: Theme;
-    [key: string]: any;
+    [key: string]: unknown;
   };
 }
 
@@ -43,9 +43,11 @@ export const themeUtils = {
       let storage: StorageState;
       try {
         const existing = localStorage.getItem(THEME_CONFIG.STORAGE_KEY);
-        storage = existing ? JSON.parse(existing) : { state: {} };
+        storage = existing
+          ? JSON.parse(existing)
+          : { state: { theme: THEME_CONFIG.DEFAULT_THEME } };
       } catch {
-        storage = { state: {} };
+        storage = { state: { theme: THEME_CONFIG.DEFAULT_THEME } };
       }
 
       // Update theme
@@ -56,9 +58,7 @@ export const themeUtils = {
       document.documentElement.setAttribute('data-theme', theme);
 
       // Dispatch event for listeners
-      window.dispatchEvent(
-        new CustomEvent('theme-change', { detail: { theme } })
-      );
+      window.dispatchEvent(new CustomEvent('theme-change', { detail: { theme } }));
     } catch (error) {
       console.error('Failed to set theme:', error);
       // Fallback: at least apply to DOM
@@ -71,10 +71,9 @@ export const themeUtils = {
    */
   toggleTheme(): Theme {
     const current = this.getStoredTheme();
-    const newTheme = current === THEME_CONFIG.THEMES.DARK 
-      ? THEME_CONFIG.THEMES.LIGHT 
-      : THEME_CONFIG.THEMES.DARK;
-    
+    const newTheme =
+      current === THEME_CONFIG.THEMES.DARK ? THEME_CONFIG.THEMES.LIGHT : THEME_CONFIG.THEMES.DARK;
+
     this.setTheme(newTheme);
     return newTheme;
   },
@@ -84,7 +83,7 @@ export const themeUtils = {
    */
   initTheme(): void {
     if (typeof window === 'undefined') return;
-    
+
     const theme = this.getStoredTheme();
     document.documentElement.setAttribute('data-theme', theme);
   },

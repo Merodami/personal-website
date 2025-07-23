@@ -51,9 +51,9 @@ const technologies = [
   { name: 'Express', svg: expressLogo, color: '#000000', size: 25 },
 ];
 
-// Generate random positions for each technology (20% more instances)
+// Generate random positions for each technology (10% more instances)
 const techItems = [];
-for (let i = 0; i < Math.ceil(technologies.length * 1.2); i++) {
+for (let i = 0; i < Math.ceil(technologies.length * 1.1); i++) {
   const tech = technologies[i % technologies.length];
   techItems.push({
     ...tech,

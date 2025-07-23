@@ -154,7 +154,7 @@ const isDev = import.meta.env.DEV;
 
         stateDisplay.textContent = JSON.stringify(displayData, null, 2);
       } catch (error) {
-        stateDisplay.textContent = `Error: ${error.message}`;
+        stateDisplay.textContent = `Error: ${error instanceof Error ? error.message : String(error)}`;
       }
     }
 
