@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   title: 'Damian - Full Stack Developer',
   description: 'Full-stack developer specializing in creating modern, responsive web applications',
   url: 'https://damian.dev',
-  ogImage: '/images/og-image.jpg',
+  ogImage: '/images/profile.jpeg',
   author: {
     name: 'Damian',
     email: 'hello@damian.dev',

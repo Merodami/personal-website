@@ -24,8 +24,15 @@ const navItems = NAVIGATION_ITEMS.filter((item) => {
 
 <!-- Hamburger Button -->
 <button id="menu-btn" class="menu-btn" aria-label="Open menu">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M3 12h18M3 6h18M3 18h18" />
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+  >
+    <path d="M3 12h18M3 6h18M3 18h18"></path>
   </svg>
 </button>
 
@@ -74,7 +81,9 @@ const navItems = NAVIGATION_ITEMS.filter((item) => {
           flex-direction: column;
           gap: 20px;
         ">
-          ${navItems.map(item => `
+          ${navItems
+            .map(
+              (item) => `
             <a href="${item.href}" style="
               font-size: 24px;
               font-weight: 500;
@@ -84,7 +93,9 @@ const navItems = NAVIGATION_ITEMS.filter((item) => {
             ">
               ${item.label}
             </a>
-          `).join('')}
+          `
+            )
+            .join('')}
         </nav>
       </div>
     </div>
@@ -94,33 +105,33 @@ const navItems = NAVIGATION_ITEMS.filter((item) => {
   document.addEventListener('DOMContentLoaded', () => {
     // Insert menu at body level
     document.body.insertAdjacentHTML('beforeend', menuHTML);
-    
+
     const menuBtn = document.getElementById('menu-btn');
     const closeBtn = document.getElementById('close-btn');
     const menu = document.getElementById('mobile-menu');
     const links = menu?.querySelectorAll('a');
-    
+
     function openMenu() {
       if (menu) {
         menu.style.display = 'block';
         document.body.style.overflow = 'hidden';
       }
     }
-    
+
     function closeMenu() {
       if (menu) {
         menu.style.display = 'none';
         document.body.style.overflow = '';
       }
     }
-    
+
     menuBtn?.addEventListener('click', openMenu);
     closeBtn?.addEventListener('click', closeMenu);
-    
-    links?.forEach(link => {
+
+    links?.forEach((link) => {
       link.addEventListener('click', closeMenu);
     });
-    
+
     // Handle escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && menu?.style.display === 'block') {
@@ -140,7 +151,7 @@ const navItems = NAVIGATION_ITEMS.filter((item) => {
     cursor: pointer;
     color: inherit;
   }
-  
+
   @media (max-width: 639px) {
     .menu-btn {
       display: block;
