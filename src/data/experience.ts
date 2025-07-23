@@ -15,7 +15,7 @@ export const experiences: Experience[] = [
     startDate: '2023',
     endDate: '2025',
     description:
-      'Spearheaded architectural design of high-throughput event-driven ticketing platform on AWS, processing 5,000+ tickets/second. Engineered React SPAs and extended 5+ microservices, optimizing AWS infrastructure for 20% latency reduction and 10% cost decrease.',
+      'Contributed to the engineering team in designing and implementing a high-throughput event-driven ticketing platform on AWS, processing thousands of tickets per second. Collaborated on developing React SPAs and extending multiple microservices, working with the team to optimize AWS infrastructure for improved latency and cost efficiency.',
     technologies: [
       'TypeScript',
       'Node.js',
@@ -34,7 +34,7 @@ export const experiences: Experience[] = [
     startDate: '2022',
     endDate: '2023',
     description:
-      'Architected Vue.js SPA for steel industry management platform, improving delivery time by 20%. Engineered 3 critical microservices supporting 1,000+ concurrent operations. Achieved 30% Lighthouse score improvement through performance optimizations.',
+      'Collaborated with the engineering team to architect and develop a Vue.js SPA for steel industry management platform, significantly improving delivery times. Worked on engineering critical microservices supporting high concurrent operations. Contributed to substantial performance optimizations that enhanced Lighthouse scores.',
     technologies: [
       'Vue.js',
       'VueX',
@@ -50,7 +50,7 @@ export const experiences: Experience[] = [
     startDate: '2020',
     endDate: '2022',
     description:
-      'Led migration from monolithic to microservices architecture on AWS, improving system resilience by 40%. Developed 10+ serverless functions for event-driven architecture. Built Vue.js SPA improving workflow completion by 15%.',
+      'Led the engineering team in migrating from monolithic to microservices architecture on AWS, significantly improving system resilience. Collaborated on developing numerous serverless functions for event-driven architecture. Worked with the team to build Vue.js SPA that enhanced workflow completion efficiency.',
     technologies: [
       'Node.js',
       'Vue.js',
@@ -66,7 +66,7 @@ export const experiences: Experience[] = [
     startDate: '2019',
     endDate: '2019',
     description:
-      'Contributed to high-traffic B2C e-commerce PWA serving 15,000+ concurrent users. Enhanced API documentation with Stoplight/OpenAPI. Expanded Cypress E2E test coverage by 20%.',
+      'Contributed to the development team working on high-traffic B2C e-commerce PWA serving thousands of concurrent users. Collaborated on enhancing API documentation with Stoplight/OpenAPI. Worked with the team to expand Cypress E2E test coverage significantly.',
     technologies: ['React', 'Redux', 'PWA', 'Cypress', 'OpenAPI', 'Stoplight'],
   },
   {
@@ -75,7 +75,7 @@ export const experiences: Experience[] = [
     startDate: '2016',
     endDate: '2019',
     description:
-      'Developed frontend (AngularJS) and backend (Node.js) systems for media services. Championed API-first design and comprehensive testing. Integrated New Relic monitoring achieving 99.9% uptime.',
+      'Collaborated with the development team on frontend (AngularJS) and backend (Node.js) systems for media services. Worked with the team to champion API-first design and comprehensive testing practices. Contributed to integrating New Relic monitoring for high system uptime.',
     technologies: ['AngularJS', 'Node.js', 'Express.js', 'New Relic', 'API Design'],
   },
 ];

@@ -39,9 +39,36 @@ const classes = `
 
   /* Dark theme enhancements */
   :global([data-theme='dark']) .card {
-    background: rgba(20, 20, 20, 0.5);
-    backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(
+      135deg,
+      rgba(45, 35, 75, 0.15) 0%,
+      rgba(30, 25, 50, 0.2) 50%,
+      rgba(20, 20, 30, 0.25) 100%
+    );
+    backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    box-shadow:
+      0 8px 32px -8px rgba(139, 92, 246, 0.1),
+      0 4px 16px -4px rgba(236, 72, 153, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+
+  :global([data-theme='dark']) .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2px;
+    right: -2px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(139, 92, 246, 0.5) 20%,
+      rgba(236, 72, 153, 0.3) 80%,
+      transparent 100%
+    );
+    border-radius: 12px 12px 0 0;
   }
 
   .card-hover {
@@ -67,6 +94,15 @@ const classes = `
     transform: translateY(-2px);
     border-color: var(--color-border-hover);
     box-shadow: var(--shadow-lg);
+  }
+
+  /* Enhanced dark theme hover effects */
+  :global([data-theme='dark']) .card-hover:hover {
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow:
+      0 16px 48px -8px rgba(139, 92, 246, 0.15),
+      0 8px 24px -4px rgba(236, 72, 153, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
 
   .card-hover:hover::before {
