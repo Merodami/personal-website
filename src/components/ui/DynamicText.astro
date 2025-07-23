@@ -1,0 +1,110 @@
+---
+interface Props {
+  words: Array<{ text: string; color: string }>;
+  className?: string;
+}
+
+const { words, className = '' } = Astro.props;
+---
+
+<span id="dynamic-text" class={`dynamic-text ${className}`} data-words={JSON.stringify(words)}>
+  {words[0]?.text || 'build'}
+</span>
+
+<script>
+  class DynamicText {
+    private element: HTMLElement;
+    private words: Array<{ text: string; color: string }>;
+    private currentIndex = 0;
+    private isAnimating = false;
+
+    constructor(element: HTMLElement) {
+      this.element = element;
+      this.words = JSON.parse(element.dataset.words || '[]');
+      this.startAnimation();
+    }
+
+    private async startAnimation() {
+      // Wait 2 seconds before starting
+      await this.delay(2000);
+      this.animateWords();
+    }
+
+    private async animateWords() {
+      if (this.isAnimating) return;
+      this.isAnimating = true;
+
+      while (true) {
+        // Show current word for 4 seconds (doubled)
+        await this.delay(4000);
+        
+        // Type out effect (delete current word)
+        await this.typeOut();
+        
+        // Pause between words
+        await this.delay(300);
+        
+        // Move to next word
+        this.currentIndex = (this.currentIndex + 1) % this.words.length;
+        
+        // Type in new word
+        await this.typeIn();
+      }
+    }
+
+    private async typeOut() {
+      const currentWord = this.words[this.currentIndex].text;
+      
+      for (let i = currentWord.length; i >= 0; i--) {
+        this.element.textContent = currentWord.substring(0, i);
+        await this.delay(80); // Slower deletion
+      }
+    }
+
+    private async typeIn() {
+      const nextWord = this.words[this.currentIndex];
+      this.element.style.color = nextWord.color;
+      
+      for (let i = 0; i <= nextWord.text.length; i++) {
+        this.element.textContent = nextWord.text.substring(0, i);
+        await this.delay(120); // Slower typing
+      }
+    }
+
+    private delay(ms: number): Promise<void> {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    const element = document.getElementById('dynamic-text');
+    if (element) {
+      new DynamicText(element);
+    }
+  });
+</script>
+
+<style>
+  .dynamic-text {
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .dynamic-text::after {
+    content: '|';
+    display: inline-block;
+    animation: blink 1s infinite;
+    color: currentColor;
+  }
+
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+</style>

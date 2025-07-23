@@ -2,6 +2,21 @@
 import Button from '../common/Button.astro';
 import TechBackground from '../background/TechBackground.astro';
 import StaticTechLogos from '../background/StaticTechLogos.astro';
+import DynamicText from '../ui/DynamicText.astro';
+
+// Dynamic words with colors matching technology brands
+const dynamicWords = [
+  { text: 'build', color: '#3178C6' }, // TypeScript blue
+  { text: 'create', color: '#61DAFB' }, // React cyan
+  { text: 'develop', color: '#339933' }, // Node.js green
+  { text: 'engineer', color: '#F7DF1E' }, // JavaScript yellow
+  { text: 'design', color: '#4FC08D' }, // Vue.js green
+  { text: 'craft', color: '#DD0031' }, // Angular red
+  { text: 'architect', color: '#2496ED' }, // Docker blue
+  { text: 'code', color: '#FF9900' }, // AWS orange
+  { text: 'forge', color: '#4169E1' }, // PostgreSQL blue
+  { text: 'shape', color: '#47A248' }, // MongoDB green
+];
 ---
 
 <section class="hero-section">
@@ -12,7 +27,7 @@ import StaticTechLogos from '../background/StaticTechLogos.astro';
   <div class="container">
     <div class="hero-content">
       <h1 class="hero-title">
-        I build and design
+        I <DynamicText words={dynamicWords} /> and design
         <span class="gradient-text">performant sites</span>
         for real business needs.
       </h1>
