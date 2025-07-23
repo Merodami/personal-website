@@ -1,6 +1,6 @@
 ---
 import Navigation from './Navigation.astro';
-import MobileMenuPWA from './MobileMenuPWA.astro';
+import MobileMenu from './MobileMenu.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
 const currentPath = Astro.url.pathname;
@@ -17,7 +17,7 @@ const email = 'hello@damianmeroni.dev';
 
       <div class="nav-section">
         <Navigation currentPath={currentPath} />
-        <MobileMenuPWA currentPath={currentPath} />
+        <MobileMenu currentPath={currentPath} />
         <ThemeToggle />
       </div>
     </div>
