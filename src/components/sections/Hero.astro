@@ -39,9 +39,13 @@ const dynamicWords = [
       </p>
 
       <div class="hero-actions">
-        {FEATURE_FLAGS.showProjects && (
-          <Button href="/projects" size="lg">View My Work</Button>
-        )}
+        {
+          FEATURE_FLAGS.showProjects && (
+            <Button href="/projects" size="lg">
+              View My Work
+            </Button>
+          )
+        }
         <Button href="/contact" variant="outline" size="lg">Get In Touch</Button>
       </div>
     </div>

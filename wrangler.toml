@@ -1,15 +1,9 @@
 name = "personal-website"
 compatibility_date = "2024-01-01"
 
-[assets]
-directory = "./dist"
+[site]
+bucket = "./dist"
 
 [[routes]]
 pattern = "damianmeroni.dev/*"
 zone_name = "damianmeroni.dev"
-
-[vars]
-NODE_ENV = "production"
-
-[build]
-command = "npm run build"
