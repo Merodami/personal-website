@@ -37,16 +37,16 @@ const { words, className = '' } = Astro.props;
       while (true) {
         // Show current word for 4 seconds (doubled)
         await this.delay(4000);
-        
+
         // Type out effect (delete current word)
         await this.typeOut();
-        
+
         // Pause between words
         await this.delay(300);
-        
+
         // Move to next word
         this.currentIndex = (this.currentIndex + 1) % this.words.length;
-        
+
         // Type in new word
         await this.typeIn();
       }
@@ -54,7 +54,7 @@ const { words, className = '' } = Astro.props;
 
     private async typeOut() {
       const currentWord = this.words[this.currentIndex].text;
-      
+
       for (let i = currentWord.length; i >= 0; i--) {
         this.element.textContent = currentWord.substring(0, i);
         await this.delay(80); // Slower deletion
@@ -64,7 +64,7 @@ const { words, className = '' } = Astro.props;
     private async typeIn() {
       const nextWord = this.words[this.currentIndex];
       this.element.style.color = nextWord.color;
-      
+
       for (let i = 0; i <= nextWord.text.length; i++) {
         this.element.textContent = nextWord.text.substring(0, i);
         await this.delay(120); // Slower typing
@@ -72,7 +72,7 @@ const { words, className = '' } = Astro.props;
     }
 
     private delay(ms: number): Promise<void> {
-      return new Promise(resolve => setTimeout(resolve, ms));
+      return new Promise((resolve) => setTimeout(resolve, ms));
     }
   }
 
@@ -100,10 +100,12 @@ const { words, className = '' } = Astro.props;
   }
 
   @keyframes blink {
-    0%, 50% {
+    0%,
+    50% {
       opacity: 1;
     }
-    51%, 100% {
+    51%,
+    100% {
       opacity: 0;
     }
   }

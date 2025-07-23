@@ -76,7 +76,7 @@ After implementing GTM, monitor site performance to ensure it doesn't negatively
 Use the existing Lighthouse script to test performance:
 
 ```bash
-pnpm run open-lighthouse
+npm run open-lighthouse
 ```
 
 ## Data Privacy Considerations

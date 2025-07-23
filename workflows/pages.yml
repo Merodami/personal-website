@@ -34,31 +34,26 @@ jobs:
         uses: actions/checkout@v4
 
       # ——— Toolchain setup ————————————————————————————————
-      - name: 📦 Setup PNPM
-        uses: pnpm/action-setup@v3
-        with:
-          version: 10.10.0 # keep in sync with lockfile
-
       - name: 🔧 Setup Node .js
         uses: actions/setup-node@v4
         with:
           node-version: 20 # active LTS
-          cache: pnpm # automatic pnpm store cache
+          cache: npm # automatic npm cache
 
       # ——— Install, test, lint ——————————————————————————————
       - name: 📥 Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
       - name: 🧹 Lint
-        run: pnpm lint
+        run: npm run lint
 
       # If you have tests, uncomment the block below
       # - name: 🧪 Test
-      #   run: pnpm test --if-present
+      #   run: npm test --if-present
 
       # ——— Build Astro for Pages ————————————————————————————
       - name: 🏗️ Build site
-        run: pnpm build # runs `astro build` → ./dist
+        run: npm run build # runs `astro build` → ./dist
 
       # ——— Install Wrangler globally first ——————————————————
       - name: 🧰 Install Wrangler

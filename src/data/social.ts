@@ -26,7 +26,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: 'Email',
-    url: 'mailto:hello@yourdomain.com',
+    url: 'mailto:hello@damianmeroni.dev',
     icon: 'email',
     ariaLabel: 'Send me an email',
   },

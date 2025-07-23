@@ -1,41 +1,41 @@
 ---
 import TechLogo from '../icons/TechLogo.astro';
 
-// Key technologies from your CV with proper brand colors
+// Key technologies positioned to surround the text (avoiding center area)
 const mainTechnologies = [
-  // Top row (above text)
-  { name: 'TypeScript', key: 'typescript', size: 50, x: 25, y: 30, color: '#3178C6' },
-  { name: 'React', key: 'react', size: 55, x: 45, y: 25, color: '#61DAFB' },
-  { name: 'Node.js', key: 'nodejs', size: 60, x: 65, y: 28, color: '#339933' },
-  { name: 'AWS', key: 'aws', size: 50, x: 85, y: 32, color: '#FF9900' },
+  // Top arc (above text)
+  { name: 'TypeScript', key: 'typescript', size: 50, x: 20, y: 15, color: '#3178C6' },
+  { name: 'React', key: 'react', size: 55, x: 40, y: 10, color: '#61DAFB' },
+  { name: 'Node.js', key: 'nodejs', size: 60, x: 60, y: 10, color: '#339933' },
+  { name: 'AWS', key: 'aws', size: 50, x: 80, y: 15, color: '#FF9900' },
 
-  // Middle row (sides of text)
-  { name: 'Vue.js', key: 'vue', size: 50, x: 15, y: 50, color: '#4FC08D' },
-  { name: 'Docker', key: 'docker', size: 45, x: 85, y: 55, color: '#2496ED' },
-
-  // Bottom row (below text)
-  { name: 'JavaScript', key: 'javascript', size: 50, x: 20, y: 70, color: '#F7DF1E' },
-  { name: 'Next.js', key: 'nextjs', size: 50, x: 40, y: 75, color: '#000000' },
-  { name: 'PostgreSQL', key: 'postgresql', size: 45, x: 60, y: 72, color: '#4169E1' },
-  { name: 'Git', key: 'git', size: 45, x: 80, y: 68, color: '#F05032' },
-
-  // Backend & Database technologies
-  { name: 'Angular', key: 'angular', size: 48, x: 10, y: 35, color: '#DD0031' },
-  { name: 'MongoDB', key: 'mongodb', size: 48, x: 90, y: 40, color: '#47A248' },
+  // Left side (avoiding center)
+  { name: 'Vue.js', key: 'vue', size: 50, x: 8, y: 35, color: '#4FC08D' },
+  { name: 'Angular', key: 'angular', size: 48, x: 5, y: 50, color: '#DD0031' },
   { name: 'Express', key: 'express', size: 42, x: 8, y: 65, color: '#000000' },
-  { name: 'Fastify', key: 'fastify', size: 42, x: 92, y: 72, color: '#000000' },
-  { name: 'Redis', key: 'redis', size: 40, x: 5, y: 80, color: '#DC382D' },
 
-  // Testing frameworks
-  { name: 'Jest', key: 'jest', size: 40, x: 75, y: 80, color: '#C21325' },
-  { name: 'Cypress', key: 'cypress', size: 40, x: 85, y: 85, color: '#17202C' },
-  { name: 'Vitest', key: 'vitest', size: 40, x: 15, y: 85, color: '#6E9F18' },
-  { name: 'Playwright', key: 'playwright', size: 40, x: 95, y: 60, color: '#2EAD33' },
+  // Right side (avoiding center)
+  { name: 'Docker', key: 'docker', size: 45, x: 92, y: 35, color: '#2496ED' },
+  { name: 'MongoDB', key: 'mongodb', size: 48, x: 95, y: 50, color: '#47A248' },
+  { name: 'Fastify', key: 'fastify', size: 42, x: 92, y: 65, color: '#000000' },
 
-  // Additional tools
-  { name: 'GitHub', key: 'github', size: 40, x: 5, y: 45, color: '#181717' },
-  { name: 'Tailwind', key: 'tailwindcss', size: 40, x: 25, y: 85, color: '#06B6D4' },
-  { name: 'Astro', key: 'astro', size: 40, x: 95, y: 25, color: '#FF5D01' },
+  // Bottom arc (below text)
+  { name: 'JavaScript', key: 'javascript', size: 50, x: 20, y: 85, color: '#F7DF1E' },
+  { name: 'PostgreSQL', key: 'postgresql', size: 45, x: 35, y: 90, color: '#4169E1' },
+  { name: 'Git', key: 'git', size: 45, x: 50, y: 92, color: '#F05032' },
+  { name: 'Next.js', key: 'nextjs', size: 50, x: 65, y: 90, color: '#000000' },
+  { name: 'Jest', key: 'jest', size: 40, x: 80, y: 85, color: '#C21325' },
+
+  // Outer corners
+  { name: 'GitHub', key: 'github', size: 40, x: 2, y: 20, color: '#181717' },
+  { name: 'Redis', key: 'redis', size: 40, x: 2, y: 80, color: '#DC382D' },
+  { name: 'Astro', key: 'astro', size: 40, x: 98, y: 20, color: '#FF5D01' },
+  { name: 'Playwright', key: 'playwright', size: 40, x: 98, y: 80, color: '#2EAD33' },
+
+  // Additional spacing
+  { name: 'Cypress', key: 'cypress', size: 40, x: 15, y: 5, color: '#17202C' },
+  { name: 'Vitest', key: 'vitest', size: 40, x: 85, y: 5, color: '#6E9F18' },
+  { name: 'Tailwind', key: 'tailwindcss', size: 40, x: 15, y: 95, color: '#06B6D4' },
 ];
 
 // Keep them horizontal with slight position variation

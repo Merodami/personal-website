@@ -13,7 +13,7 @@
     "format": "prettier --write .",
     "prepare": "husky install",
     "open-lighthouse": "lighthouse http://localhost:3001 --view --output-path=./lighthouse/$(date +%Y%m%d_%H%M%S).report.html",
-    "update": "pnpm update --latest"
+    "update": "npm update"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -42,6 +42,5 @@
   "lint-staged": {
     "*.{js,ts,astro}": "eslint --fix",
     "*.{js,ts,astro,css,md,json}": "prettier --write"
-  },
-  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39"
+  }
 }
