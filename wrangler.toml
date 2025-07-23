@@ -1,0 +1,16 @@
+name = "personal-website"
+main = "./dist/_worker.js"
+compatibility_date = "2024-01-01"
+
+[site]
+bucket = "./dist"
+
+[[routes]]
+pattern = "damianmeroni.dev/*"
+zone_name = "damianmeroni.dev"
+
+[vars]
+NODE_ENV = "production"
+
+[build]
+command = "npm run build"

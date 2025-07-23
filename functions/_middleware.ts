@@ -1,3 +1,4 @@
+// Cloudflare Workers middleware
 export async function onRequest(context: {
   request: Request & { cf?: { country?: string } };
   next: () => Promise<Response>;
@@ -37,6 +38,6 @@ export async function onRequest(context: {
     }
   }
 
-  // Otherwise just continue to the next handler (static asset or page)
+  // Continue to next handler
   return next();
 }

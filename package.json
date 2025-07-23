@@ -17,15 +17,19 @@
     "format": "prettier --write .",
     "prepare": "node .husky/install.mjs || true",
     "open-lighthouse": "lighthouse http://localhost:3001 --view --output-path=./lighthouse/$(date +%Y%m%d_%H%M%S).report.html",
-    "update": "npm update"
+    "update": "npm update",
+    "deploy": "wrangler deploy",
+    "wrangler": "wrangler"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/cloudflare": "^12.6.0",
     "@astrojs/sitemap": "^3.4.1",
     "astro": "^5.12.2",
     "astro-compress": "^2.3.8",
     "sharp": "^0.34.3",
     "typescript": "^5.8.3",
+    "wrangler": "^4.25.1",
     "zustand": "^5.0.6"
   },
   "devDependencies": {

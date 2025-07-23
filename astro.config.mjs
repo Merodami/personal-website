@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@tailwindcss/vite';
 import compress from 'astro-compress';
+import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,7 +25,8 @@ export default defineConfig({
       logger: 1,
     }),
   ],
-  output: 'static',
+  output: 'server',
+  adapter: cloudflare(),
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp',
