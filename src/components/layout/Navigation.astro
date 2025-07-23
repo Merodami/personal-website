@@ -81,35 +81,22 @@ const isActive = (href: string) => {
   .nav-link {
     position: relative;
     padding: 0.5rem 0.75rem;
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     font-size: 0.875rem;
     font-weight: 500;
     transition: color 0.2s ease;
+    border-radius: 6px;
   }
 
   .nav-link:hover {
-    color: var(--color-text);
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   .nav-link.active {
-    color: var(--color-text);
-  }
-
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    transform: translateX(-50%);
-    transition: width 0.2s ease;
-  }
-
-  .nav-link.active::after {
-    width: 24px;
+    color: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.15);
   }
 
   /* Mobile Menu Button */
