@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/common/Section.astro';
-import ProjectCard from '../components/cards/ProjectCard.astro';
-import { projects } from '../data/projects';
-import { FEATURE_FLAGS } from '../config/constants';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Section from '@components/common/Section.astro';
+import ProjectCard from '@components/cards/ProjectCard.astro';
+import { projects } from '@data/projects';
+import { FEATURE_FLAGS } from '@config/constants';
 
 // Redirect to home if projects are disabled
 if (!FEATURE_FLAGS.showProjects) {

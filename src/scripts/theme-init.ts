@@ -1,21 +1,4 @@
-import { THEME_CONFIG } from '../config/theme';
-
-/**
- * Theme initialization script
- * This needs to be minimal and fast to prevent flash of unstyled content
- */
-export function getInitialTheme(): string {
-  try {
-    const stored = localStorage.getItem(THEME_CONFIG.STORAGE_KEY);
-    if (stored) {
-      const parsed = JSON.parse(stored);
-      return parsed.state?.theme || THEME_CONFIG.DEFAULT_THEME;
-    }
-  } catch {
-    // Silent fail - return default
-  }
-  return THEME_CONFIG.DEFAULT_THEME;
-}
+import { THEME_CONFIG } from '@config/theme';
 
 // Export as string for inline script usage
 export const themeInitScript = `

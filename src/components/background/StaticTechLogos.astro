@@ -1,5 +1,5 @@
 ---
-import TechLogo from '../icons/TechLogo.astro';
+import TechLogo from '@components/icons/TechLogo.astro';
 
 // Key technologies positioned to surround the text (avoiding center area)
 const mainTechnologies = [
@@ -11,13 +11,12 @@ const mainTechnologies = [
 
   // Left side (closer to center)
   { name: 'Vue.js', key: 'vue', size: 50, x: 15, y: 35, color: '#4FC08D' },
-  { name: 'Angular', key: 'angular', size: 48, x: 12, y: 50, color: '#DD0031' },
   { name: 'Redux', key: 'redux', size: 42, x: 15, y: 65, color: '#764ABC' },
 
   // Right side (closer to center)
   { name: 'Docker', key: 'docker', size: 45, x: 85, y: 35, color: '#2496ED' },
   { name: 'MongoDB', key: 'mongodb', size: 48, x: 88, y: 50, color: '#47A248' },
-  { name: 'Fastify', key: 'fastify', size: 42, x: 85, y: 65, color: '#000000' },
+  { name: 'Fastify', key: 'fastify', size: 42, x: 85, y: 65, color: '#54C1FB' },
 
   // Bottom arc (below text) - moved 5% further down
   { name: 'JavaScript', key: 'javascript', size: 50, x: 25, y: 83, color: '#F7DF1E' },
@@ -29,13 +28,11 @@ const mainTechnologies = [
   // Outer corners - adjusted accordingly
   { name: 'GitHub', key: 'github', size: 40, x: 8, y: 20, color: '#666666' },
   { name: 'Redis', key: 'redis', size: 40, x: 8, y: 80, color: '#DC382D' },
-  { name: 'Astro', key: 'astro', size: 40, x: 92, y: 20, color: '#FF5D01' },
   { name: 'Playwright', key: 'playwright', size: 40, x: 92, y: 80, color: '#2EAD33' },
 
   // Additional spacing - adjusted positioning
   { name: 'Cypress', key: 'cypress', size: 40, x: 20, y: 7, color: '#69D3A7' },
   { name: 'Vitest', key: 'vitest', size: 40, x: 80, y: 7, color: '#6E9F18' },
-  { name: 'Tailwind', key: 'tailwindcss', size: 40, x: 20, y: 93, color: '#06B6D4' },
 ];
 
 // Keep them horizontal with slight position variation

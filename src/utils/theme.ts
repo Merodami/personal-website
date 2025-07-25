@@ -1,4 +1,4 @@
-import { THEME_CONFIG, type Theme } from '../config/theme';
+import { THEME_CONFIG, type Theme } from '@config/theme';
 
 interface StorageState {
   state: {

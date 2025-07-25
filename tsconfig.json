@@ -5,10 +5,15 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@assets/*": ["src/assets/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
-      "@data/*": ["src/data/*"]
+      "@config/*": ["src/config/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@types/*": ["src/types/*"],
+      "@data/*": ["src/data/*"],
+      "@stores/*": ["src/stores/*"],
+      "@scripts/*": ["src/scripts/*"],
+      "@assets/*": ["src/assets/*"]
     },
     "verbatimModuleSyntax": true,
     "types": ["astro/client"]
