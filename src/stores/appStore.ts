@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { devtools, persist, createJSONStorage } from 'zustand/middleware';
-import { THEME_CONFIG, type Theme } from '../config/theme';
+import { THEME_CONFIG, type Theme } from '@config/theme';
 
 interface ThemeState {
   theme: Theme;

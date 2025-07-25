@@ -1,4 +1,4 @@
-import { THEME_CONFIG } from '../config/theme';
+import { THEME_CONFIG } from '@config/theme';
 
 // Export as string for inline script usage
 export const themeInitScript = `
