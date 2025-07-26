@@ -315,6 +315,3 @@ window.addEventListener('popstate', () => {
     dynamicI18n.switchLanguage(language);
   }
 });
-
-// Export for use in components
-export default dynamicI18n;

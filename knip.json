@@ -1,9 +1,10 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
-  "entry": ["src/pages/**/*.{astro,ts,tsx}"],
+  "entry": ["src/pages/**/*.{astro,ts,tsx}", "src/layouts/**/*.astro"],
   "project": ["src/**/*.{ts,tsx,js,jsx,astro}"],
-  "ignore": ["**/*.spec.ts", "**/*.test.ts"],
+  "ignore": ["**/*.spec.ts", "**/*.test.ts", ".astro/**", "src/utils/theme.ts"],
   "ignoreDependencies": ["sharp"],
+  "ignoreExportsUsedInFile": true,
   "astro": {
     "config": ["astro.config.*"]
   },
@@ -12,7 +13,7 @@
     "entry": ["tests/**/*.{test,spec}.{js,ts}"]
   },
   "eslint": {
-    "config": [".eslintrc", ".eslintrc.{js,json,cjs}"]
+    "config": [".eslintrc", ".eslintrc.{js,json,cjs}", "eslint.config.{js,mjs,cjs}"]
   },
   "prettier": {
     "config": [".prettierrc", "prettier.config.{js,cjs}"]
