@@ -3,11 +3,10 @@ import Navigation from './Navigation.astro';
 import MobileMenu from './MobileMenu.astro';
 import ThemeToggle from './ThemeToggle.astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
-import { setupI18n } from '@/i18n/astroHelpers';
+import { useAstroI18n } from '@/i18n';
 
 const currentPath = Astro.url.pathname;
-const lang = Astro.url.searchParams.get('lang');
-const i18n = setupI18n(lang);
+const { i18n } = useAstroI18n(Astro.url);
 const email = i18n.t('common.email');
 ---
 
@@ -16,7 +15,7 @@ const email = i18n.t('common.email');
     <div class="nav-container">
       <div class="profile-section">
         <img src="/images/profile-64.jpeg" alt="Damian Meroni" class="profile-image" />
-        <span class="email">{email}</span>
+        <span class="email" data-i18n="common.email">{email}</span>
       </div>
 
       <div class="nav-section">

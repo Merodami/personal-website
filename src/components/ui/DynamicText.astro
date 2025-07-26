@@ -21,7 +21,24 @@ const { words, className = '' } = Astro.props;
     constructor(element: HTMLElement) {
       this.element = element;
       this.words = JSON.parse(element.dataset.words || '[]');
+      this.setupEventListeners();
       this.startAnimation();
+    }
+
+    private setupEventListeners() {
+      // Listen for language updates
+      this.element.addEventListener('dynamicTextUpdate', (event: Event) => {
+        const customEvent = event as CustomEvent;
+        this.updateWords(customEvent.detail.words);
+      });
+    }
+
+    private updateWords(newWords: Array<{ text: string; color: string }>) {
+      this.words = newWords;
+      // Reset to first word and continue animation
+      this.currentIndex = 0;
+      this.element.textContent = newWords[0]?.text || '';
+      this.element.style.color = newWords[0]?.color || '';
     }
 
     private async startAnimation() {

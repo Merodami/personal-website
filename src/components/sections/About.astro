@@ -7,29 +7,47 @@ const { i18n } = useAstroI18n(Astro.url);
 
 <Section id="about">
   <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll">{i18n.t('about.title')}</h2>
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll" data-i18n="about.title">
+      {i18n.t('about.title')}
+    </h2>
 
     <div class="space-y-4 text-lg leading-relaxed animate-on-scroll animation-delay-100">
-      <p>{i18n.t('about.paragraph1')}</p>
-      <p>{i18n.t('about.paragraph2')}</p>
+      <p data-i18n="about.paragraph1">{i18n.t('about.paragraph1')}</p>
+      <p data-i18n="about.paragraph2">{i18n.t('about.paragraph2')}</p>
     </div>
 
     <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 animate-on-scroll animation-delay-200">
       <div class="text-center">
-        <div class="text-3xl font-bold gradient-text">{i18n.t('about.stats.experience')}</div>
-        <div class="text-sm text-secondary mt-1">{i18n.t('about.stats.experienceLabel')}</div>
+        <div class="text-3xl font-bold gradient-text" data-i18n="about.stats.experience">
+          {i18n.t('about.stats.experience')}
+        </div>
+        <div class="text-sm text-secondary mt-1" data-i18n="about.stats.experienceLabel">
+          {i18n.t('about.stats.experienceLabel')}
+        </div>
       </div>
       <div class="text-center">
-        <div class="text-3xl font-bold gradient-text">{i18n.t('about.stats.fullStack')}</div>
-        <div class="text-sm text-secondary mt-1">{i18n.t('about.stats.fullStackLabel')}</div>
+        <div class="text-3xl font-bold gradient-text" data-i18n="about.stats.fullStack">
+          {i18n.t('about.stats.fullStack')}
+        </div>
+        <div class="text-sm text-secondary mt-1" data-i18n="about.stats.fullStackLabel">
+          {i18n.t('about.stats.fullStackLabel')}
+        </div>
       </div>
       <div class="text-center">
-        <div class="text-3xl font-bold gradient-text">{i18n.t('about.stats.cloud')}</div>
-        <div class="text-sm text-secondary mt-1">{i18n.t('about.stats.cloudLabel')}</div>
+        <div class="text-3xl font-bold gradient-text" data-i18n="about.stats.cloud">
+          {i18n.t('about.stats.cloud')}
+        </div>
+        <div class="text-sm text-secondary mt-1" data-i18n="about.stats.cloudLabel">
+          {i18n.t('about.stats.cloudLabel')}
+        </div>
       </div>
       <div class="text-center">
-        <div class="text-3xl font-bold gradient-text">{i18n.t('about.stats.remote')}</div>
-        <div class="text-sm text-secondary mt-1">{i18n.t('about.stats.remoteLabel')}</div>
+        <div class="text-3xl font-bold gradient-text" data-i18n="about.stats.remote">
+          {i18n.t('about.stats.remote')}
+        </div>
+        <div class="text-sm text-secondary mt-1" data-i18n="about.stats.remoteLabel">
+          {i18n.t('about.stats.remoteLabel')}
+        </div>
       </div>
     </div>
   </div>

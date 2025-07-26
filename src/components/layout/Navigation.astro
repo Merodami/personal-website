@@ -1,14 +1,13 @@
 ---
 import { NAVIGATION_ITEMS, FEATURE_FLAGS } from '@config/constants';
-import { i18n } from '@/i18n';
+import { useAstroI18n, getLocalizedUrl } from '@/i18n';
 
 interface Props {
   currentPath: string;
 }
 
 const { currentPath } = Astro.props;
-const lang = Astro.url.searchParams.get('lang') || 'en';
-i18n.setLanguage(lang as any);
+const { lang, i18n } = useAstroI18n(Astro.url);
 
 const isActive = (href: string) => {
   if (href === '/') {
@@ -30,8 +29,9 @@ const filteredNavItems = NAVIGATION_ITEMS.filter((item) => {
   {
     filteredNavItems.map((item) => (
       <a
-        href={`${item.href}?lang=${lang}`}
+        href={getLocalizedUrl(item.href, lang)}
         class={`nav-link ${isActive(item.href) ? 'active' : ''}`}
+        data-i18n={`common.${item.label.toLowerCase()}`}
       >
         {i18n.t(`common.${item.label.toLowerCase()}`)}
       </a>

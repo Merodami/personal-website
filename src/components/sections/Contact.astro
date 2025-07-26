@@ -50,12 +50,12 @@ const contactMethods = [
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
-        {i18n.t('contact.letscreate')}
-        <span class="gradient-text"> {i18n.t('contact.amazing')}</span>
+        <span data-i18n="contact.letscreate">{i18n.t('contact.letscreate')}</span>
+        <span class="gradient-text" data-i18n="contact.amazing"> {i18n.t('contact.amazing')}</span>
       </h2>
       <p class="text-secondary text-lg md:text-xl max-w-2xl mx-auto">
-        {i18n.t('contact.readyTransform')}<br />
-        {i18n.t('contact.chooseWay')}
+        <span data-i18n="contact.readyTransform">{i18n.t('contact.readyTransform')}</span><br />
+        <span data-i18n="contact.chooseWay">{i18n.t('contact.chooseWay')}</span>
       </p>
     </div>
 
@@ -66,8 +66,12 @@ const contactMethods = [
     <!-- Quick Contact CTA -->
     <div class="mt-16 text-center">
       <div class="cta-box">
-        <p class="text-lg text-secondary mb-2">{i18n.t('contact.preferQuick')}</p>
-        <p class="text-xl font-medium text-primary">{i18n.t('contact.respondTime')}</p>
+        <p class="text-lg text-secondary mb-2" data-i18n="contact.preferQuick">
+          {i18n.t('contact.preferQuick')}
+        </p>
+        <p class="text-xl font-medium text-primary" data-i18n="contact.respondTime">
+          {i18n.t('contact.respondTime')}
+        </p>
       </div>
     </div>
   </div>
