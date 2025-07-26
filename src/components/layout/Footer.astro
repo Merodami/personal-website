@@ -8,12 +8,12 @@ const currentYear = new Date().getFullYear();
   <div class="container mx-auto px-4">
     <div class="flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-4">
       <!-- Copyright -->
-      <div class="text-gray-400 text-sm">
+      <div class="text-gray-300 text-sm">
         © {currentYear} Damian. All rights reserved.
       </div>
 
       <!-- Tech Stack - Compact -->
-      <div class="flex items-center gap-2 text-xs text-gray-500">
+      <div class="flex items-center gap-2 text-xs text-gray-400">
         <span>Built with</span>
         <div class="flex items-center gap-1">
           <span class="tech-pill">TypeScript</span>
@@ -29,7 +29,7 @@ const currentYear = new Date().getFullYear();
           href="https://github.com/Merodami/personal-website"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-purple-400 transition-colors"
+          class="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-purple-400 transition-colors"
         >
           <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
             <path
@@ -47,7 +47,7 @@ const currentYear = new Date().getFullYear();
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.ariaLabel}
-                class="text-gray-400 hover:text-purple-400 transition-colors"
+                class="text-gray-300 hover:text-purple-400 transition-colors"
               >
                 {link.icon === 'github' && (
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -82,19 +82,20 @@ const currentYear = new Date().getFullYear();
   .tech-pill {
     display: inline-block;
     padding: 2px 6px;
-    background: rgba(139, 92, 246, 0.1);
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    background: rgba(168, 85, 247, 0.2);
+    border: 1px solid rgba(168, 85, 247, 0.3);
     border-radius: 4px;
-    color: #a855f7;
+    color: #d8b4fe;
     font-size: 0.625rem;
     font-weight: 500;
     transition: all 0.2s ease;
   }
 
   .tech-pill:hover {
-    background: rgba(139, 92, 246, 0.15);
-    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba(168, 85, 247, 0.3);
+    border-color: rgba(168, 85, 247, 0.4);
     transform: translateY(-1px);
+    color: #e9d5ff;
   }
 
   /* Mobile stacking */

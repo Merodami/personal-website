@@ -18,6 +18,12 @@
     "verbatimModuleSyntax": true,
     "types": ["astro/client"]
   },
-  "include": ["src/**/*.ts", "src/**/*.astro", "functions/**/*.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.astro",
+    "functions/**/*.ts",
+    "tests/**/*.ts",
+    "vitest.config.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }
