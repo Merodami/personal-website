@@ -4,6 +4,8 @@
 **/.astro/**
 **/lighthouse/*.html
 /docs
+/report/**
+/report
 
 # OS generated files
 .DS_Store

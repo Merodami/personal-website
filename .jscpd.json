@@ -12,7 +12,8 @@
     "**/vendor/**",
     "**/public/**",
     "**/.yarn/**",
-    "**/lighthouse/**"
+    "**/lighthouse/**",
+    "**/.astro/**"
   ],
   "format": ["javascript", "typescript", "jsx", "tsx", "css", "scss", "html", "astro"],
   "absolute": true,

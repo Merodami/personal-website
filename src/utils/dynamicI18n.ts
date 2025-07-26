@@ -104,10 +104,25 @@ export class DynamicI18n {
       const key = element.getAttribute('data-i18n');
       if (key) {
         const translation = this.t(key);
+
+        // Check if this is a button with an icon (SVG child)
+        const hasSvgChild = element.querySelector('svg') !== null;
+
         if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
           (element as HTMLInputElement).placeholder = translation;
-        } else {
+        } else if (!hasSvgChild) {
+          // Only update text content if there's no SVG icon
           element.textContent = translation;
+        }
+
+        // Always update aria-label if present
+        if (element.hasAttribute('aria-label')) {
+          element.setAttribute('aria-label', translation);
+        }
+
+        // Always update title if present
+        if (element.hasAttribute('title')) {
+          element.setAttribute('title', translation);
         }
       }
     });
@@ -300,6 +315,3 @@ window.addEventListener('popstate', () => {
     dynamicI18n.switchLanguage(language);
   }
 });
-
-// Export for use in components
-export default dynamicI18n;

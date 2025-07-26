@@ -21,6 +21,8 @@ export const enTranslations: TranslationResource = {
     systemMode: 'System Mode',
     close: 'Close',
     menu: 'Menu',
+    toggleTheme: 'Toggle theme',
+    selectLanguage: 'Select language',
     readMore: 'Read More',
     present: 'Present',
   },

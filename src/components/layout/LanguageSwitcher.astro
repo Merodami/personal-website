@@ -10,7 +10,8 @@ const alternateUrls = getAlternateUrls(Astro.url.pathname);
 <div class="language-switcher">
   <button
     class="language-button"
-    aria-label="Select language"
+    aria-label={i18n.t('common.selectLanguage')}
+    data-i18n="common.selectLanguage"
     aria-expanded="false"
     aria-controls="language-menu"
   >

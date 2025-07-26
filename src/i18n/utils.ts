@@ -57,7 +57,7 @@ export const formatNumber = (number: number, locale: string): string => {
 export const interpolate = (template: string, params: Record<string, unknown> = {}): string => {
   if (!isString(template)) return '';
 
-  return template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
+  return template.replace(/\{\{(\w+)\}\}/g, (match: string, key: string) => {
     const value = get(params, key);
     return value !== undefined ? String(value) : match;
   });

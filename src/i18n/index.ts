@@ -6,6 +6,6 @@ export type { AvailableLanguage, TranslationResource, LanguageMetadata } from '.
 export { AVAILABLE_LANGUAGES } from './types';
 
 // Constants and utilities
-export { DEFAULT_LANGUAGE, FALLBACK_LANGUAGE } from './constants';
+export { DEFAULT_LANGUAGE } from './constants';
 export { detectUserLanguage, persistLanguage, formatDate, formatNumber } from './utils';
 export { LanguageStrategyFactory } from './strategies/LanguageStrategyFactory';

@@ -9,6 +9,18 @@ import {
   getTranslationKey,
 } from '@/i18n/utils';
 
+// Helper to mock localStorage
+const mockLocalStorage = (getItemReturn: string | null = null) => {
+  Object.defineProperty(window, 'localStorage', {
+    value: {
+      getItem: vi.fn(() => getItemReturn),
+      setItem: vi.fn(),
+      clear: vi.fn(),
+    },
+    writable: true,
+  });
+};
+
 describe('i18n utils', () => {
   beforeEach(() => {
     // Reset mocks
@@ -55,15 +67,7 @@ describe('i18n utils', () => {
     });
 
     it('should detect language from navigator if not in localStorage', () => {
-      // Reset localStorage mock to return null
-      Object.defineProperty(window, 'localStorage', {
-        value: {
-          getItem: vi.fn(() => null),
-          setItem: vi.fn(),
-          clear: vi.fn(),
-        },
-        writable: true,
-      });
+      mockLocalStorage(null);
 
       Object.defineProperty(navigator, 'language', {
         value: 'es-AR',
@@ -74,15 +78,7 @@ describe('i18n utils', () => {
     });
 
     it('should return default language if no valid language detected', () => {
-      // Reset localStorage mock to return null
-      Object.defineProperty(window, 'localStorage', {
-        value: {
-          getItem: vi.fn(() => null),
-          setItem: vi.fn(),
-          clear: vi.fn(),
-        },
-        writable: true,
-      });
+      mockLocalStorage(null);
 
       Object.defineProperty(navigator, 'language', {
         value: 'fr-FR',

@@ -6,6 +6,8 @@
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/Merodami/personal-website/pages.yml?branch=main&style=flat-square&label=Build)](https://github.com/Merodami/personal-website/actions)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue.svg?style=flat-square)](https://www.typescriptlang.org/)
+[![Type Coverage](https://img.shields.io/badge/Type%20Coverage-100%25-brightgreen.svg?style=flat-square)](https://github.com/plantain-00/type-coverage)
+[![Code Duplication](https://img.shields.io/badge/Code%20Duplication-0%25-brightgreen.svg?style=flat-square)](https://github.com/kucherenko/jscpd)
 [![Astro](https://img.shields.io/badge/Astro-5.12+-orange.svg?style=flat-square)](https://astro.build)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1+-38bdf8.svg?style=flat-square)](https://tailwindcss.com/)
 [![Tests](https://img.shields.io/badge/Tests-Passing-green.svg?style=flat-square)](https://github.com/Merodami/personal-website/actions)
@@ -42,6 +44,22 @@
 
 </div>
 
+## 📈 Code Quality Metrics
+
+<div align="center">
+
+| Metric | Score | Status |
+|--------|-------|--------|
+| **Type Coverage** | 100% | ✅ Perfect |
+| **Code Duplication** | 0% | ✅ None |
+| **Unused Dependencies** | 0 | ✅ Clean |
+| **Unused Exports** | 0 | ✅ Clean |
+| **Test Coverage** | High | ✅ Comprehensive |
+
+*Achieved through rigorous code quality tools: type-coverage, jscpd, knip, and dependency-cruiser*
+
+</div>
+
 ## ✨ Key Features
 
 ### 🎯 Performance & Optimization
@@ -58,10 +76,11 @@
 
 ### 🛠️ Developer Experience
 - **🧪 Comprehensive Testing** - Unit & integration tests with Vitest
-- **🔍 Type Safety** - 99.62% TypeScript coverage with strict mode
+- **🔍 Type Safety** - 100% TypeScript coverage with strict mode
 - **🚨 Code Quality** - ESLint, Prettier, and Husky pre-commit hooks
-- **📊 State Management** - Zustand with Redux DevTools integration
+- **📊 State Management** - Zustand for theme and future state needs
 - **🔧 Advanced Analysis** - Type coverage, dependency cruiser, duplicate detection, and unused code finder
+- **✨ Zero Technical Debt** - 0% code duplication, no unused dependencies
 
 ## 🛠️ Tech Stack
 
