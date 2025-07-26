@@ -1,8 +1,16 @@
 ---
-// Theme toggle component
+import { useAstroI18n } from '@/i18n';
+
+const { i18n } = useAstroI18n(Astro.url);
 ---
 
-<button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+<button
+  id="theme-toggle"
+  class="theme-toggle"
+  aria-label={i18n.t('common.toggleTheme')}
+  title={i18n.t('common.toggleTheme')}
+  data-i18n="common.toggleTheme"
+>
   <svg
     class="icon sun-icon"
     width="20"

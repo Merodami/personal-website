@@ -28,6 +28,8 @@ export interface TranslationResource {
     systemMode: string;
     close: string;
     menu: string;
+    toggleTheme: string;
+    selectLanguage: string;
     readMore: string;
     present: string;
   };

@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { currentPath } = Astro.props;
-const { lang } = useAstroI18n(Astro.url);
+const { lang, i18n } = useAstroI18n(Astro.url);
 
 const navItems = NAVIGATION_ITEMS.filter((item) => {
   if (item.href === '/projects' && !FEATURE_FLAGS.showProjects) {
@@ -15,10 +15,18 @@ const navItems = NAVIGATION_ITEMS.filter((item) => {
   }
   return true;
 });
+
+// Prepare translations for the script
+const translations = {
+  home: i18n.t('common.home'),
+  about: i18n.t('common.about'),
+  projects: i18n.t('common.projects'),
+  contact: i18n.t('common.contact'),
+};
 ---
 
 <!-- Hamburger Button -->
-<button id="menu-btn" class="menu-btn" aria-label="Open menu">
+<button id="menu-btn" class="menu-btn" aria-label={i18n.t('common.menu')}>
   <svg
     width="24"
     height="24"
@@ -34,77 +42,83 @@ const navItems = NAVIGATION_ITEMS.filter((item) => {
 <!-- Portal for Full Screen Menu -->
 <div id="mobile-menu-portal"></div>
 
-<script is:inline define:vars={{ navItems, currentPath, lang }}>
-  // Create menu HTML
-  const menuHTML = `
-    <div id="mobile-menu" style="
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--color-bg, #000);
-      z-index: 2147483647;
-      display: none;
-    ">
-      <div style="
+<script is:inline define:vars={{ navItems, currentPath, lang, translations }}>
+  // Store initial values
+  window.mobileMenuData = {
+    navItems,
+    currentPath,
+    initialLang: lang,
+    initialTranslations: translations,
+  };
+
+  function createMenuHTML(currentLang, currentTranslations) {
+    return `
+      <div id="mobile-menu" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         width: 100%;
         height: 100%;
-        padding: 20px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
+        background: var(--color-bg, #000);
+        z-index: 2147483647;
+        display: none;
       ">
-        <button id="close-btn" style="
-          align-self: flex-end;
-          padding: 8px;
-          background: none;
-          border: none;
-          cursor: pointer;
-          color: var(--color-text, #fff);
-          margin-bottom: 40px;
-        " aria-label="Close menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-        
-        <nav style="
+        <div style="
+          width: 100%;
+          height: 100%;
+          padding: 20px;
+          box-sizing: border-box;
           display: flex;
           flex-direction: column;
-          gap: 20px;
         ">
-          ${navItems
-            .map(
-              (item) => `
-            <a href="${lang === 'es' ? '/es' + item.href : item.href}" style="
-              font-size: 24px;
-              font-weight: 500;
-              text-decoration: none;
-              color: ${item.href === currentPath || (item.href !== '/' && currentPath.startsWith(item.href)) ? 'var(--color-primary, #ff0080)' : 'var(--color-text, #fff)'};
-              padding: 10px 0;
-            ">
-              ${item.label}
-            </a>
-          `
-            )
-            .join('')}
-        </nav>
+          <button id="close-btn" style="
+            align-self: flex-end;
+            padding: 8px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--color-text, #fff);
+            margin-bottom: 40px;
+          " aria-label="Close menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+          
+          <nav style="
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+          ">
+            ${window.mobileMenuData.navItems
+              .map((item) => {
+                const labelKey = item.label.toLowerCase();
+                const translatedLabel = currentTranslations[labelKey] || item.label;
+                return `
+              <a href="${currentLang === 'es' ? '/es' + item.href : item.href}" style="
+                font-size: 24px;
+                font-weight: 500;
+                text-decoration: none;
+                color: ${item.href === window.mobileMenuData.currentPath || (item.href !== '/' && window.mobileMenuData.currentPath.startsWith(item.href)) ? 'var(--color-primary, #ff0080)' : 'var(--color-text, #fff)'};
+                padding: 10px 0;
+              ">
+                ${translatedLabel}
+              </a>
+            `;
+              })
+              .join('')}
+          </nav>
+        </div>
       </div>
-    </div>
-  `;
+    `;
+  }
 
-  // Wait for DOM
-  document.addEventListener('DOMContentLoaded', () => {
-    // Insert menu at body level
-    document.body.insertAdjacentHTML('beforeend', menuHTML);
-
+  function setupMenuHandlers() {
     const menuBtn = document.getElementById('menu-btn');
     const closeBtn = document.getElementById('close-btn');
     const menu = document.getElementById('mobile-menu');
-    const links = menu?.querySelectorAll('a');
 
     function openMenu() {
       if (menu) {
@@ -123,6 +137,7 @@ const navItems = NAVIGATION_ITEMS.filter((item) => {
     menuBtn?.addEventListener('click', openMenu);
     closeBtn?.addEventListener('click', closeMenu);
 
+    const links = menu?.querySelectorAll('a');
     links?.forEach((link) => {
       link.addEventListener('click', closeMenu);
     });
@@ -132,6 +147,36 @@ const navItems = NAVIGATION_ITEMS.filter((item) => {
       if (e.key === 'Escape' && menu?.style.display === 'block') {
         closeMenu();
       }
+    });
+  }
+
+  // Wait for DOM
+  document.addEventListener('DOMContentLoaded', () => {
+    // Insert initial menu
+    document.body.insertAdjacentHTML('beforeend', createMenuHTML(lang, translations));
+    setupMenuHandlers();
+
+    // Listen for language changes
+    window.addEventListener('language-changed', (event) => {
+      const { language, translations: newTranslations } = event.detail;
+
+      // Get translation keys we need
+      const menuTranslations = {
+        home: newTranslations?.common?.home || 'Home',
+        about: newTranslations?.common?.about || 'About',
+        projects: newTranslations?.common?.projects || 'Projects',
+        contact: newTranslations?.common?.contact || 'Contact',
+      };
+
+      // Remove old menu
+      const oldMenu = document.getElementById('mobile-menu');
+      if (oldMenu) {
+        oldMenu.remove();
+      }
+
+      // Create new menu with updated translations
+      document.body.insertAdjacentHTML('beforeend', createMenuHTML(language, menuTranslations));
+      setupMenuHandlers();
     });
   });
 </script>
