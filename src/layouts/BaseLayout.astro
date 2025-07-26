@@ -4,6 +4,7 @@ export const prerender = true;
 import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
 import SEOTags from '@components/seo/SEOTags.astro';
+import StructuredData from '@components/seo/StructuredData.astro';
 import CriticalCSS from '@components/CriticalCSS.astro';
 import FontOptimization from '@components/FontOptimization.astro';
 import { themeInitScript } from '@utils/theme-init';
@@ -26,9 +27,7 @@ const siteUrl = 'https://damianmeroni.dev';
 <html lang={lang} class="h-full" data-theme="dark">
   <head>
     <SEOTags {title} {description} {image} {noindex} />
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href={`${siteUrl}${Astro.url.pathname}`} />
+    <StructuredData type="person" />
 
     <!-- Hreflang tags for language alternates -->
     <link rel="alternate" hreflang="en" href={`${siteUrl}${alternateUrls.en}`} />
@@ -50,8 +49,9 @@ const siteUrl = 'https://damianmeroni.dev';
     </style>
   </head>
   <body class="h-full">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <Header />
-    <main class="main-content">
+    <main id="main-content" class="main-content">
       <slot />
     </main>
     <Footer />
@@ -92,5 +92,25 @@ const siteUrl = 'https://damianmeroni.dev';
 <style>
   .main-content {
     min-height: 100vh;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 0 0 4px 0;
+    z-index: 200;
+    transition: top 0.2s;
+    font-weight: 500;
+  }
+
+  .skip-link:focus {
+    top: 0;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 </style>

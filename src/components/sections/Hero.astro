@@ -22,7 +22,7 @@ const dynamicWords = [
 ];
 ---
 
-<section class="hero-section">
+<section class={`hero-section ${lang === 'es' ? 'lang-es' : ''}`}>
   <FloatingTechLogos />
   <StaticTechLogos />
   <div class="hero-gradient"></div>
@@ -141,6 +141,21 @@ const dynamicWords = [
     .hero-description {
       font-size: 1.25rem;
       margin-bottom: 3rem;
+    }
+  }
+
+  /* Language-specific adjustments */
+  .hero-section.lang-es {
+    padding-top: 6rem;
+  }
+
+  .lang-es .hero-title {
+    margin-bottom: 1.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .lang-es .hero-title {
+      margin-bottom: 2.25rem;
     }
   }
 </style>

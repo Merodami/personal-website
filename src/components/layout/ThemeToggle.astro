@@ -9,7 +9,6 @@ const { i18n } = useAstroI18n(Astro.url);
   class="theme-toggle"
   aria-label={i18n.t('common.toggleTheme')}
   title={i18n.t('common.toggleTheme')}
-  data-i18n="common.toggleTheme"
 >
   <svg
     class="icon sun-icon"
@@ -107,18 +106,30 @@ const { i18n } = useAstroI18n(Astro.url);
   }
 </style>
 
-<script>
-  import { useAppStore } from '@stores/appStore';
-  import { themeUtils } from '@utils/theme';
+<script is:inline>
+  // Simple inline script for theme toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('theme-toggle');
 
-  // Initialize theme
-  themeUtils.initTheme();
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        // Get current theme
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-  // Set up toggle button
-  const toggle = document.getElementById('theme-toggle');
+        // Update DOM
+        document.documentElement.setAttribute('data-theme', newTheme);
 
-  toggle?.addEventListener('click', () => {
-    const store = useAppStore.getState();
-    store.toggleTheme();
+        // Update localStorage
+        try {
+          const stored = localStorage.getItem('app-storage');
+          const data = stored ? JSON.parse(stored) : { state: {} };
+          data.state.theme = newTheme;
+          localStorage.setItem('app-storage', JSON.stringify(data));
+        } catch (e) {
+          // Silently fail
+        }
+      });
+    }
   });
 </script>

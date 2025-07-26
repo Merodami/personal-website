@@ -1,0 +1,66 @@
+---
+interface Props {
+  type?: 'person' | 'website' | 'article';
+  customData?: Record<string, any>;
+}
+
+const { type = 'person', customData } = Astro.props;
+
+// Base person schema for the site owner
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Damian Meroni',
+  url: 'https://damianmeroni.dev',
+  image: 'https://damianmeroni.dev/images/profile.jpeg',
+  sameAs: ['https://github.com/Merodami', 'https://linkedin.com/in/damianmeroni'],
+  jobTitle: 'Senior Software Engineer',
+  description:
+    'Senior Software Engineer with 9+ years of experience architecting scalable, cloud-native applications.',
+  knowsAbout: [
+    'TypeScript',
+    'React',
+    'Node.js',
+    'Cloud Architecture',
+    'Microservices',
+    'Event-Driven Architecture',
+  ],
+};
+
+// Website schema
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  url: 'https://damianmeroni.dev',
+  name: 'Damian Meroni - Senior Software Engineer',
+  description:
+    'Personal portfolio and blog of Damian Meroni, a Senior Software Engineer specializing in scalable web applications.',
+  author: personSchema,
+};
+
+// Select schema based on type
+let schema;
+switch (type) {
+  case 'website':
+    schema = websiteSchema;
+    break;
+  case 'article':
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      author: personSchema,
+      ...customData,
+    };
+    break;
+  case 'person':
+  default:
+    schema = personSchema;
+}
+
+// Merge with custom data if provided
+if (customData && type !== 'article') {
+  schema = { ...schema, ...customData };
+}
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />

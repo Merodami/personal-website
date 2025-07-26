@@ -2,8 +2,17 @@
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "entry": ["src/pages/**/*.{astro,ts,tsx}", "src/layouts/**/*.astro"],
   "project": ["src/**/*.{ts,tsx,js,jsx,astro}"],
-  "ignore": ["**/*.spec.ts", "**/*.test.ts", ".astro/**", "src/utils/theme.ts"],
-  "ignoreDependencies": ["sharp"],
+  "ignore": [
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    ".astro/**",
+    "src/utils/theme.ts",
+    "src/stores/appStore.ts",
+    "src/data/social.ts",
+    "src/data/projects.ts",
+    "src/config/constants.ts"
+  ],
+  "ignoreDependencies": ["sharp", "zustand"],
   "ignoreBinaries": ["dot"],
   "ignoreExportsUsedInFile": true,
   "astro": {
