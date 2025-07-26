@@ -6,7 +6,8 @@ import Footer from '@components/layout/Footer.astro';
 import SEOTags from '@components/seo/SEOTags.astro';
 import CriticalCSS from '@components/CriticalCSS.astro';
 import FontOptimization from '@components/FontOptimization.astro';
-import { themeInitScript } from '@scripts/theme-init';
+import { themeInitScript } from '@utils/theme-init';
+import { useAstroI18n, getAlternateUrls } from '@/i18n';
 
 interface Props {
   title?: string;
@@ -16,12 +17,23 @@ interface Props {
 }
 
 const { title, description, image, noindex } = Astro.props;
+const { lang } = useAstroI18n(Astro.url);
+const alternateUrls = getAlternateUrls(Astro.url.pathname);
+const siteUrl = 'https://damianmeroni.dev';
 ---
 
 <!doctype html>
-<html lang="en" class="h-full" data-theme="dark">
+<html lang={lang} class="h-full" data-theme="dark">
   <head>
     <SEOTags {title} {description} {image} {noindex} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={`${siteUrl}${Astro.url.pathname}`} />
+
+    <!-- Hreflang tags for language alternates -->
+    <link rel="alternate" hreflang="en" href={`${siteUrl}${alternateUrls.en}`} />
+    <link rel="alternate" hreflang="es" href={`${siteUrl}${alternateUrls.es}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${alternateUrls.en}`} />
 
     <!-- Critical CSS inlined -->
     <CriticalCSS />
@@ -43,6 +55,14 @@ const { title, description, image, noindex } = Astro.props;
       <slot />
     </main>
     <Footer />
+
+    <!-- Load dynamic i18n for client-side language switching -->
+    <script>
+      import { dynamicI18n } from '@utils/dynamicI18n';
+
+      // Make dynamicI18n globally available
+      window.dynamicI18n = dynamicI18n;
+    </script>
 
     <script>
       // Intersection Observer for scroll animations

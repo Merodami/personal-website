@@ -1,11 +1,13 @@
 ---
 import { NAVIGATION_ITEMS, FEATURE_FLAGS } from '@config/constants';
+import { useAstroI18n } from '@/i18n';
 
 interface Props {
   currentPath: string;
 }
 
 const { currentPath } = Astro.props;
+const { lang } = useAstroI18n(Astro.url);
 
 const navItems = NAVIGATION_ITEMS.filter((item) => {
   if (item.href === '/projects' && !FEATURE_FLAGS.showProjects) {
@@ -32,7 +34,7 @@ const navItems = NAVIGATION_ITEMS.filter((item) => {
 <!-- Portal for Full Screen Menu -->
 <div id="mobile-menu-portal"></div>
 
-<script is:inline define:vars={{ navItems, currentPath }}>
+<script is:inline define:vars={{ navItems, currentPath, lang }}>
   // Create menu HTML
   const menuHTML = `
     <div id="mobile-menu" style="
@@ -77,7 +79,7 @@ const navItems = NAVIGATION_ITEMS.filter((item) => {
           ${navItems
             .map(
               (item) => `
-            <a href="${item.href}" style="
+            <a href="${lang === 'es' ? '/es' + item.href : item.href}" style="
               font-size: 24px;
               font-weight: 500;
               text-decoration: none;

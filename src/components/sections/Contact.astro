@@ -1,11 +1,14 @@
 ---
 import Section from '@components/common/Section.astro';
 import ContactCard from '@components/cards/ContactCard.astro';
+import { useAstroI18n } from '@/i18n';
+
+const { i18n } = useAstroI18n(Astro.url);
 
 const contactMethods = [
   {
-    title: 'Email Me',
-    description: 'For project inquiries and professional opportunities',
+    title: i18n.t('contact.emailMe'),
+    description: i18n.t('contact.emailDescription'),
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -16,27 +19,27 @@ const contactMethods = [
     },
   },
   {
-    title: 'LinkedIn',
-    description: "Let's connect and grow our professional network",
+    title: i18n.t('contact.linkedin'),
+    description: i18n.t('contact.linkedinDescription'),
     icon: `<svg fill="currentColor" viewBox="0 0 24 24">
       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
     </svg>`,
     link: {
       href: 'https://www.linkedin.com/in/dmeroni',
-      text: 'View Profile',
+      text: i18n.t('contact.viewProfile'),
       external: true,
     },
   },
   {
-    title: 'Schedule a Call',
-    description: 'Book a 30-minute consultation to discuss your project',
+    title: i18n.t('contact.scheduleCall'),
+    description: i18n.t('contact.scheduleDescription'),
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
     </svg>`,
     button: {
       href: 'https://calendly.com/meroni-damian/30min',
-      text: 'Book Meeting',
+      text: i18n.t('contact.bookMeeting'),
       external: true,
     },
   },
@@ -47,12 +50,12 @@ const contactMethods = [
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
-        Let's Create Something
-        <span class="gradient-text"> Amazing</span>
+        <span data-i18n="contact.letscreate">{i18n.t('contact.letscreate')}</span>
+        <span class="gradient-text" data-i18n="contact.amazing"> {i18n.t('contact.amazing')}</span>
       </h2>
       <p class="text-secondary text-lg md:text-xl max-w-2xl mx-auto">
-        Ready to transform your ideas into reality?<br />
-        Choose your preferred way to connect.
+        <span data-i18n="contact.readyTransform">{i18n.t('contact.readyTransform')}</span><br />
+        <span data-i18n="contact.chooseWay">{i18n.t('contact.chooseWay')}</span>
       </p>
     </div>
 
@@ -63,8 +66,12 @@ const contactMethods = [
     <!-- Quick Contact CTA -->
     <div class="mt-16 text-center">
       <div class="cta-box">
-        <p class="text-lg text-secondary mb-2">Prefer a quick chat?</p>
-        <p class="text-xl font-medium text-primary">I typically respond within 24 hours</p>
+        <p class="text-lg text-secondary mb-2" data-i18n="contact.preferQuick">
+          {i18n.t('contact.preferQuick')}
+        </p>
+        <p class="text-xl font-medium text-primary" data-i18n="contact.respondTime">
+          {i18n.t('contact.respondTime')}
+        </p>
       </div>
     </div>
   </div>

@@ -2,20 +2,33 @@
 import Section from '@components/common/Section.astro';
 import Card from '@components/common/Card.astro';
 import Badge from '@components/common/Badge.astro';
-import { experiences } from '@data/experience';
+import { useAstroI18n } from '@/i18n';
+
+interface Experience {
+  company: string;
+  position: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+  technologies: string[];
+}
+
+const { i18n } = useAstroI18n(Astro.url);
+const experiences = i18n.t<Experience[]>('experience.jobs');
 ---
 
 <Section id="experience">
   <div class="grid md:grid-cols-2 gap-12 items-start">
     <div>
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Career & Experience</h2>
-      <p class="text-secondary text-lg">
-        I've had the privilege of working with talented teams and contributing to exciting projects
-        throughout my career. Here's a glimpse of my professional journey.
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-i18n="experience.title">
+        {i18n.t('experience.title')}
+      </h2>
+      <p class="text-secondary text-lg" data-i18n="about.paragraph1">
+        {i18n.t('about.paragraph1')}
       </p>
     </div>
 
-    <div class="space-y-6">
+    <div class="space-y-6" data-i18n-experience-cards>
       {
         experiences.map((exp) => (
           <Card hover={false} class="relative">
@@ -40,7 +53,7 @@ import { experiences } from '@data/experience';
                 <p class="text-secondary mb-4">{exp.description}</p>
 
                 <div class="flex flex-wrap gap-2">
-                  {exp.technologies.map((tech) => (
+                  {exp.technologies.map((tech: string) => (
                     <Badge text={tech} variant="primary" />
                   ))}
                 </div>

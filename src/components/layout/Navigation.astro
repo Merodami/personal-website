@@ -1,11 +1,13 @@
 ---
 import { NAVIGATION_ITEMS, FEATURE_FLAGS } from '@config/constants';
+import { useAstroI18n, getLocalizedUrl } from '@/i18n';
 
 interface Props {
   currentPath: string;
 }
 
 const { currentPath } = Astro.props;
+const { lang, i18n } = useAstroI18n(Astro.url);
 
 const isActive = (href: string) => {
   if (href === '/') {
@@ -26,8 +28,12 @@ const filteredNavItems = NAVIGATION_ITEMS.filter((item) => {
 <nav class="desktop-nav">
   {
     filteredNavItems.map((item) => (
-      <a href={item.href} class={`nav-link ${isActive(item.href) ? 'active' : ''}`}>
-        {item.label}
+      <a
+        href={getLocalizedUrl(item.href, lang)}
+        class={`nav-link ${isActive(item.href) ? 'active' : ''}`}
+        data-i18n={`common.${item.label.toLowerCase()}`}
+      >
+        {i18n.t(`common.${item.label.toLowerCase()}`)}
       </a>
     ))
   }
@@ -56,6 +62,7 @@ const filteredNavItems = NAVIGATION_ITEMS.filter((item) => {
     font-weight: 500;
     transition: all 0.2s ease;
     border-radius: 6px;
+    white-space: nowrap;
   }
 
   .nav-link:hover {

@@ -2,9 +2,13 @@
 import Navigation from './Navigation.astro';
 import MobileMenu from './MobileMenu.astro';
 import ThemeToggle from './ThemeToggle.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { useAstroI18n } from '@/i18n';
 
 const currentPath = Astro.url.pathname;
-const email = 'hello@damianmeroni.dev';
+const { i18n } = useAstroI18n(Astro.url);
+const email = i18n.t('common.email');
+const emailShort = i18n.t('common.emailShort');
 ---
 
 <header class="header" id="main-header">
@@ -12,12 +16,14 @@ const email = 'hello@damianmeroni.dev';
     <div class="nav-container">
       <div class="profile-section">
         <img src="/images/profile-64.jpeg" alt="Damian Meroni" class="profile-image" />
-        <span class="email">{email}</span>
+        <span class="email full" data-i18n="common.email">{email}</span>
+        <span class="email short" data-i18n="common.emailShort">{emailShort}</span>
       </div>
 
       <div class="nav-section">
         <Navigation currentPath={currentPath} />
         <MobileMenu currentPath={currentPath} />
+        <LanguageSwitcher />
         <ThemeToggle />
       </div>
     </div>
@@ -71,6 +77,10 @@ const email = 'hello@damianmeroni.dev';
     font-weight: 500;
   }
 
+  .email.short {
+    display: none;
+  }
+
   .nav-section {
     display: flex;
     align-items: center;
@@ -96,6 +106,13 @@ const email = 'hello@damianmeroni.dev';
 
   /* Responsive adjustments for mobile */
   @media (max-width: 639px) {
+    .email.full {
+      display: none;
+    }
+
+    .email.short {
+      display: block;
+    }
     .header {
       top: 0.5rem;
       left: 0.5rem;
@@ -170,7 +187,7 @@ const email = 'hello@damianmeroni.dev';
   }
 
   @media (max-width: 400px) {
-    .email {
+    .email.short {
       display: none;
     }
 

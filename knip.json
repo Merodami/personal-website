@@ -1,0 +1,23 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": ["src/pages/**/*.{astro,ts,tsx}", "src/env.d.ts"],
+  "project": ["src/**/*.{ts,tsx,js,jsx,astro}"],
+  "ignore": ["**/*.spec.ts", "**/*.test.ts"],
+  "ignoreDependencies": ["sharp", "@astrojs/check"],
+  "astro": {
+    "config": ["astro.config.*"]
+  },
+  "vitest": {
+    "config": ["vitest.config.*"],
+    "entry": ["tests/**/*.{test,spec}.{js,ts}"]
+  },
+  "eslint": {
+    "config": [".eslintrc", ".eslintrc.{js,json,cjs}"]
+  },
+  "prettier": {
+    "config": [".prettierrc", "prettier.config.{js,cjs}"]
+  },
+  "husky": {
+    "config": [".husky/*", "husky.config.js"]
+  }
+}
