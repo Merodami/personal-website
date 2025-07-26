@@ -1,5 +1,5 @@
 # .github/workflows/pages.yml
-name: CI & Deploy to Cloudflare Pages
+name: CI & Deploy to Cloudflare Workers
 
 # ────────────────────────────────
 # Triggers
@@ -53,27 +53,15 @@ jobs:
       # - name: 🧪 Test
       #   run: yarn test --if-present
 
-      # ——— Build Astro for Pages ————————————————————————————
+      # ——— Build Astro for Workers ————————————————————————————
       - name: 🏗️ Build site
         run: yarn build # runs `astro build` → ./dist
 
       # ——— Deploy with Wrangler CLI directly ————————————————
-      - name: 🚀 Deploy to Cloudflare Pages
+      - name: 🚀 Deploy to Cloudflare Workers
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          # Clear any potential wrangler cache
-          rm -rf node_modules/.cache/wrangler/pages.json || true
-          
-          # Determine branch name
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            BRANCH="pr-${{ github.event.pull_request.number }}"
-          else
-            BRANCH="${{ github.ref_name }}"
-          fi
-          
-          echo "Deploying to branch: $BRANCH"
-          
-          # Deploy to Cloudflare Pages
-          npx wrangler@latest pages deploy dist --project-name=personal-website --branch="$BRANCH" --commit-dirty=true
+          # Deploy to Cloudflare Workers
+          npx wrangler@latest deploy --commit-dirty=true
