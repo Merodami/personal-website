@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ContactSection from '@components/sections/Contact.astro';
+import { setupI18n } from '@/i18n';
+
+// Set Spanish language for this page
+setupI18n('es');
+---
+
+<BaseLayout
+  title="Contacto - Damian Meroni"
+  description="Conecta conmigo para discutir oportunidades de colaboración y proyectos de desarrollo de software."
+>
+  <ContactSection />
+</BaseLayout>

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ProjectsSection from '@components/sections/Projects.astro';
+import { setupI18n } from '@/i18n';
+
+// Set Spanish language for this page
+setupI18n('es');
+---
+
+<BaseLayout
+  title="Proyectos - Damian Meroni"
+  description="Explora mi portafolio de proyectos de desarrollo de software y aplicaciones web escalables."
+>
+  <ProjectsSection />
+</BaseLayout>

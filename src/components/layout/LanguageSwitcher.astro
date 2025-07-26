@@ -1,0 +1,242 @@
+---
+import { useAstroI18n, getAlternateUrls } from '@/i18n';
+import type { LanguageMetadata } from '@/i18n';
+
+const { lang: currentLanguage, i18n } = useAstroI18n(Astro.url);
+const availableLanguages = i18n.getAvailableLanguages();
+const alternateUrls = getAlternateUrls(Astro.url.pathname);
+---
+
+<div class="language-switcher">
+  <button
+    class="language-button"
+    aria-label="Select language"
+    aria-expanded="false"
+    aria-controls="language-menu"
+  >
+    <span class="language-code">{currentLanguage.toUpperCase()}</span>
+    <svg
+      class="chevron-icon"
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 4.5L6 7.5L9 4.5"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </button>
+
+  <div class="language-menu" id="language-menu" hidden>
+    {
+      availableLanguages.map((lang: LanguageMetadata) => (
+        <button
+          class={`language-option ${lang.code === currentLanguage ? 'active' : ''}`}
+          data-lang={lang.code}
+          data-url={alternateUrls[lang.code as 'en' | 'es']}
+          type="button"
+        >
+          <span class="language-name">{lang.name}</span>
+          {lang.code === currentLanguage && (
+            <svg
+              class="check-icon"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.5 4.5L6 12L2.5 8.5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          )}
+        </button>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .language-switcher {
+    position: relative;
+  }
+
+  .language-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: 0.5rem;
+    color: var(--color-text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .language-button:hover {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-primary);
+  }
+
+  .language-button[aria-expanded='true'] {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-primary);
+  }
+
+  .language-code {
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  .chevron-icon {
+    transition: transform 0.2s ease;
+  }
+
+  .language-button[aria-expanded='true'] .chevron-icon {
+    transform: rotate(180deg);
+  }
+
+  .language-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 180px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 50;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    pointer-events: none;
+  }
+
+  .language-menu:not([hidden]) {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .language-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: none;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.15s ease;
+    position: relative;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .language-option:hover {
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+  }
+
+  .language-option.active {
+    background: var(--color-primary-alpha);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .language-name {
+    flex: 1;
+  }
+
+  .check-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 639px) {
+    .language-button {
+      padding: 0.375rem 0.625rem;
+    }
+
+    .language-code {
+      display: none;
+    }
+
+    .language-menu {
+      right: -0.5rem;
+    }
+  }
+</style>
+
+<script>
+  const button = document.querySelector('.language-button') as HTMLButtonElement;
+  const menu = document.querySelector('.language-menu') as HTMLDivElement;
+  const languageOptions = document.querySelectorAll('.language-option');
+
+  let isOpen = false;
+
+  function toggleMenu() {
+    isOpen = !isOpen;
+    button.setAttribute('aria-expanded', isOpen.toString());
+    menu.hidden = !isOpen;
+  }
+
+  function closeMenu() {
+    isOpen = false;
+    button.setAttribute('aria-expanded', 'false');
+    menu.hidden = true;
+  }
+
+  button.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!button.contains(e.target as Node) && !menu.contains(e.target as Node)) {
+      closeMenu();
+    }
+  });
+
+  // Handle language selection
+  languageOptions.forEach((option) => {
+    option.addEventListener('click', (e) => {
+      const lang = (e.currentTarget as HTMLElement).dataset.lang;
+      const targetUrl = (e.currentTarget as HTMLElement).dataset.url;
+
+      if (lang && targetUrl) {
+        // Store language preference
+        localStorage.setItem('preferred-language', lang);
+
+        // Navigate to the language-specific URL
+        window.location.href = targetUrl;
+      }
+    });
+  });
+
+  // Close menu on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) {
+      closeMenu();
+      button.focus();
+    }
+  });
+</script>

@@ -2,9 +2,13 @@
 import Navigation from './Navigation.astro';
 import MobileMenu from './MobileMenu.astro';
 import ThemeToggle from './ThemeToggle.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { setupI18n } from '@/i18n/astroHelpers';
 
 const currentPath = Astro.url.pathname;
-const email = 'hello@damianmeroni.dev';
+const lang = Astro.url.searchParams.get('lang');
+const i18n = setupI18n(lang);
+const email = i18n.t('common.email');
 ---
 
 <header class="header" id="main-header">
@@ -18,6 +22,7 @@ const email = 'hello@damianmeroni.dev';
       <div class="nav-section">
         <Navigation currentPath={currentPath} />
         <MobileMenu currentPath={currentPath} />
+        <LanguageSwitcher />
         <ThemeToggle />
       </div>
     </div>

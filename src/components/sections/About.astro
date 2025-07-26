@@ -1,44 +1,35 @@
 ---
 import Section from '@components/common/Section.astro';
+import { useAstroI18n } from '@/i18n';
+
+const { i18n } = useAstroI18n(Astro.url);
 ---
 
 <Section id="about">
   <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll">About Me</h2>
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll">{i18n.t('about.title')}</h2>
 
     <div class="space-y-4 text-lg leading-relaxed animate-on-scroll animation-delay-100">
-      <p>
-        I'm a Senior Software Engineer with <strong>9+ years of experience</strong> collaborating with
-        engineering teams to architect, develop, and deploy scalable, cloud-native applications and distributed
-        systems for SaaS, B2B, and B2C environments. My expertise spans full-stack development with TypeScript,
-        Node.js, React, and Vue.js, combined with advanced microservices and event-driven architectures.
-      </p>
-
-      <p>
-        My passion lies in <strong>Architecture patterns (DDD, Microservices, Serverless)</strong>,
-        API-first architectures, and leveraging cloud technologies (AWS, Azure) to build robust,
-        maintainable solutions. I excel at translating complex business requirements into scalable
-        technical solutions, with proven expertise in remote collaboration across European and Latin
-        American time zones for 6+ years.
-      </p>
+      <p>{i18n.t('about.paragraph1')}</p>
+      <p>{i18n.t('about.paragraph2')}</p>
     </div>
 
     <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 animate-on-scroll animation-delay-200">
       <div class="text-center">
-        <div class="text-3xl font-bold gradient-text">9+</div>
-        <div class="text-sm text-secondary mt-1">Years Experience</div>
+        <div class="text-3xl font-bold gradient-text">{i18n.t('about.stats.experience')}</div>
+        <div class="text-sm text-secondary mt-1">{i18n.t('about.stats.experienceLabel')}</div>
       </div>
       <div class="text-center">
-        <div class="text-3xl font-bold gradient-text">Expert</div>
-        <div class="text-sm text-secondary mt-1">Full-Stack</div>
+        <div class="text-3xl font-bold gradient-text">{i18n.t('about.stats.fullStack')}</div>
+        <div class="text-sm text-secondary mt-1">{i18n.t('about.stats.fullStackLabel')}</div>
       </div>
       <div class="text-center">
-        <div class="text-3xl font-bold gradient-text">Cloud</div>
-        <div class="text-sm text-secondary mt-1">Architecture</div>
+        <div class="text-3xl font-bold gradient-text">{i18n.t('about.stats.cloud')}</div>
+        <div class="text-sm text-secondary mt-1">{i18n.t('about.stats.cloudLabel')}</div>
       </div>
       <div class="text-center">
-        <div class="text-3xl font-bold gradient-text">6+</div>
-        <div class="text-sm text-secondary mt-1">Years Remote</div>
+        <div class="text-3xl font-bold gradient-text">{i18n.t('about.stats.remote')}</div>
+        <div class="text-sm text-secondary mt-1">{i18n.t('about.stats.remoteLabel')}</div>
       </div>
     </div>
   </div>

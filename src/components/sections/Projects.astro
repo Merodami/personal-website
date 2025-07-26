@@ -2,16 +2,17 @@
 import Section from '@components/common/Section.astro';
 import ProjectCard from '@components/cards/ProjectCard.astro';
 import { projects } from '@data/projects';
+import { useAstroI18n } from '@/i18n';
 
+const { i18n } = useAstroI18n(Astro.url);
 const featuredProjects = projects.filter((p) => p.featured);
 ---
 
 <Section id="projects" gradient>
   <div class="text-center mb-12 animate-on-scroll">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">{i18n.t('projects.title')}</h2>
     <p class="text-lg max-w-2xl mx-auto">
-      Here are some of my recent projects that showcase my skills and passion for creating impactful
-      digital solutions.
+      {i18n.t('about.paragraph2')}
     </p>
   </div>
 

@@ -7,6 +7,7 @@ import SEOTags from '@components/seo/SEOTags.astro';
 import CriticalCSS from '@components/CriticalCSS.astro';
 import FontOptimization from '@components/FontOptimization.astro';
 import { themeInitScript } from '@scripts/theme-init';
+import { useAstroI18n } from '@/i18n';
 
 interface Props {
   title?: string;
@@ -16,10 +17,11 @@ interface Props {
 }
 
 const { title, description, image, noindex } = Astro.props;
+const { lang } = useAstroI18n(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en" class="h-full" data-theme="dark">
+<html lang={lang} class="h-full" data-theme="dark">
   <head>
     <SEOTags {title} {description} {image} {noindex} />
 

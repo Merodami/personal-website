@@ -13,7 +13,9 @@
       "@data/*": ["src/data/*"],
       "@stores/*": ["src/stores/*"],
       "@scripts/*": ["src/scripts/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@i18n/*": ["src/i18n/*"],
+      "@/*": ["src/*"]
     },
     "verbatimModuleSyntax": true,
     "types": ["astro/client"]

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import AboutSection from '@components/sections/About.astro';
+import { setupI18n } from '@/i18n';
+
+// Set Spanish language for this page
+setupI18n('es');
+---
+
+<BaseLayout
+  title="Acerca de - Damian Meroni"
+  description="Ingeniero de Software Senior con más de 9 años de experiencia en desarrollo full-stack y arquitectura de sistemas escalables."
+>
+  <AboutSection />
+</BaseLayout>

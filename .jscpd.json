@@ -1,0 +1,20 @@
+{
+  "threshold": 0,
+  "reporters": ["html", "console"],
+  "ignore": [
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/*.min.js",
+    "**/*.min.css",
+    "**/vendor/**",
+    "**/public/**",
+    "**/.yarn/**",
+    "**/lighthouse/**"
+  ],
+  "format": ["javascript", "typescript", "jsx", "tsx", "css", "scss", "html", "astro"],
+  "absolute": true,
+  "gitignore": true
+}

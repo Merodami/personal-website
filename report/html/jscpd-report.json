@@ -1,0 +1,730 @@
+{
+  "statistics": {
+    "detectionDate": "2025-07-26T13:29:41.513Z",
+    "formats": {
+      "typescript": {
+        "sources": {
+          "/Users/damian/dev/personal-website/tests/unit/i18n/strategies/SpanishStrategy.test.ts": {
+            "lines": 44,
+            "tokens": 381,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/tests/unit/i18n/strategies/LanguageStrategyFactory.test.ts": {
+            "lines": 52,
+            "tokens": 559,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/tests/unit/i18n/strategies/EnglishStrategy.test.ts": {
+            "lines": 44,
+            "tokens": 381,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/tests/unit/utils/theme.test.ts": {
+            "lines": 124,
+            "tokens": 1115,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/tests/unit/i18n/utils.test.ts": {
+            "lines": 202,
+            "tokens": 1694,
+            "sources": 1,
+            "clones": 3,
+            "duplicatedLines": 42,
+            "duplicatedTokens": 360,
+            "percentage": 20.79,
+            "percentageTokens": 21.25,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/tests/unit/i18n/store.test.ts": {
+            "lines": 98,
+            "tokens": 952,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/tests/unit/i18n/astroHooks.test.ts": {
+            "lines": 101,
+            "tokens": 979,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/strategies/base.ts": {
+            "lines": 13,
+            "tokens": 106,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/strategies/SpanishStrategy.ts": {
+            "lines": 15,
+            "tokens": 137,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/strategies/LanguageStrategyFactory.ts": {
+            "lines": 29,
+            "tokens": 278,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/strategies/EnglishStrategy.ts": {
+            "lines": 15,
+            "tokens": 137,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/locales/es.ts": {
+            "lines": 88,
+            "tokens": 571,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/locales/en.ts": {
+            "lines": 88,
+            "tokens": 571,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/tests/integration/theme-persistence.test.ts": {
+            "lines": 61,
+            "tokens": 555,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/tests/integration/i18n-language-switching.test.ts": {
+            "lines": 101,
+            "tokens": 894,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 18,
+            "duplicatedTokens": 152,
+            "percentage": 17.82,
+            "percentageTokens": 17,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/utils/theme.ts": {
+            "lines": 111,
+            "tokens": 830,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/utils/animations.ts": {
+            "lines": 44,
+            "tokens": 430,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/types/index.ts": {
+            "lines": 19,
+            "tokens": 108,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/stores/appStore.ts": {
+            "lines": 56,
+            "tokens": 425,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/scripts/theme-init.ts": {
+            "lines": 21,
+            "tokens": 37,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/utils.ts": {
+            "lines": 68,
+            "tokens": 697,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/types.ts": {
+            "lines": 127,
+            "tokens": 889,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/store.ts": {
+            "lines": 90,
+            "tokens": 826,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/index.ts": {
+            "lines": 7,
+            "tokens": 122,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/i18nConfig.ts": {
+            "lines": 44,
+            "tokens": 383,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/constants.ts": {
+            "lines": 32,
+            "tokens": 393,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/astroHooks.ts": {
+            "lines": 74,
+            "tokens": 695,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/i18n/astroHelpers.ts": {
+            "lines": 14,
+            "tokens": 101,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/hooks/useTheme.ts": {
+            "lines": 21,
+            "tokens": 206,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/data/technologies.ts": {
+            "lines": 85,
+            "tokens": 1845,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/data/social.ts": {
+            "lines": 26,
+            "tokens": 160,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/data/projects.ts": {
+            "lines": 48,
+            "tokens": 348,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/data/experience.ts": {
+            "lines": 80,
+            "tokens": 453,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/config/theme.ts": {
+            "lines": 9,
+            "tokens": 80,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/config/constants.ts": {
+            "lines": 41,
+            "tokens": 314,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/tests/setup.ts": {
+            "lines": 35,
+            "tokens": 340,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/.astro/content.d.ts": {
+            "lines": 198,
+            "tokens": 2176,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 16,
+            "duplicatedTokens": 176,
+            "percentage": 8.08,
+            "percentageTokens": 8.09,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/vitest.config.ts": {
+            "lines": 36,
+            "tokens": 299,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 2361,
+          "tokens": 21467,
+          "sources": 38,
+          "clones": 3,
+          "duplicatedLines": 38,
+          "duplicatedTokens": 344,
+          "percentage": 1.61,
+          "percentageTokens": 1.6,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "css": {
+        "sources": {
+          "/Users/damian/dev/personal-website/src/styles/base/typography.css": {
+            "lines": 224,
+            "tokens": 1291,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/styles/base/themes.css": {
+            "lines": 133,
+            "tokens": 1034,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/src/styles/global.css": {
+            "lines": 200,
+            "tokens": 976,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 557,
+          "tokens": 3301,
+          "sources": 3,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "javascript": {
+        "sources": {
+          "/Users/damian/dev/personal-website/tailwind.config.js": {
+            "lines": 18,
+            "tokens": 112,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/postcss.config.js": {
+            "lines": 5,
+            "tokens": 33,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/eslint.config.js": {
+            "lines": 43,
+            "tokens": 280,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/astro.config.mjs": {
+            "lines": 53,
+            "tokens": 352,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/damian/dev/personal-website/.dependency-cruiser.cjs": {
+            "lines": 156,
+            "tokens": 883,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 275,
+          "tokens": 1660,
+          "sources": 5,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      }
+    },
+    "total": {
+      "lines": 3193,
+      "tokens": 26428,
+      "sources": 46,
+      "clones": 3,
+      "duplicatedLines": 38,
+      "duplicatedTokens": 344,
+      "percentage": 1.19,
+      "percentageTokens": 1.3,
+      "newDuplicatedLines": 0,
+      "newClones": 0
+    }
+  },
+  "duplicates": [
+    {
+      "format": "typescript",
+      "lines": 13,
+      "fragment": ", () => {\n      // Reset localStorage mock to return null\n      Object.defineProperty(window, 'localStorage', {\n        value: {\n          getItem: vi.fn(() => null),\n          setItem: vi.fn(),\n          clear: vi.fn(),\n        },\n        writable: true,\n      });\n\n      Object.defineProperty(navigator, 'language', {\n        value: 'fr-FR'",
+      "tokens": 0,
+      "firstFile": {
+        "name": "/Users/damian/dev/personal-website/tests/unit/i18n/utils.test.ts",
+        "start": 76,
+        "end": 88,
+        "startLoc": {
+          "line": 76,
+          "column": 63,
+          "position": 587
+        },
+        "endLoc": {
+          "line": 88,
+          "column": 8,
+          "position": 691
+        }
+      },
+      "secondFile": {
+        "name": "/Users/damian/dev/personal-website/tests/unit/i18n/utils.test.ts",
+        "start": 57,
+        "end": 69,
+        "startLoc": {
+          "line": 57,
+          "column": 63,
+          "position": 443
+        },
+        "endLoc": {
+          "line": 69,
+          "column": 8,
+          "position": 547
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 19,
+      "fragment": ", () => {\n      const mockLocalStorage = {\n        getItem: vi.fn(),\n        setItem: vi.fn(),\n        clear: vi.fn(),\n      };\n      Object.defineProperty(window, 'localStorage', {\n        value: mockLocalStorage,\n        writable: true,\n      });\n\n      persistLanguage('es');\n\n      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('preferred-language', 'es');\n      expect(document.documentElement.lang).toBe('es');\n      expect(document.documentElement.dir).toBe('ltr');\n    });\n\n    it",
+      "tokens": 0,
+      "firstFile": {
+        "name": "/Users/damian/dev/personal-website/tests/integration/i18n-language-switching.test.ts",
+        "start": 17,
+        "end": 35,
+        "startLoc": {
+          "line": 17,
+          "column": 37,
+          "position": 149
+        },
+        "endLoc": {
+          "line": 35,
+          "column": 3,
+          "position": 301
+        }
+      },
+      "secondFile": {
+        "name": "/Users/damian/dev/personal-website/tests/unit/i18n/utils.test.ts",
+        "start": 107,
+        "end": 124,
+        "startLoc": {
+          "line": 107,
+          "column": 54,
+          "position": 824
+        },
+        "endLoc": {
+          "line": 124,
+          "column": 2,
+          "position": 975
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 9,
+      "fragment": ",\n\t): E extends ValidContentEntrySlug<C>\n\t\t? Promise<CollectionEntry<C>>\n\t\t: Promise<CollectionEntry<C> | undefined>;\n\texport function getEntry<\n\t\tC extends keyof DataEntryMap,\n\t\tE extends keyof DataEntryMap[C] | (string & {}),\n\t>(\n\t\tcollection",
+      "tokens": 0,
+      "firstFile": {
+        "name": "/Users/damian/dev/personal-website/.astro/content.d.ts",
+        "start": 108,
+        "end": 116,
+        "startLoc": {
+          "line": 108,
+          "column": 2,
+          "position": 1101
+        },
+        "endLoc": {
+          "line": 116,
+          "column": 11,
+          "position": 1189
+        }
+      },
+      "secondFile": {
+        "name": "/Users/damian/dev/personal-website/.astro/content.d.ts",
+        "start": 91,
+        "end": 99,
+        "startLoc": {
+          "line": 91,
+          "column": 2,
+          "position": 900
+        },
+        "endLoc": {
+          "line": 99,
+          "column": 6,
+          "position": 988
+        }
+      }
+    }
+  ],
+  "filename": "/Users/damian/dev/personal-website/node_modules/@jscpd/html-reporter/dist/templates/main.pug"
+}

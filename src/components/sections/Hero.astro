@@ -4,18 +4,21 @@ import FloatingTechLogos from '@components/background/FloatingTechLogos.astro';
 import StaticTechLogos from '@components/background/StaticTechLogos.astro';
 import DynamicText from '@components/ui/DynamicText.astro';
 import { FEATURE_FLAGS } from '@config/constants';
+import { useAstroI18n, getLocalizedUrl } from '@/i18n';
+
+const { lang, i18n } = useAstroI18n(Astro.url);
 
 // Dynamic words with colors matching technology brands
 const dynamicWords = [
-  { text: 'build', color: '#3178C6' }, // TypeScript blue
-  { text: 'create', color: '#61DAFB' }, // React cyan
-  { text: 'develop', color: '#339933' }, // Node.js green
-  { text: 'engineer', color: '#F7DF1E' }, // JavaScript yellow
-  { text: 'craft', color: '#DD0031' }, // Angular red
-  { text: 'architect', color: '#2496ED' }, // Docker blue
-  { text: 'code', color: '#FF9900' }, // AWS orange
-  { text: 'forge', color: '#4169E1' }, // PostgreSQL blue
-  { text: 'shape', color: '#47A248' }, // MongoDB green
+  { text: i18n.t('hero.dynamicWords.build'), color: '#3178C6' }, // TypeScript blue
+  { text: i18n.t('hero.dynamicWords.create'), color: '#61DAFB' }, // React cyan
+  { text: i18n.t('hero.dynamicWords.develop'), color: '#339933' }, // Node.js green
+  { text: i18n.t('hero.dynamicWords.engineer'), color: '#F7DF1E' }, // JavaScript yellow
+  { text: i18n.t('hero.dynamicWords.craft'), color: '#DD0031' }, // Angular red
+  { text: i18n.t('hero.dynamicWords.architect'), color: '#2496ED' }, // Docker blue
+  { text: i18n.t('hero.dynamicWords.code'), color: '#FF9900' }, // AWS orange
+  { text: i18n.t('hero.dynamicWords.forge'), color: '#4169E1' }, // PostgreSQL blue
+  { text: i18n.t('hero.dynamicWords.shape'), color: '#47A248' }, // MongoDB green
 ];
 ---
 
@@ -27,26 +30,27 @@ const dynamicWords = [
   <div class="container">
     <div class="hero-content">
       <h1 class="hero-title">
-        I design and <DynamicText words={dynamicWords} /><br />
-        <span class="gradient-text">performant sites</span>
-        for real business needs.
+        {i18n.t('hero.title.part1')}
+        <DynamicText words={dynamicWords} /><br />
+        <span class="gradient-text">{i18n.t('hero.title.part2')}</span>
+        {i18n.t('hero.title.part3')}
       </h1>
 
       <p class="hero-description">
-        Senior Software Engineer with 9+ years of experience architecting scalable, cloud-native
-        applications and distributed systems. Expert in full-stack development, microservices, and
-        event-driven architectures, with proven success in systems processing 5,000+ events/second.
+        {i18n.t('hero.description')}
       </p>
 
       <div class="hero-actions">
         {
           FEATURE_FLAGS.showProjects && (
-            <Button href="/projects" size="lg">
-              View My Work
+            <Button href={getLocalizedUrl('/projects', lang)} size="lg">
+              {i18n.t('common.viewMyWork')}
             </Button>
           )
         }
-        <Button href="/contact" variant="outline" size="lg">Get In Touch</Button>
+        <Button href={getLocalizedUrl('/contact', lang)} variant="outline" size="lg"
+          >{i18n.t('common.getInTouch')}</Button
+        >
       </div>
     </div>
   </div>
