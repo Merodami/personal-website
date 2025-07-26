@@ -4,6 +4,7 @@
   "project": ["src/**/*.{ts,tsx,js,jsx,astro}"],
   "ignore": ["**/*.spec.ts", "**/*.test.ts", ".astro/**", "src/utils/theme.ts"],
   "ignoreDependencies": ["sharp"],
+  "ignoreBinaries": ["dot"],
   "ignoreExportsUsedInFile": true,
   "astro": {
     "config": ["astro.config.*"]

@@ -9,6 +9,7 @@ interface StorageState {
 
 /**
  * Theme utility functions for consistent theme management across the app
+ * These utilities work with the zustand store for proper state management
  */
 export const themeUtils = {
   /**

@@ -130,24 +130,3 @@ export interface LanguageStrategy {
   getTranslations(): TranslationResource;
   getMetadata(): LanguageMetadata;
 }
-
-export interface I18nConfig {
-  defaultLanguage: AvailableLanguage;
-  fallbackLanguage: AvailableLanguage;
-  supportedLanguages: ReadonlyArray<AvailableLanguage>;
-  detection: {
-    order: ReadonlyArray<'querystring' | 'cookie' | 'localStorage' | 'navigator' | 'htmlTag'>;
-    caches: ReadonlyArray<'localStorage' | 'cookie'>;
-  };
-  interpolation: {
-    escapeValue: boolean;
-  };
-}
-
-export interface LanguageContextValue {
-  currentLanguage: AvailableLanguage;
-  setLanguage: (language: AvailableLanguage) => void;
-  t: (key: string, params?: Record<string, unknown>) => string;
-  metadata: LanguageMetadata;
-  isLoading: boolean;
-}
