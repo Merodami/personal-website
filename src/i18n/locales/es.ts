@@ -3,6 +3,7 @@ import type { TranslationResource } from '../types';
 export const esTranslations: TranslationResource = {
   common: {
     email: 'hola@damianmeroni.dev',
+    emailShort: 'Contacto',
     yearsExperience: '9+',
     fullStack: 'Experto',
     cloudArchitecture: 'Cloud',

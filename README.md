@@ -58,9 +58,10 @@
 
 ### 🛠️ Developer Experience
 - **🧪 Comprehensive Testing** - Unit & integration tests with Vitest
-- **🔍 Type Safety** - 100% TypeScript with strict mode
+- **🔍 Type Safety** - 99.62% TypeScript coverage with strict mode
 - **🚨 Code Quality** - ESLint, Prettier, and Husky pre-commit hooks
 - **📊 State Management** - Zustand with Redux DevTools integration
+- **🔧 Advanced Analysis** - Type coverage, dependency cruiser, duplicate detection, and unused code finder
 
 ## 🛠️ Tech Stack
 
@@ -73,6 +74,7 @@
 | **Testing** | ![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=flat-square&logo=vitest&logoColor=white) ![Testing Library](https://img.shields.io/badge/Testing_Library-E33332?style=flat-square&logo=testing-library&logoColor=white) |
 | **DevOps** | ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white) ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white) |
 | **Tools** | ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white) ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white) ![Yarn](https://img.shields.io/badge/Yarn-2C8EBB?style=flat-square&logo=yarn&logoColor=white) |
+| **Code Quality** | ![TypeScript](https://img.shields.io/badge/type--coverage-007ACC?style=flat-square&logo=typescript&logoColor=white) ![Dependencies](https://img.shields.io/badge/dependency--cruiser-FF6B6B?style=flat-square&logo=npm&logoColor=white) ![Duplication](https://img.shields.io/badge/jscpd-4ECDC4?style=flat-square&logo=javascript&logoColor=white) ![Unused Code](https://img.shields.io/badge/knip-45B7D1?style=flat-square&logo=scissors&logoColor=white) |
 
 </div>
 
@@ -120,6 +122,18 @@ yarn test             # Run tests with Vitest
 yarn test:ui          # Open Vitest UI
 yarn test:coverage    # Generate coverage report
 yarn test:watch       # Run tests in watch mode
+
+# Advanced Code Analysis
+yarn quality:types         # TypeScript type coverage analysis
+yarn quality:types:detail  # Detailed type coverage report
+yarn quality:deps          # Dependency structure analysis
+yarn quality:deps:graph    # Generate dependency graph (SVG)
+yarn quality:duplicates    # Detect code duplication
+yarn quality:duplicates:report # Generate duplication HTML report
+yarn quality:unused        # Find unused code and dependencies
+yarn quality:unused:strict # Strict unused code detection
+yarn quality:all           # Run all quality checks
+yarn quality:ci            # Quality checks for CI (strict mode)
 
 # Performance
 yarn open-lighthouse  # Generate Lighthouse report
@@ -173,13 +187,20 @@ personal-website/
 │   │   └── seo/        # SEO components
 │   ├── config/         # App configuration
 │   ├── data/           # Static data
+│   ├── i18n/           # Internationalization system
+│   │   ├── locales/    # Translation files (en.ts, es.ts)
+│   │   ├── strategies/ # Language strategy pattern
+│   │   ├── astroUtils.ts # Astro SSG utilities
+│   │   └── types.ts    # i18n TypeScript definitions
 │   ├── layouts/        # Page layouts
 │   ├── pages/          # Route pages
+│   │   └── es/         # Spanish static pages
 │   ├── scripts/        # Utility scripts
 │   ├── stores/         # State management
 │   ├── styles/         # Global styles
 │   ├── types/          # TypeScript types
 │   └── utils/          # Helper functions
+│       └── dynamicI18n.ts # Client-side language switching
 ├── tests/              # Test files
 ├── CLAUDE.md           # Development standards
 └── README.md           # You are here! 📍
@@ -210,10 +231,13 @@ xl: 1280px  /* Large screens */
 ## 🌍 Features in Detail
 
 ### 🌐 Internationalization
-- Automatic language detection via CloudFlare
-- Spanish (ES) and English (EN) support
-- SEO-friendly URL structure
-- Persistent language preference
+- **Hybrid Architecture**: SEO-optimized static pages (`/`, `/es/`) + dynamic client-side switching
+- **Languages**: Spanish (ES) and English (EN) with natural, professional translations
+- **SEO Excellence**: Dedicated static routes for search engines with proper hreflang tags
+- **Dynamic UX**: Instant language switching without page reload using `history.pushState`
+- **Type Safety**: Full TypeScript coverage with generic translation functions `t<T>(key: string): T`
+- **Performance**: Strategy pattern with optimized translation loading and caching
+- **Accessibility**: ARIA attributes and keyboard navigation for language switcher
 
 ### 🔐 Security
 - Content Security Policy (CSP)

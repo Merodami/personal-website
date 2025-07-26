@@ -10,6 +10,7 @@ export type LanguageDirection = keyof typeof LANGUAGE_DIRECTION;
 export interface TranslationResource {
   common: {
     email: string;
+    emailShort: string;
     yearsExperience: string;
     fullStack: string;
     cloudArchitecture: string;
