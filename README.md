@@ -35,7 +35,7 @@
 - **[ESLint](https://eslint.org/)** - Code linting and quality
 - **[Prettier](https://prettier.io/)** - Code formatting
 - **[Husky](https://typicode.github.io/husky/)** - Git hooks
-- **[npm](https://www.npmjs.com/)** - Package manager
+- **[Yarn](https://yarnpkg.com/)** - Package manager (v4.9.1 via Corepack)
 
 ### Deployment & CI/CD
 - **[Cloudflare Pages](https://pages.cloudflare.com/)** - Global edge deployment
@@ -46,7 +46,7 @@
 
 ### Prerequisites
 - Node.js 20+ LTS (required for latest dependencies)
-- npm (included with Node.js)
+- Yarn 4.9.1 (managed via Corepack)
 
 ### Installation
 
@@ -56,10 +56,10 @@ git clone https://github.com/Merodami/personal-website.git
 cd personal-website
 
 # Install dependencies
-npm install
+yarn install
 
 # Start development server
-npm run dev
+yarn dev
 ```
 
 The site will be available at `http://localhost:3000`
@@ -68,22 +68,22 @@ The site will be available at `http://localhost:3000`
 
 ```bash
 # Development
-npm run dev              # Start dev server on port 3000
-npm start                # Alias for dev
+yarn dev              # Start dev server on port 3000
+yarn start            # Alias for dev
 
 # Building
-npm run build            # Build for production (includes type checking)
-npm run preview          # Preview production build
+yarn build            # Build for production (includes type checking)
+yarn preview          # Preview production build
 
 # Code Quality
-npm run lint             # Run ESLint
-npm run format           # Format code with Prettier
+yarn lint             # Run ESLint
+yarn format           # Format code with Prettier
 
 # Performance
-npm run open-lighthouse  # Generate Lighthouse report
+yarn open-lighthouse  # Generate Lighthouse report
 
 # Maintenance  
-npm update               # Update all dependencies to latest
+yarn update           # Update all dependencies to latest
 ```
 
 ## 🔧 State Management & Development Tools
@@ -225,7 +225,7 @@ The site is configured for automatic deployment to Cloudflare Pages:
 
 **Build Settings:**
 - **Framework:** Astro
-- **Build Command:** `npm run build`
+- **Build Command:** `yarn build`
 - **Build Output:** `dist`
 - **Node Version:** 18+
 
@@ -240,7 +240,7 @@ CLOUDFLARE_ACCOUNT_ID=your_account_id_here
 
 ```bash
 # Build for production
-npm run build
+yarn build
 
 # Deploy with Wrangler CLI
 npx wrangler pages deploy dist --project-name=personal-website

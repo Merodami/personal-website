@@ -37,12 +37,16 @@ export default defineConfig({
     },
     build: {
       cssCodeSplit: true,
-      assetsInlineLimit: 0,
+      assetsInlineLimit: 4096, // Inline small CSS files
       rollupOptions: {
         output: {
           assetFileNames: 'assets/[hash][extname]',
           chunkFileNames: 'assets/chunks/[hash].js',
           entryFileNames: 'assets/[hash].js',
+          manualChunks: {
+            // Group CSS by route to reduce requests
+            critical: ['src/styles/base/reset.css', 'src/styles/base/typography.css'],
+          },
         },
       },
     },

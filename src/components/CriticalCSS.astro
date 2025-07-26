@@ -1,0 +1,54 @@
+---
+// Enhanced critical CSS with more comprehensive styles
+const criticalCSS = `
+  /* Reset and base styles */
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  
+  /* Layout essentials */
+  .h-full { height: 100%; }
+  .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+  
+  /* Typography for hero */
+  .hero-title { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin: 0; }
+  
+  /* Theme colors */
+  [data-theme="dark"] { 
+    --bg-primary: #0a0a0a; 
+    --text-primary: #ffffff;
+    --bg-card: #141414;
+    --border-color: #262626;
+  }
+  [data-theme="light"] { 
+    --bg-primary: #ffffff; 
+    --text-primary: #0a0a0a;
+    --bg-card: #f9fafb;
+    --border-color: #e5e7eb;
+  }
+  body { 
+    background-color: var(--bg-primary); 
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  
+  /* Navigation layout */
+  header { position: sticky; top: 0; z-index: 50; }
+  .nav-section { display: flex; align-items: center; gap: 1rem; }
+  
+  /* Hero section */
+  .hero-section { min-height: 100vh; display: flex; align-items: center; }
+  
+  /* Common components */
+  .email { display: inline-block; }
+  .main-content { flex: 1; }
+  
+  /* Grid layouts */
+  .grid { display: grid; gap: 1rem; }
+  @media (min-width: 768px) {
+    .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  }
+`;
+---
+
+<style is:inline set:html={criticalCSS}></style>

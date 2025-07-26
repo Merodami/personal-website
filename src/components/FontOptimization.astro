@@ -1,0 +1,40 @@
+---
+// Font optimization component
+---
+
+<!-- Preload critical font subset -->
+<link
+  rel="preload"
+  href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+
+<!-- Inline critical font-face declaration -->
+<style is:inline>
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2')
+      format('woff2-variations');
+    unicode-range: U+0020-007F; /* Basic Latin characters */
+  }
+
+  /* Use system font stack as immediate fallback */
+  body {
+    font-family:
+      'Inter',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      sans-serif;
+  }
+</style>
+
+<!-- Load additional font weights asynchronously -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

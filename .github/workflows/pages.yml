@@ -1,5 +1,5 @@
 # .github/workflows/pages.yml
-name: CI & Deploy to Cloudflare Pages
+name: CI & Deploy to Cloudflare Workers
 
 # ────────────────────────────────
 # Triggers
@@ -34,39 +34,34 @@ jobs:
         uses: actions/checkout@v4
 
       # ——— Toolchain setup ————————————————————————————————
-      - name: 📦 Setup PNPM
-        uses: pnpm/action-setup@v3
-        with:
-          version: 10.10.0 # keep in sync with lockfile
-
-      - name: 🔧 Setup Node .js
+      - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20 # active LTS
-          cache: pnpm # automatic pnpm store cache
+
+      - name: 🔧 Enable Corepack
+        run: corepack enable
 
       # ——— Install, test, lint ——————————————————————————————
       - name: 📥 Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: yarn install --frozen-lockfile
 
       - name: 🧹 Lint
-        run: pnpm lint
+        run: yarn lint
 
       # If you have tests, uncomment the block below
       # - name: 🧪 Test
-      #   run: pnpm test --if-present
+      #   run: yarn test --if-present
 
-      # ——— Build Astro for Pages ————————————————————————————
+      # ——— Build Astro for Workers ————————————————————————————
       - name: 🏗️ Build site
-        run: pnpm build # runs `astro build` → ./dist
-
-      # ——— Install Wrangler globally first ——————————————————
-      - name: 🧰 Install Wrangler
-        run: npm install -g wrangler@latest
+        run: yarn build # runs `astro build` → ./dist
 
       # ——— Deploy with Wrangler CLI directly ————————————————
-      - name: 🚀 Deploy to Cloudflare Pages
+      - name: 🚀 Deploy to Cloudflare Workers
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: wrangler pages deploy dist --project-name=personal-website --branch=${{ github.ref_name }}
+        run: |
+          # Deploy to Cloudflare Workers
+          npx wrangler@latest deploy
