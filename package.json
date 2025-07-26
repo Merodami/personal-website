@@ -20,7 +20,7 @@
     "test:watch": "vitest watch",
     "prepare": "husky",
     "open-lighthouse": "lighthouse http://localhost:3001 --view --output-path=./lighthouse/$(date +%Y%m%d_%H%M%S).report.html",
-    "update": "npm update",
+    "update": "yarn upgrade-interactive",
     "deploy": "wrangler deploy",
     "wrangler": "wrangler"
   },

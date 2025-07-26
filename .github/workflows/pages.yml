@@ -38,26 +38,28 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20 # active LTS
-          cache: npm # automatic npm cache
+
+      - name: 🔧 Enable Corepack
+        run: corepack enable
 
       # ——— Install, test, lint ——————————————————————————————
       - name: 📥 Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: 🧹 Lint
-        run: npm run lint
+        run: yarn lint
 
       # If you have tests, uncomment the block below
       # - name: 🧪 Test
-      #   run: npm test --if-present
+      #   run: yarn test --if-present
 
       # ——— Build Astro for Pages ————————————————————————————
       - name: 🏗️ Build site
-        run: npm run build # runs `astro build` → ./dist
+        run: yarn build # runs `astro build` → ./dist
 
       # ——— Install Wrangler globally first ——————————————————
       - name: 🧰 Install Wrangler
-        run: npm install -g wrangler@latest
+        run: yarn global add wrangler@latest
 
       # ——— Deploy with Wrangler CLI directly ————————————————
       - name: 🚀 Deploy to Cloudflare Pages
