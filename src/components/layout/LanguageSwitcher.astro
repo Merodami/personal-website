@@ -216,18 +216,23 @@ const alternateUrls = getAlternateUrls(Astro.url.pathname);
     }
   });
 
-  // Handle language selection
+  // Handle language selection with dynamic switching
   languageOptions.forEach((option) => {
-    option.addEventListener('click', (e) => {
-      const lang = (e.currentTarget as HTMLElement).dataset.lang;
+    option.addEventListener('click', async (e) => {
+      const lang = (e.currentTarget as HTMLElement).dataset.lang as 'en' | 'es';
       const targetUrl = (e.currentTarget as HTMLElement).dataset.url;
 
       if (lang && targetUrl) {
-        // Store language preference
-        localStorage.setItem('preferred-language', lang);
-
-        // Navigate to the language-specific URL
-        window.location.href = targetUrl;
+        closeMenu();
+        
+        // Check if dynamic i18n is available (client-side)
+        if ('dynamicI18n' in window) {
+          // Use dynamic switching for instant language change
+          await window.dynamicI18n.switchLanguage(lang);
+        } else {
+          // Fallback to page navigation for SEO/initial load
+          location.href = targetUrl;
+        }
       }
     });
   });

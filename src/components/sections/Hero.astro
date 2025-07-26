@@ -30,13 +30,13 @@ const dynamicWords = [
   <div class="container">
     <div class="hero-content">
       <h1 class="hero-title">
-        {i18n.t('hero.title.part1')}
+        <span data-i18n="hero.title.part1">{i18n.t('hero.title.part1')}</span>
         <DynamicText words={dynamicWords} /><br />
-        <span class="gradient-text">{i18n.t('hero.title.part2')}</span>
-        {i18n.t('hero.title.part3')}
+        <span class="gradient-text" data-i18n="hero.title.part2">{i18n.t('hero.title.part2')}</span>
+        <span data-i18n="hero.title.part3">{i18n.t('hero.title.part3')}</span>
       </h1>
 
-      <p class="hero-description">
+      <p class="hero-description" data-i18n="hero.description">
         {i18n.t('hero.description')}
       </p>
 
@@ -44,13 +44,13 @@ const dynamicWords = [
         {
           FEATURE_FLAGS.showProjects && (
             <Button href={getLocalizedUrl('/projects', lang)} size="lg">
-              {i18n.t('common.viewMyWork')}
+              <span data-i18n="common.viewMyWork">{i18n.t('common.viewMyWork')}</span>
             </Button>
           )
         }
-        <Button href={getLocalizedUrl('/contact', lang)} variant="outline" size="lg"
-          >{i18n.t('common.getInTouch')}</Button
-        >
+        <Button href={getLocalizedUrl('/contact', lang)} variant="outline" size="lg">
+          <span data-i18n="common.getInTouch">{i18n.t('common.getInTouch')}</span>
+        </Button>
       </div>
     </div>
   </div>
