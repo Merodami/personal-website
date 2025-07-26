@@ -22,7 +22,7 @@ const dynamicWords = [
 ];
 ---
 
-<section class={`hero-section ${lang === 'es' ? 'lang-es' : ''}`}>
+<section class={`hero-section lang-${lang}`}>
   <FloatingTechLogos />
   <StaticTechLogos />
   <div class="hero-gradient"></div>
@@ -144,18 +144,17 @@ const dynamicWords = [
     }
   }
 
-  /* Language-specific adjustments */
+  /* Spanish spacing adjustment */
   .hero-section.lang-es {
-    padding-top: 6rem;
+    padding-top: 8rem; /* Add more space from top for Spanish */
   }
 
-  .lang-es .hero-title {
-    margin-bottom: 1.75rem;
+  .hero-section.lang-es .hero-title {
+    line-height: 1.2; /* Slightly more line height for Spanish */
+    margin-bottom: 2rem;
   }
 
-  @media (min-width: 768px) {
-    .lang-es .hero-title {
-      margin-bottom: 2.25rem;
-    }
+  .hero-section.lang-es .dynamic-text {
+    margin: 0 0.25rem; /* Add small horizontal margins */
   }
 </style>

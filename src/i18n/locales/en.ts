@@ -51,7 +51,7 @@ export const enTranslations: TranslationResource = {
     paragraph1:
       "I'm a Senior Software Engineer with 9+ years of experience collaborating with engineering teams to architect, develop, and deploy scalable, cloud-native applications and distributed systems for SaaS, B2B, and B2C environments. My expertise spans full-stack development with TypeScript, Node.js, React, and Vue.js, combined with advanced microservices and event-driven architectures.",
     paragraph2:
-      'My passion lies in Architecture patterns (DDD, Microservices, Serverless), API-first architectures, and leveraging cloud technologies (AWS, Azure) to build robust, maintainable solutions. I excel at translating complex business requirements into scalable technical solutions, with proven expertise in remote collaboration across European and Latin American time zones for 6+ years.',
+      'I believe in writing clean, maintainable code and creating elegant solutions that not only solve immediate problems but scale for future growth. My approach combines technical excellence with strong communication skills, enabling me to work effectively with stakeholders at all levels and deliver high-impact solutions that drive business value.',
     stats: {
       experience: '9+',
       experienceLabel: 'Years Experience',
@@ -68,6 +68,8 @@ export const enTranslations: TranslationResource = {
     downloadResume: 'Download Resume',
     current: 'Current',
     responsibilities: 'Key Responsibilities',
+    description:
+      'My passion lies in Architecture patterns (DDD, Microservices, Serverless), API-first architectures, and leveraging cloud technologies (AWS, Azure) to build robust, maintainable solutions. I excel at translating complex business requirements into scalable technical solutions, with proven expertise in remote collaboration across European and Latin American time zones for 6+ years.',
     jobs: [
       {
         company: 'Expian UK',

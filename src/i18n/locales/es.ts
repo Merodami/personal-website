@@ -51,7 +51,7 @@ export const esTranslations: TranslationResource = {
     paragraph1:
       'Soy un Ingeniero de Software Senior con más de 9 años de experiencia colaborando con equipos de ingeniería para arquitectar, desarrollar e implementar aplicaciones escalables y nativas en la nube y sistemas distribuidos para entornos SaaS, B2B y B2C. Mi experiencia abarca el desarrollo full-stack con TypeScript, Node.js, React y Vue.js, combinado con microservicios avanzados y arquitecturas orientadas a eventos.',
     paragraph2:
-      'Mi pasión radica en los patrones de arquitectura (DDD, Microservicios, Serverless), arquitecturas API-first, y el aprovechamiento de tecnologías cloud (AWS, Azure) para construir soluciones robustas y mantenibles. Destaco en traducir requisitos de negocio complejos en soluciones técnicas escalables, con experiencia comprobada en colaboración remota a través de zonas horarias europeas y latinoamericanas durante más de 6 años.',
+      'Creo en escribir código limpio y mantenible, creando soluciones elegantes que no solo resuelven problemas inmediatos sino que escalan para el crecimiento futuro. Mi enfoque combina excelencia técnica con fuertes habilidades de comunicación, permitiéndome trabajar eficazmente con stakeholders en todos los niveles y entregar soluciones de alto impacto que impulsan el valor del negocio.',
     stats: {
       experience: '9+',
       experienceLabel: 'Años de Experiencia',
@@ -68,6 +68,8 @@ export const esTranslations: TranslationResource = {
     downloadResume: 'Descargar CV',
     current: 'Actual',
     responsibilities: 'Responsabilidades Clave',
+    description:
+      'Mi pasión radica en los patrones de arquitectura (DDD, Microservicios, Serverless), arquitecturas API-first, y el aprovechamiento de tecnologías cloud (AWS, Azure) para construir soluciones robustas y mantenibles. Destaco en traducir requisitos de negocio complejos en soluciones técnicas escalables, con experiencia comprobada en colaboración remota a través de zonas horarias europeas y latinoamericanas durante más de 6 años.',
     jobs: [
       {
         company: 'Expian UK',

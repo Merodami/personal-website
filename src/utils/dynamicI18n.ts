@@ -155,6 +155,9 @@ export class DynamicI18n {
     // Update html lang attribute
     document.documentElement.setAttribute('lang', currentLang);
 
+    // Update language-specific classes
+    this.updateLanguageClasses(currentLang);
+
     // Update language switcher state
     this.updateLanguageSwitcher();
 
@@ -166,6 +169,29 @@ export class DynamicI18n {
 
     // Update dynamic text component
     this.updateDynamicText();
+  }
+
+  private updateLanguageClasses(lang: AvailableLanguage): void {
+    // Update hero section language class
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+      heroSection.classList.remove('lang-en', 'lang-es');
+      heroSection.classList.add(`lang-${lang}`);
+    }
+
+    // Update any other elements that need language-specific styling
+    const elementsWithLangClasses = document.querySelectorAll('[class*="lang-"]');
+    elementsWithLangClasses.forEach((element) => {
+      const classes = Array.from(element.classList);
+      classes.forEach((className) => {
+        if (className.startsWith('lang-') && className !== `lang-${lang}`) {
+          element.classList.remove(className);
+        }
+      });
+      if (!element.classList.contains(`lang-${lang}`)) {
+        element.classList.add(`lang-${lang}`);
+      }
+    });
   }
 
   private updateLanguageSwitcher(): void {
