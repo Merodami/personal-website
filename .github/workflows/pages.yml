@@ -64,4 +64,4 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           # Deploy to Cloudflare Workers
-          npx wrangler@latest deploy --commit-dirty=true
+          npx wrangler@latest deploy
