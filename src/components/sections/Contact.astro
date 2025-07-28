@@ -60,7 +60,13 @@ const contactMethods = [
     </div>
 
     <div class="contact-grid">
-      {contactMethods.map((method) => <ContactCard {...method} />)}
+      {
+        contactMethods.map((method, index) => (
+          <div data-i18n-contact-card={index}>
+            <ContactCard {...method} />
+          </div>
+        ))
+      }
     </div>
 
     <!-- Quick Contact CTA -->

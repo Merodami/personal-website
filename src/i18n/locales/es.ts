@@ -66,6 +66,7 @@ export const esTranslations: TranslationResource = {
   experience: {
     title: 'Experiencia Laboral',
     downloadResume: 'Descargar CV',
+    downloadCV: 'Descargar CV',
     current: 'Actual',
     responsibilities: 'Responsabilidades Clave',
     jobs: [
