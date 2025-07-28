@@ -40,11 +40,13 @@ const cvPath = lang === 'es' ? '/cv/Damian_Meroni_CV_ES_I.pdf' : '/cv/Damian_Mer
     right: 2rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 1rem;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    padding: 0;
     background: var(--color-primary);
     color: var(--color-background);
-    border-radius: 2rem;
+    border-radius: 50%;
     text-decoration: none;
     font-weight: 500;
     font-size: 0.875rem;
@@ -64,7 +66,9 @@ const cvPath = lang === 'es' ? '/cv/Damian_Meroni_CV_ES_I.pdf' : '/cv/Damian_Mer
   .floating-cv-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    padding-right: 1.5rem;
+    width: auto;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
   }
 
   .floating-cv-icon {
@@ -91,7 +95,7 @@ const cvPath = lang === 'es' ? '/cv/Damian_Meroni_CV_ES_I.pdf' : '/cv/Damian_Mer
     position: absolute;
     inset: -10px;
     border: 2px solid var(--color-primary);
-    border-radius: 2rem;
+    border-radius: 50%;
     opacity: 0.5;
     animation: pulse 2s infinite;
     pointer-events: none;
@@ -112,7 +116,8 @@ const cvPath = lang === 'es' ? '/cv/Damian_Meroni_CV_ES_I.pdf' : '/cv/Damian_Mer
     .floating-cv-button {
       bottom: 1.5rem;
       right: 1.5rem;
-      padding: 0.875rem;
+      width: 56px;
+      height: 56px;
     }
 
     .floating-cv-icon {
@@ -121,7 +126,10 @@ const cvPath = lang === 'es' ? '/cv/Damian_Meroni_CV_ES_I.pdf' : '/cv/Damian_Mer
     }
 
     .floating-cv-button:hover {
-      padding-right: 0.875rem;
+      width: 56px;
+      height: 56px;
+      padding: 0;
+      border-radius: 50%;
     }
 
     .floating-cv-text {
