@@ -6,6 +6,7 @@ import Footer from '@components/layout/Footer.astro';
 import SEOTags from '@components/seo/SEOTags.astro';
 import CriticalCSS from '@components/CriticalCSS.astro';
 import FontOptimization from '@components/FontOptimization.astro';
+import FloatingCVButton from '@components/ui/FloatingCVButton.astro';
 import { themeInitScript } from '@utils/theme-init';
 import { useAstroI18n, getAlternateUrls } from '@/i18n';
 
@@ -55,6 +56,7 @@ const siteUrl = 'https://damianmeroni.dev';
       <slot />
     </main>
     <Footer />
+    <FloatingCVButton />
 
     <!-- Load dynamic i18n for client-side language switching -->
     <script>

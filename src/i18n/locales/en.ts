@@ -66,6 +66,7 @@ export const enTranslations: TranslationResource = {
   experience: {
     title: 'Work Experience',
     downloadResume: 'Download Resume',
+    downloadCV: 'Download CV',
     current: 'Current',
     responsibilities: 'Key Responsibilities',
     jobs: [

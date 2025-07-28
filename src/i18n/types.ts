@@ -70,6 +70,7 @@ export interface TranslationResource {
   experience: {
     title: string;
     downloadResume: string;
+    downloadCV: string;
     current: string;
     responsibilities: string;
     jobs: Array<{

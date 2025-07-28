@@ -7,6 +7,7 @@ import { FEATURE_FLAGS } from '@config/constants';
 import { useAstroI18n, getLocalizedUrl } from '@/i18n';
 
 const { lang, i18n } = useAstroI18n(Astro.url);
+const cvPath = lang === 'es' ? '/cv/Damian_Meroni_CV_ES_I.pdf' : '/cv/Damian_Meroni_CV_EN_I.pdf';
 
 // Dynamic words with colors matching technology brands
 const dynamicWords = [
@@ -51,6 +52,23 @@ const dynamicWords = [
         <Button href={getLocalizedUrl('/contact', lang)} variant="outline" size="lg">
           <span data-i18n="common.getInTouch">{i18n.t('common.getInTouch')}</span>
         </Button>
+        <a href={cvPath} download class="cv-download-button" data-cv-download>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="cv-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            ></path>
+          </svg>
+          <span data-i18n="experience.downloadCV">{i18n.t('experience.downloadCV')}</span>
+        </a>
       </div>
     </div>
   </div>
@@ -120,6 +138,70 @@ const dynamicWords = [
     justify-content: center;
     opacity: 0;
     animation: fade-up 0.8s ease-out 0.4s forwards;
+  }
+
+  .cv-download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--color-text);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 0.75rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cv-download-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-alpha) 0%,
+      var(--color-accent-alpha) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .cv-download-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-primary);
+  }
+
+  .cv-download-button:hover::before {
+    opacity: 1;
+  }
+
+  .cv-download-button > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cv-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .cv-download-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+    }
+
+    .cv-icon {
+      width: 1.125rem;
+      height: 1.125rem;
+    }
   }
 
   @keyframes fade-up {

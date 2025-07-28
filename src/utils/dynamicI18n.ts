@@ -166,6 +166,12 @@ export class DynamicI18n {
 
     // Update dynamic text component
     this.updateDynamicText();
+
+    // Update CV download button
+    this.updateCVDownloadButton();
+
+    // Update contact cards
+    this.updateContactCards();
   }
 
   private updateLanguageSwitcher(): void {
@@ -300,6 +306,62 @@ export class DynamicI18n {
       detail: { words: newWords },
     });
     dynamicTextElement.dispatchEvent(updateEvent);
+  }
+
+  private updateCVDownloadButton(): void {
+    const currentLang = this.state.currentLanguage;
+    const cvPath =
+      currentLang === 'es' ? '/cv/Damian_Meroni_CV_ES_I.pdf' : '/cv/Damian_Meroni_CV_EN_I.pdf';
+
+    // Update all CV download buttons (hero and floating)
+    const cvDownloadButtons = document.querySelectorAll(
+      '[data-cv-download], [data-cv-download-floating]'
+    );
+    cvDownloadButtons.forEach((button) => {
+      if (button instanceof HTMLAnchorElement) {
+        button.href = cvPath;
+      }
+    });
+  }
+
+  private updateContactCards(): void {
+    // Update contact card titles
+    const titleElements = document.querySelectorAll('[data-i18n-title]');
+    titleElements.forEach((element, index) => {
+      const titleKeys = ['contact.emailMe', 'contact.linkedin', 'contact.scheduleCall'];
+      if (titleKeys[index]) {
+        element.textContent = this.t(titleKeys[index]);
+      }
+    });
+
+    // Update contact card descriptions
+    const descriptionElements = document.querySelectorAll('[data-i18n-description]');
+    descriptionElements.forEach((element, index) => {
+      const descriptionKeys = [
+        'contact.emailDescription',
+        'contact.linkedinDescription',
+        'contact.scheduleDescription',
+      ];
+      if (descriptionKeys[index]) {
+        element.textContent = this.t(descriptionKeys[index]);
+      }
+    });
+
+    // Update link text
+    const linkTextElements = document.querySelectorAll('[data-i18n-link-text]');
+    linkTextElements.forEach((element, index) => {
+      if (index === 1) {
+        // LinkedIn link
+        element.textContent = this.t('contact.viewProfile');
+      }
+      // Email link text stays the same (hello@damianmeroni.dev)
+    });
+
+    // Update button text
+    const buttonTextElements = document.querySelectorAll('[data-i18n-button-text]');
+    buttonTextElements.forEach((element) => {
+      element.textContent = this.t('contact.bookMeeting');
+    });
   }
 }
 
