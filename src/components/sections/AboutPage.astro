@@ -1,0 +1,41 @@
+---
+import Section from '@components/common/Section.astro';
+import { useAstroI18n } from '@/i18n';
+
+const { i18n } = useAstroI18n(Astro.url);
+const skills = i18n.t<string[]>('aboutPage.skills');
+---
+
+<Section class="mt-4 sm:mt-0">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-4xl md:text-5xl font-bold text-white mb-8 text-center" data-i18n="aboutPage.title">
+      {i18n.t('aboutPage.title')}
+    </h1>
+
+    <div class="prose prose-lg mx-auto text-gray-300">
+      <p data-i18n="aboutPage.intro1">
+        {i18n.t('aboutPage.intro1')}
+      </p>
+
+      <p data-i18n="aboutPage.intro2">
+        {i18n.t('aboutPage.intro2')}
+      </p>
+
+      <p data-i18n="aboutPage.intro3">
+        {i18n.t('aboutPage.intro3')}
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mt-12 mb-6" data-i18n="aboutPage.technicalSkillsTitle">
+        {i18n.t('aboutPage.technicalSkillsTitle')}
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 not-prose" data-i18n-skills>
+        {
+          skills.map((skill) => (
+            <div class="bg-gray-800 rounded-lg px-4 py-2 text-center text-gray-300">{skill}</div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Section>

@@ -1,55 +1,10 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Section from '@components/common/Section.astro';
+import AboutPage from '@components/sections/AboutPage.astro';
 import Experience from '@components/sections/Experience.astro';
 ---
 
-<BaseLayout title="About - Damian" description="Learn more about my background and experience">
-  <Section class="mt-16">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-bold text-white mb-8 text-center">About Me</h1>
-
-      <div class="prose prose-lg mx-auto text-gray-300">
-        <p>
-          Hello! I'm Damian, a passionate full-stack developer with a deep love for creating
-          elegant, performant web applications. My journey in web development has been driven by
-          curiosity and a constant desire to learn and improve.
-        </p>
-
-        <p>
-          I specialize in modern JavaScript frameworks, with extensive experience in React, Vue.js,
-          and Node.js ecosystems. I'm equally comfortable working on the frontend crafting beautiful
-          user interfaces or diving deep into backend architecture and database optimization.
-        </p>
-
-        <p>
-          What sets me apart is my holistic approach to development. I don't just write code; I
-          solve problems. I believe in understanding the business context, user needs, and technical
-          constraints to deliver solutions that truly make a difference.
-        </p>
-
-        <h2 class="text-2xl font-bold text-white mt-12 mb-6">Technical Skills</h2>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 not-prose">
-          {
-            [
-              'JavaScript/TypeScript',
-              'React/Next.js',
-              'Vue.js/Nuxt',
-              'Node.js/Fastify',
-              'AWS/Azure',
-              'PostgreSQL/MongoDB',
-              'Serverless/Lambda',
-              'Microservices',
-              'CI/CD',
-            ].map((skill) => (
-              <div class="bg-gray-800 rounded-lg px-4 py-2 text-center text-gray-300">{skill}</div>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </Section>
-
+<BaseLayout title="About - Damian Meroni" description="Learn more about my background and experience">
+  <AboutPage />
   <Experience />
 </BaseLayout>

@@ -172,6 +172,9 @@ export class DynamicI18n {
 
     // Update contact cards
     this.updateContactCards();
+
+    // Update skills grid
+    this.updateSkillsGrid();
   }
 
   private updateLanguageSwitcher(): void {
@@ -362,6 +365,26 @@ export class DynamicI18n {
     buttonTextElements.forEach((element) => {
       element.textContent = this.t('contact.bookMeeting');
     });
+  }
+
+  private updateSkillsGrid(): void {
+    const skillsContainer = document.querySelector('[data-i18n-skills]');
+    if (!skillsContainer) return;
+
+    // Get the new skills array
+    const skills = this.t<string[]>('aboutPage.skills');
+
+    // Generate new HTML for skills grid with responsive classes
+    const skillsHTML = skills
+      .map(
+        (skill) => `
+          <div class="bg-gray-800 rounded-lg px-4 py-2 text-center text-gray-300">${skill}</div>
+        `
+      )
+      .join('');
+
+    // Update the container content
+    skillsContainer.innerHTML = skillsHTML;
   }
 }
 
