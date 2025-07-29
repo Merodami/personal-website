@@ -32,13 +32,16 @@ describe('themeUtils', () => {
   });
 
   describe('setTheme', () => {
-    it('saves theme to localStorage and applies to DOM', () => {
+    it('saves theme to localStorage and applies to DOM', async () => {
       themeUtils.setTheme('light');
 
       expect(localStorage.setItem).toHaveBeenCalledWith(
         THEME_CONFIG.STORAGE_KEY,
         expect.stringContaining('"theme":"light"')
       );
+
+      // Wait for requestAnimationFrame
+      await new Promise((resolve) => requestAnimationFrame(resolve));
       expect(document.documentElement.getAttribute('data-theme')).toBe('light');
     });
 
