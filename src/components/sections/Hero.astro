@@ -239,6 +239,20 @@ const dynamicWords = [
     height: 1.4375rem;
   }
 
+  /* Light theme specific styles */
+  :global([data-theme='light']) .cv-download-button,
+  :global([data-theme='light']) .github-button {
+    background: rgba(249, 247, 253, 0.95);
+    border-color: rgba(139, 92, 246, 0.2);
+    color: var(--color-text);
+  }
+
+  :global([data-theme='light']) .cv-download-button:hover,
+  :global([data-theme='light']) .github-button:hover {
+    background: rgba(245, 242, 252, 0.98);
+    border-color: var(--color-primary);
+  }
+
   /* Hide mobile break on desktop, show desktop space */
   .mobile-break {
     display: none;
