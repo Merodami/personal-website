@@ -238,9 +238,13 @@ const dynamicWords = [
     height: 1.4375rem;
   }
 
-  /* Hide mobile break on desktop */
+  /* Hide mobile break on desktop and add margin to DynamicText */
   .mobile-break {
     display: none;
+  }
+
+  .data-i18n-dynamic-words {
+    margin-left: 0.25rem;
   }
 
   @media (max-width: 640px) {
@@ -275,9 +279,13 @@ const dynamicWords = [
       height: 1.4375rem;
     }
 
-    /* Show mobile break on mobile */
+    /* Show mobile break on mobile and remove margin */
     .mobile-break {
       display: block;
+    }
+
+    .data-i18n-dynamic-words {
+      margin-left: 0;
     }
   }
 
