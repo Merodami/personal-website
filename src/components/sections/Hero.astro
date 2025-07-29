@@ -31,7 +31,8 @@ const dynamicWords = [
   <div class="container">
     <div class="hero-content">
       <h1 class="hero-title">
-        <span data-i18n="hero.title.part1">{i18n.t('hero.title.part1')}</span>{' '}
+        <span data-i18n="hero.title.part1">{i18n.t('hero.title.part1')}</span>
+        <span class="desktop-space"> </span>
         <br class="mobile-break" />
         <DynamicText words={dynamicWords} className="data-i18n-dynamic-words" /><br />
         <span class="gradient-text" data-i18n="hero.title.part2">{i18n.t('hero.title.part2')}</span>
@@ -238,13 +239,13 @@ const dynamicWords = [
     height: 1.4375rem;
   }
 
-  /* Hide mobile break on desktop and add margin to DynamicText */
+  /* Hide mobile break on desktop, show desktop space */
   .mobile-break {
     display: none;
   }
 
-  .data-i18n-dynamic-words {
-    margin-left: 0.25rem;
+  .desktop-space {
+    display: inline;
   }
 
   @media (max-width: 640px) {
@@ -279,13 +280,13 @@ const dynamicWords = [
       height: 1.4375rem;
     }
 
-    /* Show mobile break on mobile and remove margin */
+    /* Show mobile break on mobile, hide desktop space */
     .mobile-break {
       display: block;
     }
 
-    .data-i18n-dynamic-words {
-      margin-left: 0;
+    .desktop-space {
+      display: none;
     }
   }
 
