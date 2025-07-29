@@ -18,7 +18,7 @@ const experiences = i18n.t<Experience[]>('experience.jobs');
 ---
 
 <Section id="experience">
-  <div class="grid md:grid-cols-2 gap-12 items-start">
+  <div class="grid lg:grid-cols-2 gap-12 items-start">
     <div>
       <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-i18n="experience.title">
         {i18n.t('experience.title')}
@@ -38,12 +38,9 @@ const experiences = i18n.t<Experience[]>('experience.jobs');
                 style="background-color: var(--color-primary)"
               />
               <div class="flex-grow">
-                <div class="flex flex-wrap items-center gap-2 mb-2">
-                  <h3 class="text-xl font-semibold text-primary">{exp.position}</h3>
-                  <span class="text-secondary">at</span>
-                  <span class="font-medium" style="color: var(--color-primary)">
-                    {exp.company}
-                  </span>
+                <div class="mb-2">
+                  <h3 class="text-xl font-semibold mb-0" style="color: var(--color-primary)">{exp.company}</h3>
+                  <div class="text-lg text-primary">{exp.position}</div>
                 </div>
 
                 <div class="text-sm text-secondary mb-3">

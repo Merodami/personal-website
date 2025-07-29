@@ -232,10 +232,9 @@ export class DynamicI18n {
         <div class="flex items-start gap-4">
           <div class="flex-shrink-0 w-2 h-2 rounded-full mt-2" style="background-color: var(--color-primary)"></div>
           <div class="flex-grow">
-            <div class="flex flex-wrap items-center gap-2 mb-2">
-              <h3 class="text-xl font-semibold text-primary">${exp.position}</h3>
-              <span class="text-secondary">at</span>
-              <span class="font-medium" style="color: var(--color-primary)">${exp.company}</span>
+            <div class="mb-2">
+              <h3 class="text-xl font-semibold mb-0" style="color: var(--color-primary)">${exp.company}</h3>
+              <div class="text-lg text-primary">${exp.position}</div>
             </div>
             <div class="text-sm text-secondary mb-3">
               ${exp.startDate} - ${exp.endDate}
