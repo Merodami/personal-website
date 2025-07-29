@@ -2,7 +2,7 @@ import type { TranslationResource } from '../types';
 
 export const enTranslations: TranslationResource = {
   common: {
-    email: 'hello@damianmeroni.dev',
+    email: 'damian@gaialogy.io',
     emailShort: 'Contact',
     yearsExperience: '9+',
     fullStack: 'Expert',

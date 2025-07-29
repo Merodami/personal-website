@@ -20,7 +20,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: 'Email',
-    url: 'mailto:hello@damianmeroni.dev',
+    url: 'mailto:damian@gaialogy.io',
     icon: 'email',
     ariaLabel: 'Send me an email',
   },
