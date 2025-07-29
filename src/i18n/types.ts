@@ -67,6 +67,14 @@ export interface TranslationResource {
       remoteLabel: string;
     };
   };
+  aboutPage: {
+    title: string;
+    intro1: string;
+    intro2: string;
+    intro3: string;
+    technicalSkillsTitle: string;
+    skills: string[];
+  };
   experience: {
     title: string;
     downloadResume: string;

@@ -65,9 +65,12 @@ export const enTranslations: TranslationResource = {
   },
   aboutPage: {
     title: 'About Me',
-    intro1: "Hello! I'm Damian, a passionate full-stack developer with a deep love for creating elegant, performant web applications. My journey in web development has been driven by curiosity and a constant desire to learn and improve.",
-    intro2: "I specialize in modern JavaScript frameworks, with extensive experience in React, Vue.js, and Node.js ecosystems. I'm equally comfortable working on the frontend crafting beautiful user interfaces or diving deep into backend architecture and database optimization.",
-    intro3: "What sets me apart is my holistic approach to development. I don't just write code; I solve problems. I believe in understanding the business context, user needs, and technical constraints to deliver solutions that truly make a difference.",
+    intro1:
+      "Hello! I'm Damian, a passionate full-stack developer with a deep love for creating elegant, performant web applications. My journey in web development has been driven by curiosity and a constant desire to learn and improve.",
+    intro2:
+      "I specialize in modern JavaScript frameworks, with extensive experience in React, Vue.js, and Node.js ecosystems. I'm equally comfortable working on the frontend crafting beautiful user interfaces or diving deep into backend architecture and database optimization.",
+    intro3:
+      "What sets me apart is my holistic approach to development. I don't just write code; I solve problems. I believe in understanding the business context, user needs, and technical constraints to deliver solutions that truly make a difference.",
     technicalSkillsTitle: 'Technical Skills',
     skills: [
       'JavaScript/TypeScript',
