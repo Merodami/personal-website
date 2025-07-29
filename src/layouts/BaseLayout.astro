@@ -87,6 +87,55 @@ const siteUrl = 'https://damianmeroni.dev';
         const elements = document.querySelectorAll('.animate-on-scroll');
         elements.forEach((el) => observer.observe(el));
       });
+
+      // Small Easter egg - Claude appreciation
+      const konamiCode = [
+        'ArrowUp',
+        'ArrowUp',
+        'ArrowDown',
+        'ArrowDown',
+        'ArrowLeft',
+        'ArrowRight',
+        'ArrowLeft',
+        'ArrowRight',
+        'KeyB',
+        'KeyA',
+      ];
+      let konamiIndex = 0;
+
+      document.addEventListener('keydown', (e) => {
+        if (e.code === konamiCode[konamiIndex]) {
+          konamiIndex++;
+          if (konamiIndex === konamiCode.length) {
+            console.log(
+              '🎉 Thanks for the collaboration, Damian! Building your amazing site was a joy. - Claude'
+            );
+            const message = document.createElement('div');
+            message.innerHTML = '✨ Built with care by Damian + a little help from Claude ✨';
+            message.style.cssText = `
+              position: fixed; top: 20px; right: 20px; z-index: 9999;
+              background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+              color: white; padding: 12px 20px; border-radius: 8px;
+              box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+              font-family: system-ui, -apple-system, sans-serif;
+              font-size: 14px; animation: slideIn 0.5s ease-out;
+            `;
+            const style = document.createElement('style');
+            style.textContent = `
+              @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+              }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(message);
+            setTimeout(() => message.remove(), 5000);
+            konamiIndex = 0;
+          }
+        } else {
+          konamiIndex = 0;
+        }
+      });
     </script>
   </body>
 </html>
