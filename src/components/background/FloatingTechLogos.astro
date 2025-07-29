@@ -182,7 +182,7 @@ for (let i = 0; i < Math.ceil(technologies.length * 1.1); i++) {
 </style>
 
 <script>
-  // Add parallax effect on mouse move
+  // Optimized parallax effect with debounced mouse events and GPU acceleration
   const container = document.getElementById('floating-tech-logos');
   const items = container?.querySelectorAll('.tech-float-item') as NodeListOf<HTMLElement>;
 
@@ -191,27 +191,47 @@ for (let i = 0; i < Math.ceil(technologies.length * 1.1); i++) {
     let mouseY = 0;
     let currentX = 0;
     let currentY = 0;
+    let ticking = false;
 
-    function animate() {
+    // Pre-calculate depth values to avoid repeated calculations
+    const itemDepths = Array.from(items).map((_, index) => (index % 3) + 1);
+
+    function updateTransforms() {
       currentX += (mouseX - currentX) * 0.05;
       currentY += (mouseY - currentY) * 0.05;
 
+      // Use transform3d for hardware acceleration
       items.forEach((item, index) => {
-        const depth = (index % 3) + 1;
+        const depth = itemDepths[index];
         const moveX = (currentX * depth) / 50;
         const moveY = (currentY * depth) / 50;
 
-        item.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) rotate(var(--rotation))`;
+        item.style.transform = `translate3d(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px), 0) rotate(var(--rotation))`;
       });
 
-      requestAnimationFrame(animate);
+      ticking = false;
     }
 
+    function animate() {
+      if (!ticking) {
+        requestAnimationFrame(updateTransforms);
+        ticking = true;
+      }
+    }
+
+    // Optimized mouse move handler using requestAnimationFrame
     document.addEventListener('mousemove', (e) => {
       mouseX = (e.clientX - window.innerWidth / 2) / window.innerWidth;
       mouseY = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+
+      animate(); // Trigger animation using requestAnimationFrame
     });
 
-    animate();
+    // Initial animation loop
+    function initialAnimate() {
+      updateTransforms();
+      requestAnimationFrame(initialAnimate);
+    }
+    initialAnimate();
   }
 </script>

@@ -34,7 +34,7 @@ export const themeUtils = {
   },
 
   /**
-   * Set theme in storage and apply to DOM
+   * Set theme in storage and apply to DOM with smooth transition
    */
   setTheme(theme: Theme): void {
     if (typeof window === 'undefined') return;
@@ -55,8 +55,13 @@ export const themeUtils = {
       storage.state.theme = theme;
       localStorage.setItem(THEME_CONFIG.STORAGE_KEY, JSON.stringify(storage));
 
-      // Apply to DOM
-      document.documentElement.setAttribute('data-theme', theme);
+      // Apply to DOM with transition optimization
+      requestAnimationFrame(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+
+        // Trigger reflow to ensure the theme transition is applied smoothly
+        void document.documentElement.offsetHeight;
+      });
 
       // Dispatch event for listeners
       window.dispatchEvent(new CustomEvent('theme-change', { detail: { theme } }));

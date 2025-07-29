@@ -10,13 +10,16 @@ describe('Theme Persistence Integration', () => {
     document.documentElement.removeAttribute('data-theme');
   });
 
-  it('persists theme changes across utils and DOM', () => {
+  it('persists theme changes across utils and DOM', async () => {
     // Initial state
     themeUtils.initTheme();
     expect(document.documentElement.getAttribute('data-theme')).toBe(THEME_CONFIG.DEFAULT_THEME);
 
     // Change theme
     themeUtils.setTheme('light');
+
+    // Wait for requestAnimationFrame
+    await new Promise((resolve) => requestAnimationFrame(resolve));
     expect(document.documentElement.getAttribute('data-theme')).toBe('light');
 
     // Mock localStorage to return the saved theme
