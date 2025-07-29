@@ -219,14 +219,12 @@ for (let i = 0; i < Math.ceil(technologies.length * 1.1); i++) {
       }
     }
 
-    // Debounced mouse move handler
-    let mouseMoveTimeout: number;
+    // Optimized mouse move handler using requestAnimationFrame
     document.addEventListener('mousemove', (e) => {
       mouseX = (e.clientX - window.innerWidth / 2) / window.innerWidth;
       mouseY = (e.clientY - window.innerHeight / 2) / window.innerHeight;
 
-      clearTimeout(mouseMoveTimeout);
-      mouseMoveTimeout = setTimeout(animate, 16); // ~60fps
+      animate(); // Trigger animation using requestAnimationFrame
     });
 
     // Initial animation loop

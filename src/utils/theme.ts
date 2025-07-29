@@ -59,8 +59,8 @@ export const themeUtils = {
       requestAnimationFrame(() => {
         document.documentElement.setAttribute('data-theme', theme);
 
-        // Trigger reflow only once after theme change
-        document.documentElement.offsetHeight;
+        // Trigger reflow to ensure the theme transition is applied smoothly
+        void document.documentElement.offsetHeight;
       });
 
       // Dispatch event for listeners
