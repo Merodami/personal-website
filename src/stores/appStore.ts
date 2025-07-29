@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { createStore } from 'zustand/vanilla';
 import { persist } from 'zustand/middleware';
 import { THEME_CONFIG, type Theme } from '@config/theme';
 
@@ -12,7 +12,7 @@ interface AppState {
   // e.g., language, user preferences, etc.
 }
 
-export const useAppStore = create<AppState>()(
+export const useAppStore = createStore<AppState>()(
   persist(
     (set) => ({
       // Theme state

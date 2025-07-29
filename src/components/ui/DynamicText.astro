@@ -5,9 +5,10 @@ interface Props {
 }
 
 const { words, className = '' } = Astro.props;
+const uniqueId = `dynamic-text-${Math.random().toString(36).substring(2, 11)}`;
 ---
 
-<span id="dynamic-text" class={`dynamic-text ${className}`} data-words={JSON.stringify(words)}>
+<span id={uniqueId} class={`dynamic-text ${className}`} data-words={JSON.stringify(words)}>
   {words[0]?.text || 'build'}
 </span>
 
@@ -42,8 +43,8 @@ const { words, className = '' } = Astro.props;
     }
 
     private async startAnimation() {
-      // Wait 2 seconds before starting
-      await this.delay(2000);
+      // Start immediately
+      await this.delay(0);
       this.animateWords();
     }
 
@@ -51,9 +52,11 @@ const { words, className = '' } = Astro.props;
       if (this.isAnimating) return;
       this.isAnimating = true;
 
+      let isFirstRun = true;
       while (true) {
-        // Show current word for 4 seconds (doubled)
-        await this.delay(4000);
+        // Show current word (1 second for first word, 3 seconds for others)
+        await this.delay(isFirstRun ? 1000 : 3000);
+        isFirstRun = false;
 
         // Type out effect (delete current word)
         await this.typeOut();
@@ -95,10 +98,12 @@ const { words, className = '' } = Astro.props;
 
   // Initialize when DOM is loaded
   document.addEventListener('DOMContentLoaded', () => {
-    const element = document.getElementById('dynamic-text');
-    if (element) {
-      new DynamicText(element);
-    }
+    const elements = document.querySelectorAll('.dynamic-text');
+    elements.forEach((element) => {
+      if (element instanceof HTMLElement) {
+        new DynamicText(element);
+      }
+    });
   });
 </script>
 

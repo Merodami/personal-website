@@ -115,10 +115,12 @@ const { i18n } = useAstroI18n(Astro.url);
   themeUtils.initTheme();
 
   // Set up toggle button
-  const toggle = document.getElementById('theme-toggle');
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('theme-toggle');
 
-  toggle?.addEventListener('click', () => {
-    const store = useAppStore.getState();
-    store.toggleTheme();
+    toggle?.addEventListener('click', () => {
+      const store = useAppStore;
+      store.getState().toggleTheme();
+    });
   });
 </script>
