@@ -313,7 +313,9 @@ export class DynamicI18n {
   private updateCVDownloadButton(): void {
     const currentLang = this.state.currentLanguage;
     const cvPath =
-      currentLang === 'es' ? '/cv/Damian_Meroni_CV_ES_I.pdf' : '/cv/Damian_Meroni_CV_EN_I.pdf';
+      currentLang === 'es'
+        ? '/cv/international/Damian_Meroni_CV_ES_I.pdf'
+        : '/cv/international/Damian_Meroni_CV_EN_I.pdf';
 
     // Update all CV download buttons (hero and floating)
     const cvDownloadButtons = document.querySelectorAll(

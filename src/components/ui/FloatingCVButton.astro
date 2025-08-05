@@ -2,7 +2,10 @@
 import { useAstroI18n } from '@/i18n';
 
 const { lang, i18n } = useAstroI18n(Astro.url);
-const cvPath = lang === 'es' ? '/cv/Damian_Meroni_CV_ES_I.pdf' : '/cv/Damian_Meroni_CV_EN_I.pdf';
+const cvPath =
+  lang === 'es'
+    ? '/cv/international/Damian_Meroni_CV_ES_I.pdf'
+    : '/cv/international/Damian_Meroni_CV_EN_I.pdf';
 ---
 
 <a
