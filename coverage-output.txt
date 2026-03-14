@@ -1,0 +1,39 @@
+
+ RUN  v3.2.4 /Users/damian/dev/personal-website
+      Coverage enabled with v8
+
+ ✓ tests/unit/data/projects.test.ts (14 tests) 8ms
+ ✓ tests/integration/themePersistence.test.ts (2 tests) 5ms
+ ✓ tests/unit/utils/theme.test.ts (20 tests) 24ms
+ ✓ tests/unit/i18n/strategies/LanguageStrategyFactory.test.ts (6 tests) 3ms
+ ✓ tests/unit/config/constants.test.ts (20 tests) 7ms
+ ✓ tests/unit/i18n/strategies/SpanishStrategy.test.ts (3 tests) 2ms
+ ✓ tests/unit/data/social.test.ts (13 tests) 5ms
+ ✓ tests/unit/stores/appStore.test.ts (11 tests) 5ms
+ ✓ tests/unit/i18n/strategies/EnglishStrategy.test.ts (3 tests) 3ms
+ ✓ tests/unit/i18n/utils.test.ts (16 tests) 202ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts (14 tests) 10ms
+ ✓ tests/unit/components/ThemeToggle.test.ts (10 tests) 62ms
+ ✓ tests/unit/utils/themeInit.test.ts (12 tests) 66ms
+ ✓ tests/unit/utils/floatingLogos.test.ts (12 tests) 84ms
+ ❯ tests/unit/utils/dynamicI18n.client.test.ts (10 tests | 4 failed) 104ms
+   ✓ DynamicI18n DOM integration > updateSkillsGrid > updates skills container with new skills 62ms
+   × DynamicI18n DOM integration > special DOM updates > updates CV link href 8ms
+     → expected 'http://localhost/old-cv.pdf' to contain '/cv/Damian_Meroni_CV_ES_I.pdf'
+   × DynamicI18n DOM integration > special DOM updates > updates experience dates 4ms
+     → expected 'Old Date' to be '2023 - Present' // Object.is equality
+   ✓ DynamicI18n DOM integration > special DOM updates > updates link text elements 4ms
+   ✓ DynamicI18n DOM integration > special DOM updates > updates button text elements 3ms
+   × DynamicI18n DOM integration > special DOM updates > updates document title for different pages 2ms
+     → Cannot redefine property: location
+   ✓ DynamicI18n DOM integration > special DOM updates > updates html lang attribute 2ms
+   ✓ DynamicI18n DOM integration > special DOM updates > updates language switcher state 6ms
+   ✓ DynamicI18n DOM integration > special DOM updates > updates navigation links 4ms
+   × DynamicI18n DOM integration > special DOM updates > updates dynamic text component data 7ms
+     → expected "spy" to be called at least once
+
+ Test Files  1 failed | 14 passed (15)
+      Tests  4 failed | 162 passed (166)
+   Start at  22:58:10
+   Duration  2.79s (transform 746ms, setup 189ms, collect 6.64s, tests 589ms, environment 8.77s, prepare 1.97s)
+

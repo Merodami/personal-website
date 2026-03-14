@@ -1,0 +1,415 @@
+
+ RUN  v3.2.4 /Users/damian/dev/personal-website
+      Coverage enabled with v8
+
+stderr | tests/unit/utils/theme.test.ts > themeUtils > getStoredTheme > handles corrupted localStorage data
+Failed to parse theme from storage: SyntaxError: Unexpected token 'i', "invalid json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at Object.getStoredTheme [90m(/Users/damian/dev/personal-website/[39msrc/utils/theme.ts:26:29[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/theme.test.ts:30:25
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1863:10[90m)[39m
+    at runTest [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1574:12[90m)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+
+stderr | tests/unit/utils/theme.test.ts > themeUtils > setTheme > handles localStorage errors gracefully
+Failed to set theme: Error: Storage error
+    at Object.<anonymous> [90m(/Users/damian/dev/personal-website/[39mtests/unit/utils/theme.test.ts:65:15[90m)[39m
+    at Object.mockCall [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/spy/dist/index.js:96:15[90m)[39m
+    at Object.spy [as setItem] [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4mtinyspy[24m/dist/index.js:47:103[90m)[39m
+    at Object.setTheme [90m(/Users/damian/dev/personal-website/[39msrc/utils/theme.ts:56:20[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/theme.test.ts:68:31
+    at Proxy.assertThrows [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4mchai[24m/chai.js:2787:5[90m)[39m
+    at Proxy.methodWrapper [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4mchai[24m/chai.js:1706:25[90m)[39m
+    at Proxy.<anonymous> [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/expect/dist/index.js:1088:12[90m)[39m
+    at Proxy.overwritingMethodWrapper [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4mchai[24m/chai.js:1755:33[90m)[39m
+    at Proxy.<anonymous> [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/expect/dist/index.js:1420:16[90m)[39m
+
+stderr | tests/unit/utils/theme.test.ts > themeUtils > edge cases > browser compatibility > handles missing requestAnimationFrame
+Failed to set theme: TypeError: requestAnimationFrame is not a function
+    at Object.setTheme [90m(/Users/damian/dev/personal-website/[39msrc/utils/theme.ts:59:7[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/theme.test.ts:215:33
+    at Proxy.assertThrows [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4mchai[24m/chai.js:2787:5[90m)[39m
+    at Proxy.methodWrapper [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4mchai[24m/chai.js:1706:25[90m)[39m
+    at Proxy.<anonymous> [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/expect/dist/index.js:1088:12[90m)[39m
+    at Proxy.overwritingMethodWrapper [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4mchai[24m/chai.js:1755:33[90m)[39m
+    at Proxy.<anonymous> [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/expect/dist/index.js:1420:16[90m)[39m
+    at Proxy.<anonymous> [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/expect/dist/index.js:1029:14[90m)[39m
+    at Proxy.methodWrapper [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4mchai[24m/chai.js:1706:25[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/theme.test.ts:215:56
+
+stderr | tests/unit/utils/theme.test.ts > themeUtils > edge cases > browser compatibility > handles localStorage quota exceeded
+Failed to set theme: Error: QuotaExceededError
+    at Object.<anonymous> [90m(/Users/damian/dev/personal-website/[39mtests/unit/utils/theme.test.ts:223:17[90m)[39m
+    at Object.mockCall [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/spy/dist/index.js:96:15[90m)[39m
+    at Object.spy [as setItem] [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4mtinyspy[24m/dist/index.js:47:103[90m)[39m
+    at Object.setTheme [90m(/Users/damian/dev/personal-website/[39msrc/utils/theme.ts:56:20[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/theme.test.ts:227:33
+    at Proxy.assertThrows [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4mchai[24m/chai.js:2787:5[90m)[39m
+    at Proxy.methodWrapper [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4mchai[24m/chai.js:1706:25[90m)[39m
+    at Proxy.<anonymous> [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/expect/dist/index.js:1088:12[90m)[39m
+    at Proxy.overwritingMethodWrapper [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4mchai[24m/chai.js:1755:33[90m)[39m
+    at Proxy.<anonymous> [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/expect/dist/index.js:1420:16[90m)[39m
+
+ ✓ tests/integration/themePersistence.test.ts > Theme Persistence Integration > persists theme changes across utils and DOM 2ms
+ ✓ tests/integration/themePersistence.test.ts > Theme Persistence Integration > handles theme toggle workflow 6ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > getStoredTheme > returns default theme when no theme is stored 1ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > getStoredTheme > returns stored theme from localStorage 0ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > getStoredTheme > handles corrupted localStorage data 6ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > setTheme > saves theme to localStorage and applies to DOM 2ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > setTheme > dispatches theme-change event 1ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > setTheme > handles localStorage errors gracefully 18ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > toggleTheme > toggles from dark to light 0ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > toggleTheme > toggles from light to dark 0ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > isDarkTheme > returns true for dark theme 0ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > isDarkTheme > returns false for light theme 0ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > onThemeChange > registers and unregisters theme change listeners 0ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > edge cases > concurrent theme changes > handles rapid theme toggling 0ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > edge cases > concurrent theme changes > handles concurrent setTheme calls 0ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > edge cases > memory leaks > cleans up event listeners properly 0ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > edge cases > invalid inputs > handles setTheme with invalid theme gracefully 3ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > edge cases > invalid inputs > handles null/undefined in storage gracefully 1ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > edge cases > browser compatibility > handles missing requestAnimationFrame 2ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > edge cases > browser compatibility > handles localStorage quota exceeded 1ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > edge cases > race conditions > handles theme change during initialization 1ms
+ ✓ tests/unit/utils/theme.test.ts > themeUtils > edge cases > race conditions > handles multiple listeners changing theme 0ms
+ ✓ tests/unit/i18n/strategies/LanguageStrategyFactory.test.ts > LanguageStrategyFactory > createStrategy > should create English strategy for "en" 33ms
+ ✓ tests/unit/i18n/strategies/LanguageStrategyFactory.test.ts > LanguageStrategyFactory > createStrategy > should create Spanish strategy for "es" 3ms
+ ✓ tests/unit/i18n/strategies/LanguageStrategyFactory.test.ts > LanguageStrategyFactory > createStrategy > should fallback to English for unsupported language 75ms
+ ✓ tests/unit/i18n/strategies/LanguageStrategyFactory.test.ts > LanguageStrategyFactory > isValidLanguage > should return true for supported languages 3ms
+ ✓ tests/unit/i18n/strategies/LanguageStrategyFactory.test.ts > LanguageStrategyFactory > isValidLanguage > should return false for unsupported languages 0ms
+ ✓ tests/unit/i18n/strategies/LanguageStrategyFactory.test.ts > LanguageStrategyFactory > getAvailableLanguages > should return all available languages 2ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > isValidLanguage > should return true for valid languages 2ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > isValidLanguage > should return false for invalid languages 0ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > detectUserLanguage > should return default language in SSR environment 0ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > detectUserLanguage > should detect language from localStorage first 0ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > detectUserLanguage > should detect language from navigator if not in localStorage 1ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > detectUserLanguage > should return default language if no valid language detected 2ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > persistLanguage > should not throw in SSR environment 5ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > persistLanguage > should save language to localStorage and update DOM 8ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > formatDate > should format date according to locale 290ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > formatNumber > should format number according to locale 4ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > interpolate > should replace placeholders with values 0ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > interpolate > should handle missing parameters 0ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > interpolate > should handle non-string templates 0ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > getTranslationKey > should return translation value for valid key 0ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > getTranslationKey > should return key if translation not found 0ms
+ ✓ tests/unit/i18n/utils.test.ts > i18n utils > getTranslationKey > should handle non-string values 0ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > initialization > initializes with English for root path 13ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > initialization > initializes with Spanish for /es path 0ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > initialization > loads translations from strategy 0ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > switchLanguage > switches language successfully 1ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > switchLanguage > does nothing if switching to current language 0ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > switchLanguage > dispatches language-changed event 0ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > switchLanguage > handles errors gracefully 79ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > switchLanguage > sets loading state during switch 1ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > translation (t method) > returns translation for valid key 0ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > translation (t method) > returns key for missing translation 0ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > translation (t method) > supports generic type parameter 0ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > state management > allows subscribing to state changes 1ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > state management > unsubscribes listeners correctly 0ms
+ ✓ tests/unit/utils/dynamicI18n.test.ts > DynamicI18n > state management > returns immutable state copy 0ms
+stderr | tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > updateSkillsGrid > updates skills container with new skills
+Failed to switch language: TypeError: Failed to execute 'dispatchEvent' on 'EventTarget': parameter 1 is not of type 'Event'.
+    at Object.exports.convert [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/Event.js:22:9[90m)[39m
+    at Window.dispatchEvent [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/EventTarget.js:236:24[90m)[39m
+    at DynamicI18n.switchLanguage [90m(/Users/damian/dev/personal-website/[39msrc/utils/dynamicI18n.ts:61:14[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/dynamicI18n.client.test.ts:43:18
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1863:10[90m)[39m
+    at runTest [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1574:12[90m)[39m
+
+ ✓ tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > updateSkillsGrid > updates skills container with new skills 282ms
+ ✓ tests/unit/utils/themeInit.test.ts > themeInitScript > script generation > generates an IIFE script 278ms
+ ✓ tests/unit/utils/themeInit.test.ts > themeInitScript > script generation > includes the correct storage key 36ms
+ ✓ tests/unit/utils/themeInit.test.ts > themeInitScript > script generation > includes the correct default theme 37ms
+stderr | tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates CV link href
+Failed to switch language: TypeError: Failed to execute 'dispatchEvent' on 'EventTarget': parameter 1 is not of type 'Event'.
+    at Object.exports.convert [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/Event.js:22:9[90m)[39m
+    at Window.dispatchEvent [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/EventTarget.js:236:24[90m)[39m
+    at DynamicI18n.switchLanguage [90m(/Users/damian/dev/personal-website/[39msrc/utils/dynamicI18n.ts:61:14[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/dynamicI18n.client.test.ts:58:18
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1863:10[90m)[39m
+    at runTest [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1574:12[90m)[39m
+
+stderr | tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates experience dates
+Failed to switch language: TypeError: Failed to execute 'dispatchEvent' on 'EventTarget': parameter 1 is not of type 'Event'.
+    at Object.exports.convert [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/Event.js:22:9[90m)[39m
+    at Window.dispatchEvent [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/EventTarget.js:236:24[90m)[39m
+    at DynamicI18n.switchLanguage [90m(/Users/damian/dev/personal-website/[39msrc/utils/dynamicI18n.ts:61:14[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/dynamicI18n.client.test.ts:74:18
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1863:10[90m)[39m
+    at runTest [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1574:12[90m)[39m
+
+ ✓ tests/unit/components/ThemeToggle.test.ts > ThemeToggleController > click handling > toggles theme when button is clicked 371ms
+ ✓ tests/unit/components/ThemeToggle.test.ts > ThemeToggleController > click handling > handles multiple clicks 8ms
+ ✓ tests/unit/components/ThemeToggle.test.ts > ThemeToggleController > cleanup > removes event listener on destroy 3ms
+ ✓ tests/unit/components/ThemeToggle.test.ts > initThemeToggle > initializes theme on call 5ms
+ ✓ tests/unit/components/ThemeToggle.test.ts > initThemeToggle > returns controller when toggle button exists 3ms
+ ✓ tests/unit/components/ThemeToggle.test.ts > initThemeToggle > returns null when toggle button does not exist 2ms
+ ✓ tests/unit/components/ThemeToggle.test.ts > initThemeToggle > waits for DOMContentLoaded when document is loading 3ms
+ ✓ tests/unit/components/ThemeToggle.test.ts > ThemeToggle accessibility > has proper ARIA label 2ms
+ ✓ tests/unit/components/ThemeToggle.test.ts > ThemeToggle accessibility > has proper title attribute 4ms
+ ✓ tests/unit/components/ThemeToggle.test.ts > ThemeToggle accessibility > is keyboard accessible 2ms
+stderr | tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates link text elements
+Failed to switch language: TypeError: Failed to execute 'dispatchEvent' on 'EventTarget': parameter 1 is not of type 'Event'.
+    at Object.exports.convert [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/Event.js:22:9[90m)[39m
+    at Window.dispatchEvent [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/EventTarget.js:236:24[90m)[39m
+    at DynamicI18n.switchLanguage [90m(/Users/damian/dev/personal-website/[39msrc/utils/dynamicI18n.ts:61:14[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/dynamicI18n.client.test.ts:91:18
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1863:10[90m)[39m
+    at runTest [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1574:12[90m)[39m
+
+stderr | tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates button text elements
+Failed to switch language: TypeError: Failed to execute 'dispatchEvent' on 'EventTarget': parameter 1 is not of type 'Event'.
+    at Object.exports.convert [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/Event.js:22:9[90m)[39m
+    at Window.dispatchEvent [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/EventTarget.js:236:24[90m)[39m
+    at DynamicI18n.switchLanguage [90m(/Users/damian/dev/personal-website/[39msrc/utils/dynamicI18n.ts:61:14[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/dynamicI18n.client.test.ts:107:18
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1863:10[90m)[39m
+    at runTest [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1574:12[90m)[39m
+
+stderr | tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates html lang attribute
+Failed to switch language: TypeError: Failed to execute 'dispatchEvent' on 'EventTarget': parameter 1 is not of type 'Event'.
+    at Object.exports.convert [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/Event.js:22:9[90m)[39m
+    at Window.dispatchEvent [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/EventTarget.js:236:24[90m)[39m
+    at DynamicI18n.switchLanguage [90m(/Users/damian/dev/personal-website/[39msrc/utils/dynamicI18n.ts:61:14[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/dynamicI18n.client.test.ts:131:18
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1863:10[90m)[39m
+    at runTest [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1574:12[90m)[39m
+
+stderr | tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates language switcher state
+Failed to switch language: TypeError: Failed to execute 'dispatchEvent' on 'EventTarget': parameter 1 is not of type 'Event'.
+    at Object.exports.convert [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/Event.js:22:9[90m)[39m
+    at Window.dispatchEvent [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/EventTarget.js:236:24[90m)[39m
+    at DynamicI18n.switchLanguage [90m(/Users/damian/dev/personal-website/[39msrc/utils/dynamicI18n.ts:61:14[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/dynamicI18n.client.test.ts:147:18
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1863:10[90m)[39m
+    at runTest [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1574:12[90m)[39m
+
+stderr | tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates navigation links
+Failed to switch language: TypeError: Failed to execute 'dispatchEvent' on 'EventTarget': parameter 1 is not of type 'Event'.
+    at Object.exports.convert [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/Event.js:22:9[90m)[39m
+    at Window.dispatchEvent [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/EventTarget.js:236:24[90m)[39m
+    at DynamicI18n.switchLanguage [90m(/Users/damian/dev/personal-website/[39msrc/utils/dynamicI18n.ts:61:14[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/dynamicI18n.client.test.ts:164:18
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1863:10[90m)[39m
+    at runTest [90m(file:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1574:12[90m)[39m
+
+ ✓ tests/unit/utils/themeInit.test.ts > themeInitScript > theme initialization > sets default theme when no stored theme exists 41ms
+ ✓ tests/unit/utils/themeInit.test.ts > themeInitScript > theme initialization > loads theme from localStorage when available 13ms
+ ✓ tests/unit/utils/themeInit.test.ts > themeInitScript > theme initialization > handles corrupted localStorage data gracefully 5ms
+ ✓ tests/unit/utils/themeInit.test.ts > themeInitScript > theme initialization > handles missing state property in stored data 4ms
+ ✓ tests/unit/utils/themeInit.test.ts > themeInitScript > theme initialization > handles missing theme property in state 2ms
+ ✓ tests/unit/utils/themeInit.test.ts > themeInitScript > error handling > handles localStorage access errors 4ms
+ ✓ tests/unit/utils/themeInit.test.ts > themeInitScript > error handling > handles JSON parse errors silently 2ms
+ ✓ tests/unit/utils/themeInit.test.ts > themeInitScript > SSR safety > script can be safely included in SSR 5ms
+ ✓ tests/unit/utils/themeInit.test.ts > themeInitScript > SSR safety > prevents flash of incorrect theme 3ms
+ × tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates CV link href 48ms
+   → expected 'http://localhost/old-cv.pdf' to contain '/cv/Damian_Meroni_CV_ES_I.pdf'
+ × tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates experience dates 10ms
+   → expected 'Old Date' to be '2023 - Present' // Object.is equality
+ ✓ tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates link text elements 20ms
+ ✓ tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates button text elements 5ms
+ × tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates document title for different pages 2ms
+   → Cannot redefine property: location
+ ✓ tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates html lang attribute 3ms
+ ✓ tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates language switcher state 9ms
+ ✓ tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates navigation links 7ms
+stderr | tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates dynamic text component data
+Failed to switch language: TypeError: Failed to execute 'dispatchEvent' on 'EventTarget': parameter 1 is not of type 'Event'.
+    at Object.exports.convert [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/Event.js:22:9[90m)[39m
+    at HTMLDivElement.dispatchEvent [90m(/Users/damian/dev/personal-website/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/EventTarget.js:236:24[90m)[39m
+    at DynamicI18n.updateDynamicText [90m(/Users/damian/dev/personal-website/[39msrc/utils/dynamicI18n.ts:310:24[90m)[39m
+    at DynamicI18n.updatePageContent [90m(/Users/damian/dev/personal-website/[39msrc/utils/dynamicI18n.ts:168:10[90m)[39m
+    at DynamicI18n.switchLanguage [90m(/Users/damian/dev/personal-website/[39msrc/utils/dynamicI18n.ts:55:12[90m)[39m
+    at [90m/Users/damian/dev/personal-website/[39mtests/unit/utils/dynamicI18n.client.test.ts:195:18
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/damian/dev/personal-website/[39mnode_modules/[4m@vitest[24m/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+
+ ✓ tests/unit/config/constants.test.ts > constants configuration > SITE_CONFIG > has all required site configuration fields 1ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > SITE_CONFIG > has valid field types 1ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > SITE_CONFIG > author has required fields 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > SITE_CONFIG > has non-empty values 1ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > SITE_CONFIG > URL is valid HTTPS URL 1ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > SITE_CONFIG > email is valid format 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > SITE_CONFIG > ogImage path is valid 1ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > SITE_CONFIG > title includes name for SEO 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > NAVIGATION_ITEMS > is a non-empty array 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > NAVIGATION_ITEMS > each item has required fields 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > NAVIGATION_ITEMS > all hrefs are valid paths 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > NAVIGATION_ITEMS > all labels are non-empty 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > NAVIGATION_ITEMS > includes essential pages 1ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > NAVIGATION_ITEMS > has unique hrefs 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > NAVIGATION_ITEMS > has unique labels 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > NAVIGATION_ITEMS > is readonly (const assertion) 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > FEATURE_FLAGS > has expected feature flags 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > FEATURE_FLAGS > feature flags are boolean 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > FEATURE_FLAGS > is readonly object 0ms
+ ✓ tests/unit/config/constants.test.ts > constants configuration > cross-constant validation > navigation items match feature flags 0ms
+ ✓ tests/unit/utils/floatingLogos.test.ts > FloatingLogosController > initialization > calculates item depths correctly 378ms
+ ✓ tests/unit/utils/floatingLogos.test.ts > FloatingLogosController > animation > applies transform3d for hardware acceleration 23ms
+ ✓ tests/unit/utils/floatingLogos.test.ts > FloatingLogosController > mouse movement handling > updates mouse coordinates on mousemove 53ms
+ ✓ tests/unit/utils/floatingLogos.test.ts > FloatingLogosController > performance optimizations > uses lerp (linear interpolation) for smooth movement 38ms
+ ✓ tests/unit/utils/floatingLogos.test.ts > FloatingLogosController > mouse movement handling > normalizes mouse coordinates correctly 6ms
+ ✓ tests/unit/utils/floatingLogos.test.ts > FloatingLogosController > animation > uses requestAnimationFrame for smooth animations 15ms
+ ✓ tests/unit/utils/floatingLogos.test.ts > FloatingLogosController > animation > prevents multiple simultaneous animation frames 6ms
+ ✓ tests/unit/utils/floatingLogos.test.ts > FloatingLogosController > cleanup > cancels animation frame on destroy 72ms
+ ✓ tests/unit/utils/floatingLogos.test.ts > initFloatingLogos > returns controller when container and items exist 10ms
+ ✓ tests/unit/utils/floatingLogos.test.ts > initFloatingLogos > returns null when container does not exist 3ms
+ ✓ tests/unit/utils/floatingLogos.test.ts > initFloatingLogos > returns null when no items exist 46ms
+ ✓ tests/unit/utils/floatingLogos.test.ts > initFloatingLogos > attaches mousemove event listener 14ms
+ ✓ tests/unit/stores/appStore.test.ts > appStore > initial state > has default theme 2ms
+ ✓ tests/unit/stores/appStore.test.ts > appStore > setTheme > updates theme in state 1ms
+ ✓ tests/unit/stores/appStore.test.ts > appStore > setTheme > applies theme to DOM 0ms
+ ✓ tests/unit/stores/appStore.test.ts > appStore > setTheme > handles dark theme 0ms
+ ✓ tests/unit/stores/appStore.test.ts > appStore > toggleTheme > toggles from dark to light 0ms
+ ✓ tests/unit/stores/appStore.test.ts > appStore > toggleTheme > toggles from light to dark 0ms
+ ✓ tests/unit/stores/appStore.test.ts > appStore > toggleTheme > updates DOM when toggling 0ms
+ ✓ tests/unit/stores/appStore.test.ts > appStore > persistence > uses correct storage key 0ms
+ ✓ tests/unit/stores/appStore.test.ts > appStore > persistence > store is configured with persist middleware 0ms
+ ✓ tests/unit/stores/appStore.test.ts > appStore > store subscription > notifies subscribers on theme change 0ms
+ ✓ tests/unit/stores/appStore.test.ts > appStore > store subscription > stops notifying after unsubscribe 0ms
+ × tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates dynamic text component data 80ms
+   → expected "spy" to be called at least once
+ ✓ tests/unit/data/social.test.ts > social links data > structure > exports an array of social links 4ms
+ ✓ tests/unit/data/social.test.ts > social links data > structure > each social link has all required fields 0ms
+ ✓ tests/unit/data/social.test.ts > social links data > structure > each social link has valid field types 0ms
+ ✓ tests/unit/data/social.test.ts > social links data > data integrity > all names are unique 0ms
+ ✓ tests/unit/data/social.test.ts > social links data > data integrity > all fields are non-empty 1ms
+ ✓ tests/unit/data/social.test.ts > social links data > data integrity > URLs are valid 0ms
+ ✓ tests/unit/data/social.test.ts > social links data > data integrity > email links use mailto protocol 0ms
+ ✓ tests/unit/data/social.test.ts > social links data > data integrity > social media links use HTTPS 0ms
+ ✓ tests/unit/data/social.test.ts > social links data > data integrity > aria labels are descriptive 0ms
+ ✓ tests/unit/data/social.test.ts > social links data > data integrity > icon names match expected format 0ms
+ ✓ tests/unit/data/social.test.ts > social links data > specific links > includes essential social platforms 0ms
+ ✓ tests/unit/data/social.test.ts > social links data > specific links > GitHub link points to valid profile 0ms
+ ✓ tests/unit/data/social.test.ts > social links data > specific links > LinkedIn link points to valid profile 0ms
+ ✓ tests/unit/data/projects.test.ts > projects data > structure > exports an array of projects 2ms
+ ✓ tests/unit/data/projects.test.ts > projects data > structure > each project has all required fields 1ms
+ ✓ tests/unit/data/projects.test.ts > projects data > structure > each project has valid field types 0ms
+ ✓ tests/unit/data/projects.test.ts > projects data > data integrity > all project IDs are unique 0ms
+ ✓ tests/unit/data/projects.test.ts > projects data > data integrity > all project titles are non-empty 0ms
+ ✓ tests/unit/data/projects.test.ts > projects data > data integrity > all project descriptions are non-empty 0ms
+ ✓ tests/unit/data/projects.test.ts > projects data > data integrity > all projects have at least one tag 0ms
+ ✓ tests/unit/data/projects.test.ts > projects data > data integrity > all tags are non-empty strings 0ms
+ ✓ tests/unit/data/projects.test.ts > projects data > data integrity > image paths follow expected format 0ms
+ ✓ tests/unit/data/projects.test.ts > projects data > data integrity > URLs are valid when provided 0ms
+ ✓ tests/unit/data/projects.test.ts > projects data > data integrity > dates are valid and in the past 0ms
+ ✓ tests/unit/data/projects.test.ts > projects data > featured projects > has at least one featured project 0ms
+ ✓ tests/unit/data/projects.test.ts > projects data > featured projects > featured projects have all optional fields 0ms
+ ✓ tests/unit/data/projects.test.ts > projects data > sorting and ordering > projects are sorted by date (newest first) 0ms
+ ✓ tests/unit/i18n/strategies/EnglishStrategy.test.ts > EnglishStrategy > getTranslations > should return English translations 1ms
+ ✓ tests/unit/i18n/strategies/EnglishStrategy.test.ts > EnglishStrategy > getMetadata > should return correct English metadata 1ms
+ ✓ tests/unit/i18n/strategies/EnglishStrategy.test.ts > EnglishStrategy > getMetadata > should have readonly metadata properties 0ms
+ ✓ tests/unit/i18n/strategies/SpanishStrategy.test.ts > SpanishStrategy > getTranslations > should return Spanish translations 1ms
+ ✓ tests/unit/i18n/strategies/SpanishStrategy.test.ts > SpanishStrategy > getMetadata > should return correct Spanish metadata 0ms
+ ✓ tests/unit/i18n/strategies/SpanishStrategy.test.ts > SpanishStrategy > getMetadata > should have readonly metadata properties 0ms
+12:11:44 PM [vite] (ssr) Failed to load source map for /Users/damian/dev/personal-website/report/html/js/prism.js.
+Error: An error occurred while trying to read the map file at /sm/bdf68a8255e66a2a8605b338e63e85c0134262545c7842aad8dbcbf07744f141.map
+Error: ENOENT: no such file or directory, open '/sm/bdf68a8255e66a2a8605b338e63e85c0134262545c7842aad8dbcbf07744f141.map'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1238:14)
+    at async extractSourcemapFromFile (file:///Users/damian/dev/personal-website/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:8302:65)
+    at async loadAndTransform (file:///Users/damian/dev/personal-website/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:26422:22)
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates CV link href
+AssertionError: expected 'http://localhost/old-cv.pdf' to contain '/cv/Damian_Meroni_CV_ES_I.pdf'
+
+Expected: [32m"[7m/cv/Damian_Meroni_CV_ES_I[27m.pdf"[39m
+Received: [31m"[7mhttp://localhost/old-cv[27m.pdf"[39m
+
+ ❯ tests/unit/utils/dynamicI18n.client.test.ts:61:25
+     59| 
+     60|       const link = document.querySelector('[data-cv-download]') as HTM…
+     61|       expect(link.href).toContain('/cv/Damian_Meroni_CV_ES_I.pdf');
+       |                         ^
+     62|     });
+     63| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates experience dates
+AssertionError: expected 'Old Date' to be '2023 - Present' // Object.is equality
+
+Expected: [32m"2023 - Present"[39m
+Received: [31m"Old Date"[39m
+
+ ❯ tests/unit/utils/dynamicI18n.client.test.ts:77:33
+     75| 
+     76|       const time = document.querySelector('time');
+     77|       expect(time?.textContent).toBe('2023 - Present');
+       |                                 ^
+     78|     });
+     79| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates document title for different pages
+TypeError: Cannot redefine property: location
+ ❯ tests/unit/utils/dynamicI18n.client.test.ts:114:14
+    112| 
+    113|     it('updates document title for different pages', async () => {
+    114|       Object.defineProperty(window, 'location', {
+       |              ^
+    115|         value: { pathname: '/' },
+    116|         writable: true,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/unit/utils/dynamicI18n.client.test.ts > DynamicI18n DOM integration > special DOM updates > updates dynamic text component data
+AssertionError: expected "spy" to be called at least once
+ ❯ tests/unit/utils/dynamicI18n.client.test.ts:197:29
+    195|       await i18n.switchLanguage('es');
+    196| 
+    197|       expect(eventListener).toHaveBeenCalled();
+       |                             ^
+    198|       const event = eventListener.mock.calls[0][0];
+    199|       expect(event.detail.words).toBeDefined();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed | 14 passed (15)
+      Tests  4 failed | 162 passed (166)
+   Start at  12:11:37
+   Duration  6.90s (transform 1.50s, setup 1.08s, collect 17.76s, tests 2.67s, environment 13.87s, prepare 5.91s)
+
