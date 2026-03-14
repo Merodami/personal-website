@@ -3,7 +3,6 @@
 **/dist/**
 **/.astro/**
 **/lighthouse/*.html
-/docs
 /report/**
 /report
 

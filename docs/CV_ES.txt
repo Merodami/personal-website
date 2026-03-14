@@ -1,0 +1,140 @@
+DAMIAN MERONI
+Senior Software Engineer
+
+meroni.damian@gmail.com
++5492215224517
+http://linkedin.com/in/dmeroni
+Argentina, Buenos Aires
+
+EXPERIENCIA PROFESIONAL
+======
+Senior Software Engineer
+Expian UK
+2023 - 2025
+London, UK
+Tech Stack: TypeScript / AWS / React.js (Valtio + AntUI)
+Design Patterns: Event-Driven Architecture (Projections + Fat Payloads)
+ - Diseño e implementación arquitectónica de una plataforma de ticketing de alta concurrencia y basada en eventos sobre AWS, capaz de procesar más de 5000 eventos de tipo ticket por segundo, en tiempo real y escalar a operaciones SaaS B2B/B2B2C.
+ - Extensión de una Single Page Application basada en componentes (Vite, React, Valtio) que mejoró el rendimiento del frontend, redujo los tiempos de carga y elevó la experiencia de usuario para clientes B2B.
+ - Extensión de la arquitectura de microservicios clave con Node.js y TypeScript bajo principios API‑First, creando un SDK para el desarrollo Frontend, logrando un desacoplamiento efectivo de componentes y acelerando la velocidad de desarrollo.
+ - Optimización de la infraestructura AWS (Lambda, SQS, SNS, DynamoDB) del sistema orientado a eventos, reduciendo la latencia y los costos operativos.
+ - Colaboración con equipos de producto y QA en un entorno Agile (Scrum) para definir requisitos y garantizar entregas puntuales, comunicando soluciones técnicas a interlocutores de distintos perfiles.
+
+Senior Software Engineer
+HelviX
+2022 - 2023
+Germany, Munich (Remote)
+Tech Stack: TypeScript / React.js (Redux + Material UI) / Azure
+Design Patterns: DDD / Hexagonal Architecture
+ - Implementación, desarrollo y despliegue de tres microservicios clave (Node.js, Serverless Framework, AWS), incrementando la escalabilidad del sistema para admitir más de 1 000 operaciones concurrentes de clientes empresariales.
+ - Desarrollo de la arquitectura y la implementación de una SPA en Vue.js (Vuex, Atomic Design) para una plataforma de gestión del sector siderúrgico, introduciendo un diseño modular basado en DDD que aceleró la entrega inicial de funcionalidades en un 20 %.
+ - Optimización del rendimiento de la aplicación (mejoras de SQL queries), elevando las métricas de calidad y reduciendo la latencia percibida por los usuarios.
+ - Fomenté la adopción de principios de Domain‑Driven Design dentro del equipo, reforzando la mantenibilidad del código y simplificando la incorporación de nuevos módulos.
+ - Análisis de diseños técnicos complejos (ADR) y conceptos de Domain‑Driven Design a la dirección de ingeniería y partes interesadas no técnicas, garantizando la alineación y el respaldo en las decisiones arquitectónicas.
+
+Senior Software Engineer
+CEGID Invoice & Financing
+2020 - 2022
+France, Lion (Remote)
+Tech Stack: TypeScript / Vue.js / React.js / AWS
+Design Patterns: Microservicios / DDD
+ - Planificación y ejecución de la migración de un sistema monolítico heredado a una arquitectura de microservicios API‑First en AWS (Lambda, API Gateway), reforzando la resiliencia del sistema y acortando los tiempos de despliegue de nuevas funcionalidades.
+ - Desarrollo e implementación de funciones serverless en Node.js para una arquitectura orientada a eventos en AWS, esenciales para productos SaaS de financiación B2B/B2C/B2B2C, mejorando la eficiencia del procesamiento.
+ - Diseñé una Single Page Application en Vue.js, perfeccionando flujos de usuario clave mediante mejoras de rendimiento y una interfaz refinada basada en Atomic Design.
+ - Impulsé la adopción de Domain‑Driven Design (DDD), obteniendo un código más modular y testeable, y reduciendo los errores críticos en producción.
+ - Resolución en los desafíos de escalabilidad en la arquitectura orientada a eventos sobre AWS, asegurando la estabilidad del sistema durante picos de demanda.
+
+Full-Stack Engineer
+Dafiti
+2019
+Argentina, Buenos Aires
+Tech Stack: TypeScript / React (Redux) / AWS / Cypress
+Design Patterns: Microservicios
+ - Desarrollo de una aplicación web progresiva (PWA) de comercio electrónico B2C de alto tráfico con React y Redux, enfocándome en el rendimiento y en la creación de componentes de interfaz responsivos.
+ - Optimización del ciclo de vida de desarrollo de API implementando Stoplight para la documentación Swagger (OpenAPI), lo que incrementó la coherencia de las APIs y disminuyó los problemas de integración.
+ - Amplié la cobertura de pruebas de extremo a extremo (Cypress), fortaleciendo las pruebas de regresión y garantizando la estabilidad de la plataforma para una amplia base de usuarios.
+
+Full-Stack Developer
+Grupo Clarín
+2016 - 2019
+Argentina, Buenos Aires
+Tech Stack: TypeScript / PHP / Angular.js / API SDK
+Design Patterns: Microservicios
+ - Desarollo e implementació los sistemas frontend (AngularJS) y backend (Node.js, Express.js) para servicios clave de medios, mejorando los tiempos de carga mediante técnicas estratégicas de caché y pre‑carga.
+ - Impulsé un enfoque API‑First y establecí suites completas de pruebas en backend, aumentando la fiabilidad de las APIs y facilitando la colaboración del equipo en integraciones.
+ - Impulse la implementaci[on de New Relic para el monitoreo del rendimiento, permitiendo la detección proactiva de cuellos de botella y manteniendo una alta disponibilidad de los servicios críticos.
+ - Migración de una aplicación en PHP a TypeScript utilizando el patrón Strangler fig
+
+
+Education
+======
+Licenciatura en sistemas
+Universidad Nacional de La Plata
+2009 - 2014
+Buenos Aires, Argentina
+
+
+RESUMEN PROFESIONAL
+======
+Ingeniero de Software Senior con más de 9 años de experiencia en la arquitectura, desarrollo y despliegue de aplicaciones escalables y nativas en la nube (AWS, Azure) y sistemas distribuidos para entornos SaaS, B2B y B2C. Especialista full‑stack en TypeScript, Node.js y React, así como en microservicios, arquitecturas orientadas a eventos y tecnologías serverless, con contribuciones a sistemas que procesan más de 5 000 eventos por segundo. Destaco por impulsar la excelencia técnica y traducir requisitos de negocio complejos en soluciones de software robustas. Busco un rol remoto desafiante como Ingeniero de Software Senior en startup, pyme o empresa para aplicar mis habilidades avanzadas y mentalidad resolutiva, generando un impacto significativo.
+
+
+Languages
+======
+English
+
+Spanish
+
+Italiano
+
+
+Skills
+======
+ - TypeScript
+ - Node.js
+ - React.js
+ - Vue.js
+ - Next.js
+ - Zustand
+ - Redux
+ - Valtio
+ - Domain-Driven Design
+ - Hexagonal Architecture
+ - Event-Sourcing
+ - AWS
+ - Redis
+ - PostgreSQL
+ - AWS SDK
+ - CloudFormation
+ - Terraform
+ - AWS
+ - Azure
+ - Zenduty
+ - Docker
+ - Datadog
+ - Cloudwatch
+ - New Relic
+ - ES6
+ - Git
+ - GitHub
+ - GitLab
+ - JavaScript
+ - Jest
+ - JIRA
+ - Vitest
+ - MongoDB
+ - Jest
+ - Vitest
+ - PWA
+ - API-First
+ - OpenAPI SDK
+ - REST
+ - EDA
+ - Agile methodology
+ - Atlassian Stack
+ - CI/CD
+ - GitHub
+ - GitLab
+ - TDD
+ - Clean Code
+
