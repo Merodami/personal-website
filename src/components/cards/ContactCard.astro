@@ -1,6 +1,4 @@
 ---
-import Button from '@components/common/Button.astro';
-
 interface Props {
   title: string;
   description: string;
@@ -20,31 +18,15 @@ interface Props {
 const { title, description, icon, link, button } = Astro.props;
 ---
 
-<div class="contact-card group">
-  <!-- Animated gradient border -->
-  <div class="card-border"></div>
-
-  <!-- Glow effects -->
-  <div class="card-glow"></div>
-  <div class="card-glow-inner"></div>
-
-  <!-- Content -->
+<div class="contact-card">
   <div class="card-content">
-    <!-- Upper content area -->
-    <div class="card-upper">
-      <!-- Icon with morphing background -->
-      <div class="icon-container mb-6">
-        <div class="icon-bg"></div>
-        <div class="icon-wrapper">
-          <Fragment set:html={icon} />
-        </div>
-      </div>
-
-      <h3 class="text-2xl font-semibold text-primary mb-3" data-i18n-title>{title}</h3>
-      <p class="text-secondary mb-6" data-i18n-description>{description}</p>
+    <div class="icon-container">
+      <Fragment set:html={icon} />
     </div>
 
-    <!-- Action area - fixed position -->
+    <h3 class="card-title" data-i18n-title>{title}</h3>
+    <p class="card-description" data-i18n-description>{description}</p>
+
     <div class="card-action">
       {
         link && (
@@ -52,31 +34,23 @@ const { title, description, icon, link, button } = Astro.props;
             href={link.href}
             target={link.external ? '_blank' : undefined}
             rel={link.external ? 'noopener noreferrer' : undefined}
-            class="cta-link group/link"
+            class="cta-link animated-link"
           >
-            <span class="link-text" data-i18n-link-text>
-              {link.text}
-            </span>
-            <div class="link-arrow">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path
-                  d="M7 13L13 7M13 7H7M13 7V13"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
+            <span data-i18n-link-text>{link.text}</span>
           </a>
         )
       }
 
       {
         button && (
-          <Button href={button.href} size="md" variant="primary" external={button.external}>
+          <a
+            href={button.href}
+            target={button.external ? '_blank' : undefined}
+            rel={button.external ? 'noopener noreferrer' : undefined}
+            class="cta-link animated-link"
+          >
             <span data-i18n-button-text>{button.text}</span>
-          </Button>
+          </a>
         )
       }
     </div>
@@ -85,302 +59,89 @@ const { title, description, icon, link, button } = Astro.props;
 
 <style>
   .contact-card {
-    position: relative;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 24px;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-style: preserve-3d;
-    perspective: 1000px;
-  }
-
-  /* Animated gradient border */
-  .card-border {
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(
-      135deg,
-      transparent 30%,
-      rgba(139, 92, 246, 0.5),
-      rgba(236, 72, 153, 0.5),
-      transparent 70%
-    );
-    background-size: 300% 300%;
-    border-radius: 24px;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    animation: gradient-move 8s ease infinite;
-  }
-
-  @keyframes gradient-move {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  .contact-card::before {
-    content: '';
-    position: absolute;
-    inset: 1px;
     background: var(--color-surface);
-    border-radius: 23px;
-    z-index: 1;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all var(--duration-normal) var(--ease-out);
   }
 
-  /* Outer glow */
-  .card-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Inner glow */
-  .card-glow-inner {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: 2;
-  }
-
-  /* Hover effects */
   .contact-card:hover {
-    transform: translateY(-8px) rotateX(2deg);
-    background: rgba(255, 255, 255, 0.04);
-  }
-
-  .contact-card:hover .card-border {
-    opacity: 1;
-  }
-
-  .contact-card:hover .card-glow {
-    opacity: 1;
-  }
-
-  .contact-card:hover .card-glow-inner {
-    opacity: 1;
-  }
-
-  /* Dark theme enhancements */
-  :global([data-theme='dark']) .contact-card {
-    background: rgba(20, 20, 20, 0.5);
-    backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  :global([data-theme='dark']) .contact-card::before {
-    background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(30, 30, 30, 0.9) 100%);
-  }
-
-  /* Light theme */
-  :global([data-theme='light']) .contact-card {
-    background: rgba(249, 247, 253, 0.95);
-    backdrop-filter: blur(20px) saturate(120%);
-    border: 1px solid rgba(139, 92, 246, 0.15);
-    box-shadow:
-      0 8px 32px -4px rgba(139, 92, 246, 0.12),
-      0 4px 16px -2px rgba(236, 72, 153, 0.06),
-      0 2px 8px -1px rgba(0, 0, 0, 0.02),
-      0 0 0 1px rgba(139, 92, 246, 0.05);
-  }
-
-  :global([data-theme='light']) .contact-card::before {
-    background: linear-gradient(
-      135deg,
-      rgba(249, 247, 253, 0.98) 0%,
-      rgba(245, 242, 252, 0.95) 100%
-    );
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-md);
   }
 
   .card-content {
-    position: relative;
-    padding: 3rem;
-    z-index: 3;
-    height: 550px;
+    display: flex;
+    flex-direction: column;
   }
 
-  .card-upper {
-    padding-bottom: 150px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+  .icon-container {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--color-bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .icon-container :global(svg) {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--color-text);
+  }
+
+  .card-title {
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--color-text);
+    margin: 0 0 0.5rem;
+  }
+
+  .card-description {
+    font-weight: 300;
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
     line-height: 1.6;
+    margin: 0 0 1.5rem;
   }
 
   .card-action {
-    position: absolute;
-    bottom: 3rem;
-    left: 3rem;
-    right: 3rem;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    margin-top: auto;
   }
 
-  /* Icon with morphing background */
-  .icon-container {
-    position: relative;
-    width: 72px;
-    height: 72px;
-  }
-
-  .icon-bg {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);
-    border-radius: 20px;
-    opacity: 0.1;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .contact-card:hover .icon-bg {
-    opacity: 0.2;
-    transform: scale(1.1) rotate(10deg);
-    border-radius: 24px;
-  }
-
-  .icon-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);
-    border-radius: 20px;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .icon-wrapper :global(svg) {
-    width: 2rem;
-    height: 2rem;
-    color: #000000;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  :global([data-theme='dark']) .icon-wrapper :global(svg) {
-    color: #ffffff;
-  }
-
-  .contact-card:hover .icon-wrapper {
-    transform: scale(1.05);
-    box-shadow:
-      0 10px 20px -5px rgba(139, 92, 246, 0.3),
-      0 0 40px rgba(139, 92, 246, 0.2);
-  }
-
-  .contact-card:hover .icon-wrapper :global(svg) {
-    transform: scale(1.1) rotate(-5deg);
-  }
-
-  /* Modern CTA link */
   .cta-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--color-accent);
-    font-weight: 500;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
     text-decoration: none;
-    position: relative;
-    transition: all 0.3s ease;
+    transition: color var(--duration-fast) ease;
   }
 
-  .link-text {
-    position: relative;
+  .cta-link:hover {
+    color: var(--color-text);
   }
 
-  .link-text::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);
-    transition: width 0.3s ease;
-  }
-
-  .cta-link:hover .link-text::after {
-    width: 100%;
-  }
-
-  .link-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: rgba(139, 92, 246, 0.1);
-    border-radius: 50%;
-    transition: all 0.3s ease;
-  }
-
-  .cta-link:hover .link-arrow {
-    background: rgba(139, 92, 246, 0.2);
-    transform: translate(2px, -2px);
-  }
-
-  /* Mobile optimizations */
   @media (max-width: 768px) {
-    .card-content {
-      padding: 2rem;
-      height: 360px;
-    }
-
-    .card-upper {
-      padding-bottom: 20px;
+    .contact-card {
+      padding: 1.5rem;
       text-align: center;
-    }
-
-    .card-action {
-      bottom: 2rem;
-      left: 2rem;
-      right: 2rem;
-      height: 70px;
-      justify-content: center;
     }
 
     .icon-container {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto;
+      margin: 0 auto 1.25rem;
     }
 
-    /* Full width buttons on mobile */
-    .card-action :global(.button-base) {
-      width: 100%;
-      text-align: center;
-    }
-
-    /* Center link text on mobile */
-    .cta-link {
-      width: 100%;
+    .card-action {
+      display: flex;
       justify-content: center;
-      text-align: center;
     }
   }
 
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .contact-card,
-    .card-border,
-    .icon-wrapper,
-    .icon-bg {
-      animation: none;
+    .contact-card {
       transition: opacity 0.3s ease;
     }
   }

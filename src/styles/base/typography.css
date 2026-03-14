@@ -28,6 +28,7 @@
   --text-4xl: clamp(2.5rem, 1.75rem + 3.75vw, 4rem);
   --text-5xl: clamp(3rem, 2rem + 5vw, 5rem);
   --text-6xl: clamp(3.5rem, 2.5rem + 5vw, 6rem);
+  --text-hero: clamp(2.5rem, 5vw, 4rem);
 
   /* Line Heights */
   --leading-none: 1;
@@ -61,7 +62,7 @@ body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: var(--leading-normal);
-  font-weight: var(--font-light);
+  font-weight: 300;
   letter-spacing: var(--tracking-normal);
   font-feature-settings: 'cv11', 'ss01', 'ss03';
   text-rendering: optimizeLegibility;
@@ -76,39 +77,33 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: var(--font-semibold);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 h1 {
   font-size: var(--text-5xl);
-  font-weight: var(--font-bold);
 }
 
 h2 {
   font-size: var(--text-4xl);
-  font-weight: var(--font-semibold);
 }
 
 h3 {
   font-size: var(--text-3xl);
-  font-weight: var(--font-medium);
 }
 
 h4 {
   font-size: var(--text-2xl);
-  font-weight: var(--font-medium);
 }
 
 h5 {
   font-size: var(--text-xl);
-  font-weight: var(--font-normal);
 }
 
 h6 {
   font-size: var(--text-lg);
-  font-weight: var(--font-normal);
 }
 
 /* Body Text */

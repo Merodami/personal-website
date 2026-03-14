@@ -8,10 +8,10 @@ const { i18n } = useAstroI18n(Astro.url);
 const featuredProjects = projects.filter((p) => p.featured);
 ---
 
-<Section id="projects" gradient>
+<Section id="projects">
   <div class="text-center mb-12 animate-on-scroll">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">{i18n.t('projects.title')}</h2>
-    <p class="text-lg max-w-2xl mx-auto">
+    <h2 class="projects-title">{i18n.t('projects.title')}</h2>
+    <p class="projects-subtitle">
       {i18n.t('about.paragraph2')}
     </p>
   </div>
@@ -27,17 +27,48 @@ const featuredProjects = projects.filter((p) => p.featured);
   </div>
 
   <div class="text-center mt-12 animate-on-scroll">
-    <a href="/projects" class="inline-flex items-center font-medium group">
-      <span class="gradient-text">View All Projects</span>
-      <svg
-        class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+    <a href="/projects" class="view-all-link animated-link">
+      <span>View All Projects</span>
+      <svg class="view-all-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
         ></path>
       </svg>
     </a>
   </div>
 </Section>
+
+<style>
+  .projects-title {
+    font-weight: 400;
+    font-size: var(--text-h2);
+    margin-bottom: 1rem;
+  }
+
+  .projects-subtitle {
+    font-size: 1rem;
+    max-width: 32rem;
+    margin: 0 auto;
+    color: var(--color-text-secondary);
+    font-weight: 300;
+  }
+
+  .view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text);
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .view-all-arrow {
+    width: 1rem;
+    height: 1rem;
+    transition: transform var(--duration-fast) ease;
+  }
+
+  .view-all-link:hover .view-all-arrow {
+    transform: translateX(2px);
+  }
+</style>

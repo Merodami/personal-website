@@ -27,7 +27,6 @@ const uniqueId = `dynamic-text-${Math.random().toString(36).substring(2, 11)}`;
     }
 
     private setupEventListeners() {
-      // Listen for language updates
       this.element.addEventListener('dynamicTextUpdate', (event: Event) => {
         const customEvent = event as CustomEvent;
         this.updateWords(customEvent.detail.words);
@@ -36,14 +35,12 @@ const uniqueId = `dynamic-text-${Math.random().toString(36).substring(2, 11)}`;
 
     private updateWords(newWords: Array<{ text: string; color: string }>) {
       this.words = newWords;
-      // Reset to first word and continue animation
       this.currentIndex = 0;
       this.element.textContent = newWords[0]?.text || '';
       this.element.style.color = newWords[0]?.color || '';
     }
 
     private async startAnimation() {
-      // Start immediately
       await this.delay(0);
       this.animateWords();
     }
@@ -54,20 +51,15 @@ const uniqueId = `dynamic-text-${Math.random().toString(36).substring(2, 11)}`;
 
       let isFirstRun = true;
       while (true) {
-        // Show current word (800ms for first word, 2.5 seconds for others)
         await this.delay(isFirstRun ? 800 : 2500);
         isFirstRun = false;
 
-        // Type out effect (delete current word)
         await this.typeOut();
 
-        // Pause between words
         await this.delay(300);
 
-        // Move to next word
         this.currentIndex = (this.currentIndex + 1) % this.words.length;
 
-        // Type in new word
         await this.typeIn();
       }
     }
@@ -77,7 +69,7 @@ const uniqueId = `dynamic-text-${Math.random().toString(36).substring(2, 11)}`;
 
       for (let i = currentWord.length; i >= 0; i--) {
         this.element.textContent = currentWord.substring(0, i);
-        await this.delay(80); // Slower deletion
+        await this.delay(80);
       }
     }
 
@@ -87,7 +79,7 @@ const uniqueId = `dynamic-text-${Math.random().toString(36).substring(2, 11)}`;
 
       for (let i = 0; i <= nextWord.text.length; i++) {
         this.element.textContent = nextWord.text.substring(0, i);
-        await this.delay(120); // Slower typing
+        await this.delay(120);
       }
     }
 
@@ -96,7 +88,6 @@ const uniqueId = `dynamic-text-${Math.random().toString(36).substring(2, 11)}`;
     }
   }
 
-  // Initialize when DOM is loaded
   document.addEventListener('DOMContentLoaded', () => {
     const elements = document.querySelectorAll('.dynamic-text');
     elements.forEach((element) => {
@@ -112,21 +103,22 @@ const uniqueId = `dynamic-text-${Math.random().toString(36).substring(2, 11)}`;
     display: inline-block;
     position: relative;
     transition: color 0.3s ease;
+    color: var(--color-text-secondary);
   }
 
   .dynamic-text::after {
     content: '|';
     display: inline-block;
-    animation: blink 1s infinite;
+    animation: blink 1.2s infinite;
     color: currentColor;
   }
 
   @keyframes blink {
     0%,
-    50% {
-      opacity: 1;
+    40% {
+      opacity: 0.5;
     }
-    51%,
+    50%,
     100% {
       opacity: 0;
     }

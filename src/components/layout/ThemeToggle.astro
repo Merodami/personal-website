@@ -50,35 +50,27 @@ const { i18n } = useAstroI18n(Astro.url);
 <style>
   .theme-toggle {
     position: relative;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
     border: none;
     background: transparent;
-    color: var(--color-text-secondary);
+    color: var(--color-text-tertiary);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition: color var(--duration-fast) var(--ease-out);
     flex-shrink: 0;
   }
 
-  @media (max-width: 480px) {
-    .theme-toggle {
-      width: 32px;
-      height: 32px;
-    }
-  }
-
   .theme-toggle:hover {
-    background: var(--color-surface);
     color: var(--color-text);
   }
 
   .theme-toggle:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
   }
 
   .icon {

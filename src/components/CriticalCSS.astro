@@ -1,47 +1,49 @@
 ---
-// Enhanced critical CSS with more comprehensive styles
 const criticalCSS = `
   /* Reset and base styles */
   *, *::before, *::after { box-sizing: border-box; }
-  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-  
+  body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 300; }
+
   /* Layout essentials */
   .h-full { height: 100%; }
   .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
-  
+
   /* Typography for hero */
-  .hero-title { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin: 0; }
-  
+  .hero-title { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 400; margin: 0; }
+
   /* Theme colors */
-  [data-theme="dark"] { 
-    --bg-primary: #0a0a0a; 
-    --text-primary: #ffffff;
-    --bg-card: #141414;
-    --border-color: #262626;
+  [data-theme="dark"] {
+    --color-bg: #0A0A0A;
+    --color-text: #FAFAFA;
+    --color-surface: #141414;
+    --color-border: #262626;
   }
-  [data-theme="light"] { 
-    --bg-primary: #ffffff; 
-    --text-primary: #0a0a0a;
-    --bg-card: #f9fafb;
-    --border-color: #e5e7eb;
+  [data-theme="light"] {
+    --color-bg: #FAFAFA;
+    --color-text: #0A0A0A;
+    --color-surface: #FFFFFF;
+    --color-border: #E0E0E0;
   }
-  body { 
-    background-color: var(--bg-primary); 
-    color: var(--text-primary);
-    line-height: 1.6;
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
   }
-  
+
   /* Navigation layout */
   header { position: sticky; top: 0; z-index: 50; }
   .nav-section { display: flex; align-items: center; gap: 1rem; }
-  
+
   /* Hero section */
   .hero-section { min-height: 100vh; display: flex; align-items: center; }
-  
+
   /* Common components */
   .email { display: inline-block; }
   .main-content { flex: 1; }
-  
+
+  /* Card styles */
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; }
+
   /* Grid layouts */
   .grid { display: grid; gap: 1rem; }
   @media (min-width: 768px) {

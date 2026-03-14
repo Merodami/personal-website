@@ -16,7 +16,7 @@ const {
 } = Astro.props;
 
 const variantClasses = {
-  primary: 'button-primary gradient-accent text-white shadow-lg hover:shadow-xl',
+  primary: 'button-primary',
   secondary: 'button-secondary',
   outline: 'button-outline',
 };
@@ -47,47 +47,47 @@ const externalProps = external ? { target: '_blank', rel: 'noopener noreferrer' 
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-weight: 500;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-    transform: scale(1);
+    font-weight: 400;
+    font-size: 0.875rem;
+    border-radius: 999px;
+    letter-spacing: 0;
+    text-transform: none;
+    transition: all var(--duration-fast) var(--ease-out);
     text-decoration: none;
-  }
-
-  :global(.button-base:hover) {
-    transform: scale(1.02);
   }
 
   :global(.button-base:focus) {
     outline: none;
     box-shadow:
       0 0 0 2px var(--color-bg),
-      0 0 0 4px var(--color-primary);
+      0 0 0 4px var(--color-text);
   }
 
   :global(.button-primary) {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    background: var(--color-text);
     color: var(--color-text-inverse);
-    border: 1px solid transparent;
+    border: none;
+    box-shadow: none;
   }
 
   :global(.button-primary:hover) {
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-hover) 0%,
-      var(--color-accent-hover) 100%
-    );
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  :global(.button-primary:active) {
+    transform: translateY(0);
+    box-shadow: none;
   }
 
   :global(.button-secondary) {
-    background: var(--color-surface);
+    background: transparent;
     color: var(--color-text);
     border: 1px solid var(--color-border);
   }
 
   :global(.button-secondary:hover) {
-    background: var(--color-surface-hover);
-    border-color: var(--color-border-hover);
+    border-color: var(--color-text);
   }
 
   :global(.button-outline) {
@@ -97,21 +97,6 @@ const externalProps = external ? { target: '_blank', rel: 'noopener noreferrer' 
   }
 
   :global(.button-outline:hover) {
-    background: var(--color-surface);
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-  }
-
-  /* Light theme outline button improvements */
-  :global([data-theme='light']) :global(.button-outline) {
-    border: 2px solid rgba(139, 92, 246, 0.3);
-    color: var(--color-primary);
-    background: rgba(139, 92, 246, 0.05);
-  }
-
-  :global([data-theme='light']) :global(.button-outline:hover) {
-    border: 2px solid rgba(139, 92, 246, 0.6);
-    background: rgba(139, 92, 246, 0.1);
-    color: var(--color-primary);
+    border-color: var(--color-text);
   }
 </style>

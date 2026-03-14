@@ -61,14 +61,14 @@ const translations = {
         bottom: 0;
         width: 100%;
         height: 100%;
-        background: var(--color-bg, #000);
+        background: var(--color-bg, #fff);
         z-index: 2147483647;
         display: none;
       ">
         <div style="
           width: 100%;
           height: 100%;
-          padding: 20px;
+          padding: 24px;
           box-sizing: border-box;
           display: flex;
           flex-direction: column;
@@ -79,30 +79,35 @@ const translations = {
             background: none;
             border: none;
             cursor: pointer;
-            color: var(--color-text, #fff);
-            margin-bottom: 40px;
+            color: var(--color-text, #000);
           " aria-label="Close menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
-          
+
           <nav style="
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-left: 1rem;
           ">
             ${window.mobileMenuData.navItems
               .map((item) => {
                 const labelKey = item.label.toLowerCase();
                 const translatedLabel = currentTranslations[labelKey] || item.label;
+                const isActive =
+                  item.href === window.mobileMenuData.currentPath ||
+                  (item.href !== '/' && window.mobileMenuData.currentPath.startsWith(item.href));
                 return `
               <a href="${currentLang === 'es' ? '/es' + item.href : item.href}" style="
-                font-size: 24px;
-                font-weight: 500;
+                font-size: 1.5rem;
+                font-weight: 300;
                 text-decoration: none;
-                color: ${item.href === window.mobileMenuData.currentPath || (item.href !== '/' && window.mobileMenuData.currentPath.startsWith(item.href)) ? 'var(--color-primary, #ff0080)' : 'var(--color-text, #fff)'};
-                padding: 10px 0;
+                color: ${isActive ? 'var(--color-text, #000)' : 'var(--color-text-secondary, #666)'};
+                padding: 0.25rem 0;
+                transition: color 0.15s ease;
               ">
                 ${translatedLabel}
               </a>

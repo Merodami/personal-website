@@ -7,15 +7,12 @@ const skills = i18n.t<string[]>('aboutPage.skills');
 ---
 
 <Section class="mt-4 sm:mt-0">
-  <div class="max-w-3xl mx-auto">
-    <h1
-      class="text-4xl md:text-5xl font-bold text-white mb-8 text-center"
-      data-i18n="aboutPage.title"
-    >
+  <div class="about-page-container">
+    <h1 class="about-page-title" data-i18n="aboutPage.title">
       {i18n.t('aboutPage.title')}
     </h1>
 
-    <div class="prose prose-lg mx-auto text-gray-300">
+    <div class="about-page-prose">
       <p data-i18n="aboutPage.intro1">
         {i18n.t('aboutPage.intro1')}
       </p>
@@ -28,20 +25,76 @@ const skills = i18n.t<string[]>('aboutPage.skills');
         {i18n.t('aboutPage.intro3')}
       </p>
 
-      <h2
-        class="text-2xl font-bold text-white mt-12 mb-6"
-        data-i18n="aboutPage.technicalSkillsTitle"
-      >
+      <h2 class="skills-title" data-i18n="aboutPage.technicalSkillsTitle">
         {i18n.t('aboutPage.technicalSkillsTitle')}
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 not-prose" data-i18n-skills>
-        {
-          skills.map((skill) => (
-            <div class="bg-gray-800 rounded-lg px-4 py-2 text-center text-gray-300">{skill}</div>
-          ))
-        }
+      <div class="skills-grid" data-i18n-skills>
+        {skills.map((skill) => <div class="skill-item">{skill}</div>)}
       </div>
     </div>
   </div>
 </Section>
+
+<style>
+  .about-page-container {
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .about-page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--color-text);
+  }
+
+  .about-page-prose {
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .about-page-prose p {
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+  }
+
+  .skills-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .skill-item {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    text-align: center;
+    transition: all var(--duration-fast) ease;
+  }
+
+  .skill-item:hover {
+    border-color: var(--color-text);
+    color: var(--color-text);
+  }
+
+  @media (max-width: 640px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
