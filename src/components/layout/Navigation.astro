@@ -58,20 +58,26 @@ const filteredNavItems = NAVIGATION_ITEMS.filter((item) => {
     padding: 0.5rem 0.75rem;
     color: var(--color-text-secondary);
     text-decoration: none;
-    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 0.8125rem;
     font-weight: 500;
-    transition: all 0.2s ease;
-    border-radius: 6px;
+    letter-spacing: 0.05em;
+    transition: all 0.15s ease;
+    border-radius: 0;
+    border: 2px solid transparent;
     white-space: nowrap;
   }
 
   .nav-link:hover {
     color: var(--color-text);
-    background: var(--color-surface);
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-border);
   }
 
   .nav-link.active {
-    color: var(--color-text);
-    background: var(--color-surface);
+    background: var(--neo-yellow);
+    color: #000;
+    border: 2px solid #000;
   }
 </style>

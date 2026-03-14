@@ -111,24 +111,14 @@ const uniqueId = `dynamic-text-${Math.random().toString(36).substring(2, 11)}`;
   .dynamic-text {
     display: inline-block;
     position: relative;
+    font-family: var(--font-mono);
     transition: color 0.3s ease;
   }
 
   .dynamic-text::after {
-    content: '|';
+    content: '_';
     display: inline-block;
-    animation: blink 1s infinite;
+    opacity: 1;
     color: currentColor;
-  }
-
-  @keyframes blink {
-    0%,
-    50% {
-      opacity: 1;
-    }
-    51%,
-    100% {
-      opacity: 0;
-    }
   }
 </style>

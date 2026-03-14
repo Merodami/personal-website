@@ -8,10 +8,10 @@ const { i18n } = useAstroI18n(Astro.url);
 const featuredProjects = projects.filter((p) => p.featured);
 ---
 
-<Section id="projects" gradient>
-  <div class="text-center mb-12 animate-on-scroll">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">{i18n.t('projects.title')}</h2>
-    <p class="text-lg max-w-2xl mx-auto">
+<Section id="projects">
+  <div class="projects-header animate-on-scroll">
+    <h2 class="projects-title">{i18n.t('projects.title')}</h2>
+    <p class="projects-subtitle">
       {i18n.t('about.paragraph2')}
     </p>
   </div>
@@ -26,18 +26,62 @@ const featuredProjects = projects.filter((p) => p.featured);
     }
   </div>
 
-  <div class="text-center mt-12 animate-on-scroll">
-    <a href="/projects" class="inline-flex items-center font-medium group">
-      <span class="gradient-text">View All Projects</span>
-      <svg
-        class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+  <div class="projects-footer animate-on-scroll">
+    <a href="/projects" class="view-all-link">
+      <span>View All Projects</span>
+      <svg class="view-all-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
         ></path>
       </svg>
     </a>
   </div>
 </Section>
+
+<style>
+  .projects-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .projects-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.875rem, 4vw, 2.25rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .projects-subtitle {
+    font-size: 1.125rem;
+    max-width: 42rem;
+    margin: 0 auto;
+    color: var(--color-text-secondary);
+  }
+
+  .projects-footer {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .view-all-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    font-weight: 600;
+    gap: 0.5rem;
+  }
+
+  .view-all-link:hover .view-all-arrow {
+    transform: translateX(4px);
+  }
+
+  .view-all-arrow {
+    width: 1rem;
+    height: 1rem;
+    transition: transform 0.15s ease;
+  }
+</style>

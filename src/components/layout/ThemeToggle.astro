@@ -52,15 +52,15 @@ const { i18n } = useAstroI18n(Astro.url);
     position: relative;
     width: 36px;
     height: 36px;
-    border-radius: 50%;
-    border: none;
-    background: transparent;
+    border-radius: 0;
+    border: 2px solid var(--color-border);
+    background: var(--color-bg);
     color: var(--color-text-secondary);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
     flex-shrink: 0;
   }
 
@@ -72,12 +72,13 @@ const { i18n } = useAstroI18n(Astro.url);
   }
 
   .theme-toggle:hover {
-    background: var(--color-surface);
+    background: var(--color-bg-secondary);
     color: var(--color-text);
+    box-shadow: var(--shadow-hard-sm);
   }
 
   .theme-toggle:focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 3px solid var(--neo-blue);
     outline-offset: 2px;
   }
 

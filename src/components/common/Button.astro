@@ -16,7 +16,7 @@ const {
 } = Astro.props;
 
 const variantClasses = {
-  primary: 'button-primary gradient-accent text-white shadow-lg hover:shadow-xl',
+  primary: 'button-primary',
   secondary: 'button-secondary',
   outline: 'button-outline',
 };
@@ -47,71 +47,63 @@ const externalProps = external ? { target: '_blank', rel: 'noopener noreferrer' 
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-weight: 500;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-    transform: scale(1);
+    font-weight: 600;
+    border-radius: 0;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 3px solid var(--color-border);
+    transition:
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
     text-decoration: none;
   }
 
   :global(.button-base:hover) {
-    transform: scale(1.02);
+    box-shadow: var(--shadow-hard-lg);
+    transform: translate(-2px, -2px);
+  }
+
+  :global(.button-base:active) {
+    box-shadow: none;
+    transform: translate(2px, 2px);
   }
 
   :global(.button-base:focus) {
     outline: none;
     box-shadow:
       0 0 0 2px var(--color-bg),
-      0 0 0 4px var(--color-primary);
+      0 0 0 4px var(--color-border);
   }
 
   :global(.button-primary) {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    color: var(--color-text-inverse);
-    border: 1px solid transparent;
+    background: var(--neo-yellow);
+    color: #000;
+    box-shadow: var(--shadow-hard-md);
   }
 
   :global(.button-primary:hover) {
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-hover) 0%,
-      var(--color-accent-hover) 100%
-    );
+    background: var(--neo-yellow);
   }
 
   :global(.button-secondary) {
     background: var(--color-surface);
     color: var(--color-text);
-    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-hard-sm);
   }
 
   :global(.button-secondary:hover) {
-    background: var(--color-surface-hover);
-    border-color: var(--color-border-hover);
+    background: var(--color-surface);
   }
 
   :global(.button-outline) {
     background: transparent;
     color: var(--color-text);
-    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-hard-sm);
   }
 
   :global(.button-outline:hover) {
-    background: var(--color-surface);
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-  }
-
-  /* Light theme outline button improvements */
-  :global([data-theme='light']) :global(.button-outline) {
-    border: 2px solid rgba(139, 92, 246, 0.3);
-    color: var(--color-primary);
-    background: rgba(139, 92, 246, 0.05);
-  }
-
-  :global([data-theme='light']) :global(.button-outline:hover) {
-    border: 2px solid rgba(139, 92, 246, 0.6);
-    background: rgba(139, 92, 246, 0.1);
-    color: var(--color-primary);
+    background: transparent;
+    color: var(--color-text);
   }
 </style>

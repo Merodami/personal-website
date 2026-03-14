@@ -77,18 +77,20 @@ const alternateUrls = getAlternateUrls(Astro.url.pathname);
     align-items: center;
     gap: 0.65rem;
     padding: 0.65rem 0.975rem;
-    background: transparent;
-    border: none;
-    border-radius: 0.5rem;
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 0;
     color: var(--color-text);
+    font-family: var(--font-mono);
     font-size: 1.1375rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
   }
 
   .language-button:hover {
     background: var(--color-bg-secondary);
+    box-shadow: var(--shadow-hard-sm);
   }
 
   .language-button[aria-expanded='true'] {
@@ -98,6 +100,7 @@ const alternateUrls = getAlternateUrls(Astro.url.pathname);
   .language-code {
     font-size: 0.975rem;
     letter-spacing: 0.05em;
+    font-family: var(--font-mono);
   }
 
   .chevron-icon {
@@ -113,13 +116,11 @@ const alternateUrls = getAlternateUrls(Astro.url.pathname);
     top: calc(100% + 0.5rem);
     right: 0;
     min-width: 180px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 0.75rem;
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 0;
     padding: 0.5rem;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-hard-md);
     z-index: 50;
     opacity: 0;
     transform: translateY(-10px);
@@ -139,11 +140,12 @@ const alternateUrls = getAlternateUrls(Astro.url.pathname);
     justify-content: space-between;
     width: 100%;
     padding: 0.625rem 0.875rem;
-    border-radius: 0.5rem;
+    border-radius: 0;
     background: transparent;
     border: none;
     color: var(--color-text-secondary);
     text-decoration: none;
+    font-family: var(--font-mono);
     font-size: 0.875rem;
     transition: all 0.15s ease;
     position: relative;
@@ -157,8 +159,8 @@ const alternateUrls = getAlternateUrls(Astro.url.pathname);
   }
 
   .language-option.active {
-    background: var(--color-primary-alpha);
-    color: var(--color-primary);
+    background: var(--neo-yellow);
+    color: #000;
     font-weight: 500;
   }
 
@@ -169,7 +171,7 @@ const alternateUrls = getAlternateUrls(Astro.url.pathname);
   .check-icon {
     width: 16px;
     height: 16px;
-    color: var(--color-primary);
+    color: #000;
   }
 
   @media (max-width: 639px) {

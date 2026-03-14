@@ -10,7 +10,7 @@ const contactMethods = [
     title: i18n.t('contact.emailMe'),
     description: i18n.t('contact.emailDescription'),
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     </svg>`,
     link: {
@@ -34,7 +34,7 @@ const contactMethods = [
     title: i18n.t('contact.scheduleCall'),
     description: i18n.t('contact.scheduleDescription'),
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
     </svg>`,
     button: {
@@ -47,13 +47,13 @@ const contactMethods = [
 ---
 
 <Section id="contact">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+  <div class="contact-wrapper">
+    <div class="contact-header">
+      <h2 class="contact-title">
         <span data-i18n="contact.letscreate">{i18n.t('contact.letscreate')}</span>
-        <span class="gradient-text" data-i18n="contact.amazing"> {i18n.t('contact.amazing')}</span>
+        <span class="accent-text" data-i18n="contact.amazing"> {i18n.t('contact.amazing')}</span>
       </h2>
-      <p class="text-secondary text-lg md:text-xl max-w-2xl mx-auto">
+      <p class="contact-subtitle">
         <span data-i18n="contact.readyTransform">{i18n.t('contact.readyTransform')}</span><br />
         <span data-i18n="contact.chooseWay">{i18n.t('contact.chooseWay')}</span>
       </p>
@@ -69,13 +69,12 @@ const contactMethods = [
       }
     </div>
 
-    <!-- Quick Contact CTA -->
-    <div class="mt-16 text-center">
+    <div class="cta-section">
       <div class="cta-box">
-        <p class="text-lg text-secondary mb-2" data-i18n="contact.preferQuick">
+        <p class="cta-text" data-i18n="contact.preferQuick">
           {i18n.t('contact.preferQuick')}
         </p>
-        <p class="text-xl font-medium text-primary" data-i18n="contact.respondTime">
+        <p class="cta-highlight" data-i18n="contact.respondTime">
           {i18n.t('contact.respondTime')}
         </p>
       </div>
@@ -84,6 +83,37 @@ const contactMethods = [
 </Section>
 
 <style>
+  .contact-wrapper {
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .contact-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .accent-text {
+    color: var(--color-accent);
+    -webkit-text-fill-color: var(--color-accent);
+    background: none;
+  }
+
+  .contact-subtitle {
+    color: var(--color-text-secondary);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
   .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -91,65 +121,31 @@ const contactMethods = [
     margin: 0 auto;
   }
 
-  .gradient-text {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Fallback for browsers that don't support background-clip */
-    color: var(--color-primary);
-  }
-
-  /* Ensure gradient works in both themes */
-  :global([data-theme='dark']) .gradient-text {
-    background: linear-gradient(135deg, #d946ef 0%, #f472b6 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: #d946ef;
-  }
-
-  :global([data-theme='light']) .gradient-text {
-    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: #a855f7;
+  .cta-section {
+    margin-top: 4rem;
+    text-align: center;
   }
 
   .cta-box {
+    border: 3px solid var(--color-border);
+    padding: 1.5rem 2rem;
     display: inline-block;
-    padding: 2rem 3rem;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    position: relative;
-    overflow: hidden;
+    box-shadow: var(--shadow-hard-md);
+    font-family: var(--font-mono);
   }
 
-  .cta-box::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.2), transparent);
-    border-radius: 12px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    animation: rotate 3s linear infinite;
+  .cta-text {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
   }
 
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  .cta-highlight {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
   }
 
-  .cta-box:hover::before {
-    opacity: 1;
-  }
-
-  /* Mobile optimizations */
   @media (max-width: 768px) {
     .contact-grid {
       gap: 1.5rem;

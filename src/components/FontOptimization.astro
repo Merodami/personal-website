@@ -1,11 +1,12 @@
 ---
-// Font optimization component
+// Font optimization component - Neobrutalism (Space Grotesk + JetBrains Mono)
 ---
 
 <!-- Preload critical font subset -->
 <link
   rel="preload"
-  href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2"
+  href="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mDoQDjQSkFtoMM3T6r8E7mPbF4Cw.woff2"
+  onerror="this.remove()"
   as="font"
   type="font/woff2"
   crossorigin
@@ -14,19 +15,28 @@
 <!-- Inline critical font-face declaration -->
 <style is:inline>
   @font-face {
-    font-family: 'Inter';
+    font-family: 'Space Grotesk';
     font-style: normal;
-    font-weight: 100 900;
+    font-weight: 300 700;
     font-display: swap;
-    src: url('https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2')
-      format('woff2-variations');
-    unicode-range: U+0020-007F; /* Basic Latin characters */
+    src: url('https://fonts.gstatic.com/s/spacegrotesk/v16/V8mDoQDjQSkFtoMM3T6r8E7mPbF4Cw.woff2')
+      format('woff2');
+    unicode-range: U+0020-007F;
   }
 
-  /* Use system font stack as immediate fallback */
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPVmUsaaDhw.woff2')
+      format('woff2');
+    unicode-range: U+0020-007F;
+  }
+
   body {
     font-family:
-      'Inter',
+      'Space Grotesk',
       -apple-system,
       BlinkMacSystemFont,
       'Segoe UI',
@@ -38,3 +48,9 @@
 <!-- Load additional font weights asynchronously -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:wght@400;700&display=swap"
+  rel="stylesheet"
+  media="print"
+  onload="this.media='all'"
+/>

@@ -31,14 +31,14 @@ body {
 
 /* Focus Styles for Accessibility */
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 3px solid var(--neo-blue);
   outline-offset: 2px;
 }
 
 /* Selection */
 ::selection {
-  background-color: var(--color-primary);
-  color: var(--color-text-inverse);
+  background-color: var(--neo-yellow);
+  color: #000000;
 }
 
 /* Scrollbar */
@@ -47,16 +47,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
+  background: var(--color-bg);
+  border-left: 2px solid var(--color-border);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-border);
-  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-border-hover);
+  background: var(--color-text-secondary);
 }
 
 /* Reduced Motion */
@@ -98,104 +98,38 @@ body {
   border-width: 0;
 }
 
-/* Animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Animation utilities */
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out forwards;
-}
-
-.animate-slide-in-left {
-  animation: slide-in-left 0.8s ease-out forwards;
-}
-
-.animate-slide-in-right {
-  animation: slide-in-right 0.8s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.8s ease-out forwards;
-}
-
 /* Intersection Observer animations */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+  transition: opacity 0.5s ease;
 }
 
 .animate-on-scroll.animate {
   opacity: 1;
-  transform: translateY(0);
 }
 
-/* Animation delays */
+/* Transition delays (used with animate-on-scroll opacity transitions) */
 .animation-delay-100 {
-  animation-delay: 0.1s;
+  transition-delay: 0.1s;
 }
 .animation-delay-200 {
-  animation-delay: 0.2s;
+  transition-delay: 0.2s;
 }
 .animation-delay-300 {
-  animation-delay: 0.3s;
+  transition-delay: 0.3s;
 }
 .animation-delay-400 {
-  animation-delay: 0.4s;
+  transition-delay: 0.4s;
 }
 .animation-delay-500 {
-  animation-delay: 0.5s;
+  transition-delay: 0.5s;
 }
 .animation-delay-1000 {
-  animation-delay: 1s;
+  transition-delay: 1s;
 }
 .animation-delay-1500 {
-  animation-delay: 1.5s;
+  transition-delay: 1.5s;
 }
 .animation-delay-2000 {
-  animation-delay: 2s;
+  transition-delay: 2s;
 }

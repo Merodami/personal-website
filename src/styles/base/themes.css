@@ -1,80 +1,104 @@
-/* Theme System */
+/* Theme System - Neobrutalism */
 
 :root {
   /* Light Theme Colors */
   --color-bg: #ffffff;
-  --color-bg-secondary: #f9fafb;
-  --color-bg-tertiary: #f3f4f6;
-  --color-surface: #f9fafb;
-  --color-surface-hover: #f3f4f6;
+  --color-bg-secondary: #f5f5f5;
+  --color-bg-tertiary: #ebebeb;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f5f5f5;
 
-  --color-text: #111827;
-  --color-text-secondary: #4b5563;
-  --color-text-tertiary: #6b7280;
+  --color-text: #000000;
+  --color-text-secondary: #333333;
+  --color-text-tertiary: #666666;
   --color-text-inverse: #ffffff;
 
-  --color-border: #e5e7eb;
-  --color-border-hover: #d1d5db;
+  --color-border: #000000;
+  --color-border-hover: #333333;
 
-  --color-primary: #a855f7;
-  --color-primary-hover: #9333ea;
-  --color-primary-light: #faf5ff;
-  --color-primary-dark: #7e22ce;
+  --color-primary: #000000;
+  --color-primary-hover: #333333;
+  --color-primary-light: #f5f5f5;
+  --color-primary-dark: #000000;
 
-  --color-accent: #ec4899;
-  --color-accent-hover: #db2777;
+  --color-accent: #ff6b9d;
+  --color-accent-hover: #ff4081;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  /* Neobrutalism Colors */
+  --neo-yellow: #ffe500;
+  --neo-pink: #ff6b9d;
+  --neo-lime: #b8ff57;
+  --neo-blue: #57b8ff;
+  --neo-orange: #ff9f43;
+  --neo-purple: #b388ff;
 
-  /* Glass effect */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.18);
+  /* Hard Shadows */
+  --shadow-sm: 2px 2px 0px var(--color-border);
+  --shadow-md: 4px 4px 0px var(--color-border);
+  --shadow-lg: 6px 6px 0px var(--color-border);
+  --shadow-xl: 8px 8px 0px var(--color-border);
+  --shadow-hard-sm: 2px 2px 0px var(--color-border);
+  --shadow-hard-md: 4px 4px 0px var(--color-border);
+  --shadow-hard-lg: 6px 6px 0px var(--color-border);
+  --shadow-hard-xl: 8px 8px 0px var(--color-border);
+
+  /* Glass replaced with solid */
+  --glass-bg: var(--color-surface);
+  --glass-border: var(--color-border);
 }
 
 [data-theme='dark'] {
   /* Dark Theme Colors */
-  --color-bg: #0a0a0a;
-  --color-bg-secondary: #111111;
-  --color-bg-tertiary: #1a1a1a;
-  --color-surface: #1f1f1f;
-  --color-surface-hover: #262626;
+  --color-bg: #1a1a1a;
+  --color-bg-secondary: #222222;
+  --color-bg-tertiary: #2a2a2a;
+  --color-surface: #222222;
+  --color-surface-hover: #2a2a2a;
 
   --color-text: #ffffff;
-  --color-text-secondary: #d1d5db;
-  --color-text-tertiary: #9ca3af;
+  --color-text-secondary: #cccccc;
+  --color-text-tertiary: #999999;
   --color-text-inverse: #000000;
 
-  --color-border: #374151;
-  --color-border-hover: #4b5563;
+  --color-border: #ffffff;
+  --color-border-hover: #cccccc;
 
-  --color-primary: #d946ef;
-  --color-primary-hover: #e879f9;
-  --color-primary-light: #4a044e;
-  --color-primary-dark: #f0abfc;
+  --color-primary: #ffffff;
+  --color-primary-hover: #cccccc;
+  --color-primary-light: #2a2a2a;
+  --color-primary-dark: #ffffff;
 
-  --color-accent: #f472b6;
-  --color-accent-hover: #f9a8d4;
+  --color-accent: #ffe500;
+  --color-accent-hover: #ffd000;
 
-  /* Shadows - more subtle in dark mode */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+  /* Neobrutalism Colors */
+  --neo-yellow: #ffe500;
+  --neo-pink: #ff6b9d;
+  --neo-lime: #b8ff57;
+  --neo-blue: #57b8ff;
+  --neo-orange: #ff9f43;
+  --neo-purple: #b388ff;
 
-  /* Glass effect */
-  --glass-bg: rgba(31, 31, 31, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  /* Hard Shadows */
+  --shadow-sm: 2px 2px 0px var(--color-border);
+  --shadow-md: 4px 4px 0px var(--color-border);
+  --shadow-lg: 6px 6px 0px var(--color-border);
+  --shadow-xl: 8px 8px 0px var(--color-border);
+  --shadow-hard-sm: 2px 2px 0px var(--color-border);
+  --shadow-hard-md: 4px 4px 0px var(--color-border);
+  --shadow-hard-lg: 6px 6px 0px var(--color-border);
+  --shadow-hard-xl: 8px 8px 0px var(--color-border);
+
+  /* Glass replaced with solid */
+  --glass-bg: var(--color-surface);
+  --glass-border: var(--color-border);
 }
 
-/* Smooth theme transitions */
+/* Fast theme transitions */
 * {
   transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease;
+    background-color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 /* Utility classes for colors */
@@ -108,20 +132,13 @@
   border-color: var(--color-border-hover);
 }
 
-/* Glass morphism effect */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-}
-
-/* Gradient text */
+/* Gradient text - solid accent */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-accent);
+  -webkit-text-fill-color: var(--color-accent);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
 }
 
 /* Gradient backgrounds */

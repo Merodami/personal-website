@@ -15,43 +15,47 @@ interface Experience {
 
 const { i18n } = useAstroI18n(Astro.url);
 const experiences = i18n.t<Experience[]>('experience.jobs');
+
+const neoColors = [
+  'var(--neo-yellow)',
+  'var(--neo-pink)',
+  'var(--neo-lime)',
+  'var(--neo-blue)',
+  'var(--neo-orange)',
+  'var(--neo-purple)',
+];
 ---
 
 <Section id="experience">
-  <div class="grid lg:grid-cols-2 gap-12 items-start">
-    <div>
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-i18n="experience.title">
-        {i18n.t('experience.title')}
-      </h2>
-      <p class="text-secondary text-lg" data-i18n="about.paragraph1">
-        {i18n.t('about.paragraph1')}
-      </p>
-    </div>
+  <div class="experience-wrapper">
+    <h2 class="experience-title" data-i18n="experience.title">
+      {i18n.t('experience.title')}
+    </h2>
+    <p class="experience-description" data-i18n="about.paragraph1">
+      {i18n.t('about.paragraph1')}
+    </p>
 
-    <div class="space-y-6" data-i18n-experience-cards>
+    <div class="experience-cards" data-i18n-experience-cards>
       {
-        experiences.map((exp) => (
+        experiences.map((exp, index) => (
           <Card hover={false} class="relative">
-            <div class="flex items-start gap-4">
-              <div
-                class="flex-shrink-0 w-2 h-2 rounded-full mt-2"
-                style="background-color: var(--color-primary)"
-              />
-              <div class="flex-grow">
-                <div class="mb-2">
-                  <h3 class="text-xl font-semibold mb-0" style="color: var(--color-primary)">
+            <div class="card-inner">
+              <div class="card-indicator" />
+              <div class="card-content">
+                <div class="card-header">
+                  <h3 class="company-name" style={`color: ${neoColors[index % neoColors.length]}`}>
                     {exp.company}
                   </h3>
-                  <div class="text-lg text-primary">{exp.position}</div>
+                  <div class="position-name">{exp.position}</div>
                 </div>
 
-                <div class="text-sm text-secondary mb-3">
+                <div class="date-range">
                   {exp.startDate} - {exp.endDate}
                 </div>
 
-                <p class="text-secondary mb-4">{exp.description}</p>
+                <p class="card-description">{exp.description}</p>
 
-                <div class="flex flex-wrap gap-2">
+                <div class="tech-badges">
                   {exp.technologies.map((tech: string) => (
                     <Badge text={tech} variant="primary" />
                   ))}
@@ -64,3 +68,88 @@ const experiences = i18n.t<Experience[]>('experience.jobs');
     </div>
   </div>
 </Section>
+
+<style>
+  .experience-wrapper {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+
+  .experience-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.875rem, 4vw, 2.25rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--neo-pink);
+    display: inline-block;
+    padding-bottom: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .experience-description {
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .experience-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .card-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .card-indicator {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 0;
+    margin-top: 0.5rem;
+    background-color: var(--color-primary);
+  }
+
+  .card-content {
+    flex-grow: 1;
+  }
+
+  .card-header {
+    margin-bottom: 0.5rem;
+  }
+
+  .company-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  .position-name {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--color-primary);
+  }
+
+  .date-range {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .card-description {
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+</style>
