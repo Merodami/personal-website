@@ -37,7 +37,7 @@ const emailShort = i18n.t('common.emailShort');
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
   }
 
   .header.hidden {
@@ -45,16 +45,14 @@ const emailShort = i18n.t('common.emailShort');
   }
 
   .nav-container {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 50px;
-    border: 1px solid var(--glass-border);
+    background: var(--color-surface);
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
     padding: 0.75rem 1.5rem;
     display: flex;
     align-items: center;
     gap: 2rem;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
   }
 
   .profile-section {
@@ -64,17 +62,17 @@ const emailShort = i18n.t('common.emailShort');
   }
 
   .profile-image {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--glass-border);
+    border: 1px solid var(--color-border);
   }
 
   .email {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: var(--color-text-secondary);
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .email.short {
@@ -87,7 +85,6 @@ const emailShort = i18n.t('common.emailShort');
     gap: 1.5rem;
   }
 
-  /* Medium screens - better spacing for tablet/small desktop */
   @media (max-width: 1024px) and (min-width: 640px) {
     .nav-container {
       padding: 0.6rem 1.25rem;
@@ -95,12 +92,12 @@ const emailShort = i18n.t('common.emailShort');
     }
 
     .profile-image {
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
     }
 
     .email {
-      font-size: 0.8rem;
+      font-size: 0.8125rem;
     }
   }
 
@@ -141,15 +138,15 @@ const emailShort = i18n.t('common.emailShort');
     }
 
     .profile-image {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       flex-shrink: 0;
     }
 
     .email {
-      font-size: 1rem;
+      font-size: 0.875rem;
       white-space: nowrap;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 1;
     }
 
@@ -173,12 +170,12 @@ const emailShort = i18n.t('common.emailShort');
     }
 
     .profile-image {
-      width: 36px;
-      height: 36px;
+      width: 28px;
+      height: 28px;
     }
 
     .email {
-      font-size: 0.9375rem;
+      font-size: 0.8125rem;
     }
 
     .nav-section {
@@ -197,8 +194,8 @@ const emailShort = i18n.t('common.emailShort');
     }
 
     .profile-image {
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
     }
   }
 </style>

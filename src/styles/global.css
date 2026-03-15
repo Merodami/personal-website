@@ -38,12 +38,12 @@ body {
 /* Selection */
 ::selection {
   background-color: var(--color-primary);
-  color: var(--color-text-inverse);
+  color: white;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -52,7 +52,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-border);
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -98,75 +98,13 @@ body {
   border-width: 0;
 }
 
-/* Animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Animation utilities */
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out forwards;
-}
-
-.animate-slide-in-left {
-  animation: slide-in-left 0.8s ease-out forwards;
-}
-
-.animate-slide-in-right {
-  animation: slide-in-right 0.8s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.8s ease-out forwards;
-}
-
 /* Intersection Observer animations */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(12px);
   transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .animate-on-scroll.animate {
@@ -174,28 +112,28 @@ body {
   transform: translateY(0);
 }
 
-/* Animation delays */
-.animation-delay-100 {
-  animation-delay: 0.1s;
+/* Transition delays */
+.transition-delay-100 {
+  transition-delay: 0.1s;
 }
-.animation-delay-200 {
-  animation-delay: 0.2s;
+.transition-delay-200 {
+  transition-delay: 0.2s;
 }
-.animation-delay-300 {
-  animation-delay: 0.3s;
+.transition-delay-300 {
+  transition-delay: 0.3s;
 }
-.animation-delay-400 {
-  animation-delay: 0.4s;
+.transition-delay-400 {
+  transition-delay: 0.4s;
 }
-.animation-delay-500 {
-  animation-delay: 0.5s;
+.transition-delay-500 {
+  transition-delay: 0.5s;
 }
-.animation-delay-1000 {
-  animation-delay: 1s;
+.transition-delay-1000 {
+  transition-delay: 1s;
 }
-.animation-delay-1500 {
-  animation-delay: 1.5s;
+.transition-delay-1500 {
+  transition-delay: 1.5s;
 }
-.animation-delay-2000 {
-  animation-delay: 2s;
+.transition-delay-2000 {
+  transition-delay: 2s;
 }

@@ -1,6 +1,5 @@
 ---
 import Section from '@components/common/Section.astro';
-import Card from '@components/common/Card.astro';
 import Badge from '@components/common/Badge.astro';
 import { useAstroI18n } from '@/i18n';
 
@@ -18,38 +17,31 @@ const experiences = i18n.t<Experience[]>('experience.jobs');
 ---
 
 <Section id="experience">
-  <div class="grid lg:grid-cols-2 gap-12 items-start">
-    <div>
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-i18n="experience.title">
-        {i18n.t('experience.title')}
-      </h2>
-      <p class="text-secondary text-lg" data-i18n="about.paragraph1">
-        {i18n.t('about.paragraph1')}
-      </p>
-    </div>
+  <div class="experience-layout">
+    <h2 class="experience-title" data-i18n="experience.title">
+      {i18n.t('experience.title')}
+    </h2>
+    <p class="experience-subtitle" data-i18n="about.paragraph1">
+      {i18n.t('about.paragraph1')}
+    </p>
 
-    <div class="space-y-6" data-i18n-experience-cards>
+    <div class="experience-list" data-i18n-experience-cards>
       {
         experiences.map((exp) => (
-          <Card hover={false} class="relative">
-            <div class="flex items-start gap-4">
-              <div
-                class="flex-shrink-0 w-2 h-2 rounded-full mt-2"
-                style="background-color: var(--color-primary)"
-              />
-              <div class="flex-grow">
-                <div class="mb-2">
-                  <h3 class="text-xl font-semibold mb-0" style="color: var(--color-primary)">
-                    {exp.company}
-                  </h3>
-                  <div class="text-lg text-primary">{exp.position}</div>
+          <div class="experience-card bento-cell">
+            <div class="experience-card-inner">
+              <div class="dot-indicator" />
+              <div class="experience-content">
+                <div class="experience-header">
+                  <h3 class="company-name">{exp.company}</h3>
+                  <div class="position-name">{exp.position}</div>
                 </div>
 
-                <div class="text-sm text-secondary mb-3">
+                <div class="experience-dates">
                   {exp.startDate} - {exp.endDate}
                 </div>
 
-                <p class="text-secondary mb-4">{exp.description}</p>
+                <p class="experience-description">{exp.description}</p>
 
                 <div class="flex flex-wrap gap-2">
                   {exp.technologies.map((tech: string) => (
@@ -58,9 +50,100 @@ const experiences = i18n.t<Experience[]>('experience.jobs');
                 </div>
               </div>
             </div>
-          </Card>
+          </div>
         ))
       }
     </div>
   </div>
 </Section>
+
+<style>
+  .experience-layout {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .experience-title {
+    font-size: clamp(1.875rem, 4vw, 2.25rem);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .experience-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .experience-card {
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    background: var(--color-surface);
+    transition: all 0.3s ease;
+  }
+
+  .experience-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border-hover);
+  }
+
+  .experience-card-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .dot-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .experience-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .experience-header {
+    margin-bottom: 0.5rem;
+  }
+
+  .company-name {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--color-text);
+    margin-bottom: 0.125rem;
+  }
+
+  .position-name {
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  .experience-dates {
+    font-size: 0.8125rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: 0.75rem;
+  }
+
+  .experience-description {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+</style>

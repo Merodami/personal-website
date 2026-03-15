@@ -78,31 +78,39 @@ const translations = {
             padding: 8px;
             background: none;
             border: none;
+            border-radius: 8px;
             cursor: pointer;
             color: var(--color-text, #fff);
             margin-bottom: 40px;
-          " aria-label="Close menu">
+            transition: background 0.2s ease;
+          " aria-label="Close menu"
+          onmouseover="this.style.background='var(--color-bg-secondary)'"
+          onmouseout="this.style.background='none'">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
-          
+
           <nav style="
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 1.5rem;
           ">
             ${window.mobileMenuData.navItems
               .map((item) => {
                 const labelKey = item.label.toLowerCase();
                 const translatedLabel = currentTranslations[labelKey] || item.label;
+                const isActive =
+                  item.href === window.mobileMenuData.currentPath ||
+                  (item.href !== '/' && window.mobileMenuData.currentPath.startsWith(item.href));
                 return `
               <a href="${currentLang === 'es' ? '/es' + item.href : item.href}" style="
-                font-size: 24px;
-                font-weight: 500;
+                font-size: 1.5rem;
+                font-weight: 600;
                 text-decoration: none;
-                color: ${item.href === window.mobileMenuData.currentPath || (item.href !== '/' && window.mobileMenuData.currentPath.startsWith(item.href)) ? 'var(--color-primary, #ff0080)' : 'var(--color-text, #fff)'};
+                color: ${isActive ? 'var(--color-primary, #6366F1)' : 'var(--color-text, #fff)'};
                 padding: 10px 0;
+                transition: color 0.2s ease;
               ">
                 ${translatedLabel}
               </a>

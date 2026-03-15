@@ -1,52 +1,90 @@
 ---
-// Enhanced critical CSS with more comprehensive styles
 const criticalCSS = `
   /* Reset and base styles */
   *, *::before, *::after { box-sizing: border-box; }
-  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-  
+  body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+
   /* Layout essentials */
   .h-full { height: 100%; }
   .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
-  
+
   /* Typography for hero */
-  .hero-title { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin: 0; }
-  
-  /* Theme colors */
-  [data-theme="dark"] { 
-    --bg-primary: #0a0a0a; 
-    --text-primary: #ffffff;
-    --bg-card: #141414;
-    --border-color: #262626;
+  .hero-title { font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; margin: 0; }
+
+  /* Theme colors (indigo/zinc) - aligned with themes.css */
+  :root {
+    --color-bg: #F8F8F8;
+    --color-bg-secondary: #FFFFFF;
+    --color-bg-tertiary: #EFEFEF;
+    --color-text: #111111;
+    --color-text-secondary: #555555;
+    --color-text-tertiary: #888888;
+    --color-text-inverse: #FFFFFF;
+    --color-surface: #FFFFFF;
+    --color-surface-hover: #F3F3F3;
+    --color-border: #E5E5E5;
+    --color-border-hover: #CCCCCC;
+    --color-primary: #6366F1;
+    --color-primary-hover: #4F46E5;
+    --color-primary-light: #EEF2FF;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
   }
-  [data-theme="light"] { 
-    --bg-primary: #ffffff; 
-    --text-primary: #0a0a0a;
-    --bg-card: #f9fafb;
-    --border-color: #e5e7eb;
+  [data-theme="dark"] {
+    --color-bg: #09090B;
+    --color-bg-secondary: #18181B;
+    --color-bg-tertiary: #27272A;
+    --color-text: #FAFAFA;
+    --color-text-secondary: #A1A1AA;
+    --color-text-tertiary: #71717A;
+    --color-text-inverse: #09090B;
+    --color-surface: #18181B;
+    --color-surface-hover: #27272A;
+    --color-border: #27272A;
+    --color-border-hover: #3F3F46;
+    --color-primary: #818CF8;
+    --color-primary-hover: #6366F1;
+    --color-primary-light: #1E1B4B;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.3);
   }
-  body { 
-    background-color: var(--bg-primary); 
-    color: var(--text-primary);
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
     line-height: 1.6;
   }
-  
+
   /* Navigation layout */
   header { position: sticky; top: 0; z-index: 50; }
   .nav-section { display: flex; align-items: center; gap: 1rem; }
-  
+
   /* Hero section */
   .hero-section { min-height: 100vh; display: flex; align-items: center; }
-  
+
   /* Common components */
   .email { display: inline-block; }
   .main-content { flex: 1; }
-  
+
+  /* Bento grid critical styles */
+  .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 1200px; margin: 0 auto; }
+  .bento-cell { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 16px; padding: 1.5rem; overflow: hidden; transition: all 0.2s ease; }
+  .bento-cell-wide { grid-column: span 2; }
+  .bento-cell-tall { grid-row: span 2; }
+  .bento-cell-large { grid-column: span 2; grid-row: span 2; }
+  .bento-cell-full { grid-column: 1 / -1; }
+
   /* Grid layouts */
   .grid { display: grid; gap: 1rem; }
   @media (min-width: 768px) {
     .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
     .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 1024px) {
+    .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-cell-wide, .bento-cell-large, .bento-cell-full { grid-column: span 1; }
   }
 `;
 ---
