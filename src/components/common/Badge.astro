@@ -22,42 +22,30 @@ const variantClasses = {
   .badge {
     display: inline-flex;
     align-items: center;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
+    padding: 0;
+    border-radius: 0;
     font-size: 0.75rem;
-    font-weight: 500;
-    border: 1px solid;
-    transition: all 0.2s ease;
+    font-weight: 400;
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    background: transparent;
+    border: none;
+    color: var(--color-text-tertiary);
+    transition: color 0.2s ease;
   }
 
   .badge-default {
-    background-color: var(--color-surface);
-    color: var(--color-text-secondary);
-    border-color: var(--color-border);
+    color: var(--color-text-tertiary);
   }
 
   .badge-primary {
-    background-color: rgba(168, 85, 247, 0.1);
-    color: var(--color-primary);
-    border-color: rgba(168, 85, 247, 0.2);
-  }
-
-  /* Light theme adjustments */
-  :global([data-theme='light']) .badge-primary {
-    background-color: var(--color-primary-light);
-    color: var(--color-primary-dark);
-    border-color: var(--color-primary);
+    color: var(--color-text-tertiary);
   }
 
   .badge-success {
-    background-color: rgba(34, 197, 94, 0.1);
-    color: rgb(34, 197, 94);
-    border-color: rgba(34, 197, 94, 0.2);
+    color: var(--color-text-tertiary);
   }
 
   .badge-warning {
-    background-color: rgba(234, 179, 8, 0.1);
-    color: rgb(234, 179, 8);
-    border-color: rgba(234, 179, 8, 0.2);
+    color: var(--color-text-tertiary);
   }
 </style>

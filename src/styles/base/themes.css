@@ -1,80 +1,79 @@
-/* Theme System */
+/* Theme System - Editorial Magazine */
 
 :root {
-  /* Light Theme Colors */
-  --color-bg: #ffffff;
-  --color-bg-secondary: #f9fafb;
-  --color-bg-tertiary: #f3f4f6;
-  --color-surface: #f9fafb;
-  --color-surface-hover: #f3f4f6;
+  /* Light Theme Colors - Warm Paper Tones */
+  --color-bg: #fafaf8;
+  --color-bg-secondary: #f5f5f0;
+  --color-bg-tertiary: #ededea;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f8f8f5;
 
-  --color-text: #111827;
-  --color-text-secondary: #4b5563;
-  --color-text-tertiary: #6b7280;
-  --color-text-inverse: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-text-tertiary: #8a8a8a;
+  --color-text-inverse: #fafaf8;
 
-  --color-border: #e5e7eb;
-  --color-border-hover: #d1d5db;
+  --color-border: #e0ded8;
+  --color-border-hover: #c8c6c0;
 
-  --color-primary: #a855f7;
-  --color-primary-hover: #9333ea;
-  --color-primary-light: #faf5ff;
-  --color-primary-dark: #7e22ce;
+  --color-primary: #1a1a1a;
+  --color-primary-hover: #333333;
+  --color-primary-light: #f5f5f0;
+  --color-primary-dark: #000000;
 
-  --color-accent: #ec4899;
-  --color-accent-hover: #db2777;
+  --color-accent: #c0392b;
+  --color-accent-hover: #a93226;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 16px 50px rgba(0, 0, 0, 0.1);
 
-  /* Glass effect */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-bg: #ffffff;
+  --glass-border: #e0ded8;
 }
 
 [data-theme='dark'] {
   /* Dark Theme Colors */
-  --color-bg: #0a0a0a;
-  --color-bg-secondary: #111111;
-  --color-bg-tertiary: #1a1a1a;
-  --color-surface: #1f1f1f;
-  --color-surface-hover: #262626;
+  --color-bg: #0f0f0e;
+  --color-bg-secondary: #1a1a18;
+  --color-bg-tertiary: #252522;
+  --color-surface: #1a1a18;
+  --color-surface-hover: #252522;
 
-  --color-text: #ffffff;
-  --color-text-secondary: #d1d5db;
-  --color-text-tertiary: #9ca3af;
-  --color-text-inverse: #000000;
+  --color-text: #f0f0ec;
+  --color-text-secondary: #b0b0a8;
+  --color-text-tertiary: #787870;
+  --color-text-inverse: #0f0f0e;
 
-  --color-border: #374151;
-  --color-border-hover: #4b5563;
+  --color-border: #2a2a28;
+  --color-border-hover: #3a3a38;
 
-  --color-primary: #d946ef;
-  --color-primary-hover: #e879f9;
-  --color-primary-light: #4a044e;
-  --color-primary-dark: #f0abfc;
+  --color-primary: #f0f0ec;
+  --color-primary-hover: #d0d0c8;
+  --color-primary-light: #252522;
+  --color-primary-dark: #ffffff;
 
-  --color-accent: #f472b6;
-  --color-accent-hover: #f9a8d4;
+  --color-accent: #e74c3c;
+  --color-accent-hover: #f06856;
 
-  /* Shadows - more subtle in dark mode */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 16px 50px rgba(0, 0, 0, 0.5);
 
-  /* Glass effect */
-  --glass-bg: rgba(31, 31, 31, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: #1a1a18;
+  --glass-border: #2a2a28;
 }
 
 /* Smooth theme transitions */
 * {
   transition:
     background-color 0.3s ease,
-    border-color 0.3s ease;
+    border-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Utility classes for colors */
@@ -108,27 +107,9 @@
   border-color: var(--color-border-hover);
 }
 
-/* Glass morphism effect */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-}
-
-/* Gradient text */
+/* Accent text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Gradient backgrounds */
-.gradient-primary {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-}
-
-.gradient-accent {
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  color: var(--color-accent);
+  -webkit-text-fill-color: var(--color-accent);
+  background: none;
 }

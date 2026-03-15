@@ -1,7 +1,4 @@
 ---
-import Button from '@components/common/Button.astro';
-import FloatingTechLogos from '@components/background/FloatingTechLogos.astro';
-import StaticTechLogos from '@components/background/StaticTechLogos.astro';
 import DynamicText from '@components/ui/DynamicText.astro';
 import { FEATURE_FLAGS } from '@config/constants';
 import { useAstroI18n, getLocalizedUrl } from '@/i18n';
@@ -12,25 +9,20 @@ const cvPath =
     ? '/cv/international/Damian_Meroni_CV_ES_I.pdf'
     : '/cv/international/Damian_Meroni_CV_EN_I.pdf';
 
-// Dynamic words with colors matching technology brands
 const dynamicWords = [
-  { text: i18n.t('hero.dynamicWords.build'), color: '#3178C6' }, // TypeScript blue
-  { text: i18n.t('hero.dynamicWords.create'), color: '#61DAFB' }, // React cyan
-  { text: i18n.t('hero.dynamicWords.develop'), color: '#339933' }, // Node.js green
-  { text: i18n.t('hero.dynamicWords.engineer'), color: '#F7DF1E' }, // JavaScript yellow
-  { text: i18n.t('hero.dynamicWords.craft'), color: '#DD0031' }, // Angular red
-  { text: i18n.t('hero.dynamicWords.architect'), color: '#2496ED' }, // Docker blue
-  { text: i18n.t('hero.dynamicWords.code'), color: '#FF9900' }, // AWS orange
-  { text: i18n.t('hero.dynamicWords.forge'), color: '#4169E1' }, // PostgreSQL blue
-  { text: i18n.t('hero.dynamicWords.shape'), color: '#47A248' }, // MongoDB green
+  { text: i18n.t('hero.dynamicWords.build'), color: 'var(--color-accent)' },
+  { text: i18n.t('hero.dynamicWords.create'), color: 'var(--color-accent)' },
+  { text: i18n.t('hero.dynamicWords.develop'), color: 'var(--color-accent)' },
+  { text: i18n.t('hero.dynamicWords.engineer'), color: 'var(--color-accent)' },
+  { text: i18n.t('hero.dynamicWords.craft'), color: 'var(--color-accent)' },
+  { text: i18n.t('hero.dynamicWords.architect'), color: 'var(--color-accent)' },
+  { text: i18n.t('hero.dynamicWords.code'), color: 'var(--color-accent)' },
+  { text: i18n.t('hero.dynamicWords.forge'), color: 'var(--color-accent)' },
+  { text: i18n.t('hero.dynamicWords.shape'), color: 'var(--color-accent)' },
 ];
 ---
 
 <section class="hero-section">
-  <FloatingTechLogos />
-  <StaticTechLogos />
-  <div class="hero-gradient"></div>
-
   <div class="container">
     <div class="hero-content">
       <h1 class="hero-title">
@@ -38,7 +30,7 @@ const dynamicWords = [
         <span class="desktop-space"> </span>
         <br class="mobile-break" />
         <DynamicText words={dynamicWords} className="data-i18n-dynamic-words" /><br />
-        <span class="gradient-text" data-i18n="hero.title.part2">{i18n.t('hero.title.part2')}</span>
+        <span class="accent-text" data-i18n="hero.title.part2">{i18n.t('hero.title.part2')}</span>
         <span data-i18n="hero.title.part3">{i18n.t('hero.title.part3')}</span>
       </h1>
 
@@ -49,51 +41,54 @@ const dynamicWords = [
       <div class="hero-actions">
         {
           FEATURE_FLAGS.showProjects && (
-            <Button href={getLocalizedUrl('/projects', lang)} size="lg">
+            <a href={getLocalizedUrl('/projects', lang)} class="hero-cta-link">
               <span data-i18n="common.viewMyWork">{i18n.t('common.viewMyWork')}</span>
-            </Button>
+            </a>
           )
         }
-        <Button href={getLocalizedUrl('/contact', lang)} variant="outline" size="lg">
+        <a href={getLocalizedUrl('/contact', lang)} class="hero-cta-link">
           <span data-i18n="common.getInTouch">{i18n.t('common.getInTouch')}</span>
-        </Button>
-        <div class="button-group">
-          <a href={cvPath} download class="cv-download-button" data-cv-download>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="cv-icon"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              ></path>
-            </svg>
-            <span data-i18n="experience.downloadCV">{i18n.t('experience.downloadCV')}</span>
-          </a>
-          <a
-            href="https://github.com/Merodami"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="github-button"
+        </a>
+      </div>
+
+      <hr class="hairline-rule" style="width: 60px; margin: 3rem auto;" />
+
+      <div class="hero-meta-links">
+        <a href={cvPath} download class="cv-download-button" data-cv-download>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="cv-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="github-icon"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
-              ></path>
-            </svg>
-            <span>GitHub</span>
-          </a>
-        </div>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            ></path>
+          </svg>
+          <span data-i18n="experience.downloadCV">{i18n.t('experience.downloadCV')}</span>
+        </a>
+        <a
+          href="https://github.com/Merodami"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="github-button"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="github-icon"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+            ></path>
+          </svg>
+          <span>GitHub</span>
+        </a>
       </div>
     </div>
   </div>
@@ -104,159 +99,105 @@ const dynamicWords = [
     position: relative;
     min-height: 100vh;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    overflow: hidden;
-    padding-top: 8rem;
-    padding-bottom: 4rem;
-  }
-
-  .hero-gradient {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 20% 50%, rgba(217, 70, 239, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 50%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
-    z-index: 2;
-    pointer-events: none;
+    background: var(--color-bg);
   }
 
   .hero-content {
-    max-width: 900px;
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
     position: relative;
-    z-index: 3;
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1.1;
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 400;
+    line-height: 1.05;
     letter-spacing: -0.02em;
+    text-align: center;
     margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fade-up 0.8s ease-out forwards;
+    color: var(--color-text);
   }
 
-  .gradient-text {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .accent-text {
+    color: var(--color-accent);
+    font-style: italic;
   }
 
   .hero-description {
-    font-size: 1.125rem;
-    line-height: 1.7;
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    font-size: 1.0625rem;
+    font-weight: 400;
     color: var(--color-text-secondary);
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    opacity: 0;
-    animation: fade-up 0.8s ease-out 0.2s forwards;
+    text-align: center;
+    max-width: 440px;
+    margin: 2rem auto 0;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
   }
 
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
     justify-content: center;
-    opacity: 0;
-    animation: fade-up 0.8s ease-out 0.4s forwards;
+    margin-top: 2.5rem;
   }
 
-  /* Make all buttons same width on desktop */
-  .hero-actions > :global(*:not(.button-group)) {
-    min-width: 250px;
+  .hero-cta-link {
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: var(--color-text);
+    transition: opacity 0.2s ease;
   }
 
-  .button-group {
+  .hero-cta-link:hover {
+    opacity: 0.7;
+  }
+
+  .hairline-rule {
+    border: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .hero-meta-links {
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .button-group > * {
-    flex: 1;
-    min-width: 250px;
+    gap: 2rem;
+    justify-content: center;
   }
 
   .cv-download-button,
   .github-button {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.75rem;
-    font-size: 1rem;
-    font-weight: 500;
+    gap: 0.375rem;
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-tertiary);
     text-decoration: none;
-    color: var(--color-text);
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 0.75rem;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .cv-download-button::before,
-  .github-button::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-alpha) 0%,
-      var(--color-accent-alpha) 100%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: color 0.2s ease;
   }
 
   .cv-download-button:hover,
   .github-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border-color: var(--color-primary);
-  }
-
-  .cv-download-button:hover::before,
-  .github-button:hover::before {
-    opacity: 1;
-  }
-
-  .cv-download-button > *,
-  .github-button > * {
-    position: relative;
-    z-index: 1;
+    color: var(--color-text);
   }
 
   .cv-icon,
   .github-icon {
-    width: 1.4375rem;
-    height: 1.4375rem;
+    width: 1rem;
+    height: 1rem;
   }
 
-  /* Light theme specific styles */
-  :global([data-theme='light']) .cv-download-button,
-  :global([data-theme='light']) .github-button {
-    background: rgba(249, 247, 253, 0.95);
-    border-color: rgba(139, 92, 246, 0.2);
-    color: var(--color-text);
-  }
-
-  :global([data-theme='light']) .cv-download-button:hover,
-  :global([data-theme='light']) .github-button:hover {
-    background: rgba(245, 242, 252, 0.98);
-    border-color: var(--color-primary);
-  }
-
-  /* Hide mobile break on desktop, show desktop space */
   .mobile-break {
     display: none;
   }
@@ -266,38 +207,18 @@ const dynamicWords = [
   }
 
   @media (max-width: 640px) {
-    .hero-section {
-      padding-top: 6.125rem;
-    }
-
     .hero-actions {
       flex-direction: column;
-      width: 100%;
+      gap: 1rem;
+      align-items: center;
     }
 
-    .hero-actions > * {
-      width: 100%;
-    }
-
-    .button-group {
+    .hero-meta-links {
       flex-direction: column;
-      width: 100%;
+      align-items: center;
+      gap: 1rem;
     }
 
-    .cv-download-button,
-    .github-button {
-      padding: 0.75rem 1.5rem;
-      font-size: 0.875rem;
-      width: 100%;
-    }
-
-    .cv-icon,
-    .github-icon {
-      width: 1.4375rem;
-      height: 1.4375rem;
-    }
-
-    /* Show mobile break on mobile, hide desktop space */
     .mobile-break {
       display: block;
     }
@@ -307,25 +228,9 @@ const dynamicWords = [
     }
   }
 
-  @keyframes fade-up {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   @media (min-width: 768px) {
     .hero-title {
       margin-bottom: 2rem;
-    }
-
-    .hero-description {
-      font-size: 1.25rem;
-      margin-bottom: 3rem;
     }
   }
 </style>

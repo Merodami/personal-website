@@ -13,8 +13,8 @@ const { i18n } = useAstroI18n(Astro.url);
 >
   <svg
     class="icon sun-icon"
-    width="20"
-    height="20"
+    width="16"
+    height="16"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -34,8 +34,8 @@ const { i18n } = useAstroI18n(Astro.url);
   </svg>
   <svg
     class="icon moon-icon"
-    width="20"
-    height="20"
+    width="16"
+    height="16"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -50,60 +50,48 @@ const { i18n } = useAstroI18n(Astro.url);
 <style>
   .theme-toggle {
     position: relative;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    border-radius: 0;
     border: none;
     background: transparent;
-    color: var(--color-text-secondary);
+    color: var(--color-text-tertiary);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition: color 0.3s ease;
     flex-shrink: 0;
   }
 
-  @media (max-width: 480px) {
-    .theme-toggle {
-      width: 32px;
-      height: 32px;
-    }
-  }
-
   .theme-toggle:hover {
-    background: var(--color-surface);
     color: var(--color-text);
   }
 
   .theme-toggle:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
+    outline: 1px solid var(--color-text);
+    outline-offset: 4px;
   }
 
   .icon {
     position: absolute;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease;
   }
 
   .sun-icon {
     opacity: 1;
-    transform: rotate(0deg) scale(1);
   }
 
   .moon-icon {
     opacity: 0;
-    transform: rotate(-90deg) scale(0);
   }
 
   [data-theme='dark'] .sun-icon {
     opacity: 0;
-    transform: rotate(90deg) scale(0);
   }
 
   [data-theme='dark'] .moon-icon {
     opacity: 1;
-    transform: rotate(0deg) scale(1);
   }
 </style>
 

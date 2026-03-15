@@ -9,7 +9,6 @@ const { id, class: className = '', gradient = false } = Astro.props;
 ---
 
 <section id={id} class={`section ${className}`}>
-  {gradient && <div class="section-gradient" />}
   <div class="container mx-auto px-4 relative z-10">
     <slot />
   </div>
@@ -23,16 +22,7 @@ const { id, class: className = '', gradient = false } = Astro.props;
 
   @media (min-width: 768px) {
     .section {
-      padding: 6rem 0;
+      padding: 8rem 0;
     }
-  }
-
-  .section-gradient {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at top, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
-    pointer-events: none;
   }
 </style>

@@ -1,47 +1,57 @@
 ---
-// Enhanced critical CSS with more comprehensive styles
 const criticalCSS = `
   /* Reset and base styles */
   *, *::before, *::after { box-sizing: border-box; }
-  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-  
+  body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+
   /* Layout essentials */
   .h-full { height: 100%; }
   .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
-  
-  /* Typography for hero */
-  .hero-title { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin: 0; }
-  
-  /* Theme colors */
-  [data-theme="dark"] { 
-    --bg-primary: #0a0a0a; 
-    --text-primary: #ffffff;
-    --bg-card: #141414;
-    --border-color: #262626;
+
+  /* Typography for hero - editorial serif */
+  .hero-title { font-family: 'Playfair Display', 'Georgia', serif; font-size: clamp(3rem, 7vw, 5rem); line-height: 1.1; font-weight: 400; letter-spacing: -0.01em; margin: 0; }
+
+  /* Theme colors - warm paper tones */
+  [data-theme="dark"] {
+    --color-bg: #0F0F0E;
+    --color-bg-secondary: #1A1A18;
+    --color-bg-tertiary: #252522;
+    --color-surface: #1A1A18;
+    --color-text: #F0F0EC;
+    --color-text-secondary: #B0B0A8;
+    --color-text-tertiary: #787870;
+    --color-border: #2A2A28;
+    --color-accent: #E74C3C;
   }
-  [data-theme="light"] { 
-    --bg-primary: #ffffff; 
-    --text-primary: #0a0a0a;
-    --bg-card: #f9fafb;
-    --border-color: #e5e7eb;
+  [data-theme="light"] {
+    --color-bg: #FAFAF8;
+    --color-bg-secondary: #F5F5F0;
+    --color-bg-tertiary: #EDEDEA;
+    --color-surface: #FFFFFF;
+    --color-text: #1A1A1A;
+    --color-text-secondary: #4A4A4A;
+    --color-text-tertiary: #8A8A8A;
+    --color-border: #E0DED8;
+    --color-accent: #C0392B;
   }
-  body { 
-    background-color: var(--bg-primary); 
-    color: var(--text-primary);
-    line-height: 1.6;
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.8;
   }
-  
+
   /* Navigation layout */
   header { position: sticky; top: 0; z-index: 50; }
   .nav-section { display: flex; align-items: center; gap: 1rem; }
-  
+
   /* Hero section */
   .hero-section { min-height: 100vh; display: flex; align-items: center; }
-  
-  /* Common components */
+
+  /* Common components - no rounded corners */
   .email { display: inline-block; }
   .main-content { flex: 1; }
-  
+  [class*="card"] { border-radius: 0; }
+
   /* Grid layouts */
   .grid { display: grid; gap: 1rem; }
   @media (min-width: 768px) {

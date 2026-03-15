@@ -1,4 +1,4 @@
-/* Typography System */
+/* Typography System - Editorial Magazine */
 
 /* Font Face - Inter Variable Font */
 @font-face {
@@ -10,11 +10,41 @@
     format('woff2-variations');
 }
 
+/* Font Face - Playfair Display */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/playfairdisplay/v37/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKd3vXDXbtXK-F2qC0s.woff2')
+    format('woff2');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/playfairdisplay/v37/nuFRD-vYSZviVYUb_rj3ij__anPXDTnCjmHKM4nYO7KN_qiTbtbK-F2qA.woff2')
+    format('woff2');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/playfairdisplay/v37/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKd3vXDXbtXK-F2qC0s.woff2')
+    format('woff2');
+}
+
 /* Font Variables */
 :root {
   --font-sans:
     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
     sans-serif;
+  --font-serif: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+  --font-display: 'Playfair Display', 'Georgia', serif;
   --font-mono: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
 
   /* Fluid Font Sizes */
@@ -28,6 +58,7 @@
   --text-4xl: clamp(2.5rem, 1.75rem + 3.75vw, 4rem);
   --text-5xl: clamp(3rem, 2rem + 5vw, 5rem);
   --text-6xl: clamp(3.5rem, 2.5rem + 5vw, 6rem);
+  --text-hero: clamp(3rem, 7vw, 5rem);
 
   /* Line Heights */
   --leading-none: 1;
@@ -60,9 +91,9 @@
 body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  line-height: var(--leading-normal);
-  font-weight: var(--font-light);
-  letter-spacing: var(--tracking-normal);
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
   font-feature-settings: 'cv11', 'ss01', 'ss03';
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -71,49 +102,50 @@ body {
 
 /* Headings */
 h1,
-h2,
+h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
 h3,
 h4,
 h5,
 h6 {
-  font-weight: var(--font-semibold);
-  line-height: var(--leading-tight);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1.3;
   letter-spacing: var(--tracking-tight);
 }
 
 h1 {
   font-size: var(--text-5xl);
-  font-weight: var(--font-bold);
 }
 
 h2 {
   font-size: var(--text-4xl);
-  font-weight: var(--font-semibold);
 }
 
 h3 {
   font-size: var(--text-3xl);
-  font-weight: var(--font-medium);
 }
 
 h4 {
   font-size: var(--text-2xl);
-  font-weight: var(--font-medium);
 }
 
 h5 {
   font-size: var(--text-xl);
-  font-weight: var(--font-normal);
 }
 
 h6 {
   font-size: var(--text-lg);
-  font-weight: var(--font-normal);
 }
 
 /* Body Text */
 p {
-  line-height: var(--leading-relaxed);
+  line-height: 1.8;
 }
 
 /* Links */
