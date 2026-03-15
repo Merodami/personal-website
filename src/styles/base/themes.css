@@ -30,8 +30,8 @@
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
   --shadow-xl: 0 16px 50px rgba(0, 0, 0, 0.1);
 
-  --glass-bg: #ffffff;
-  --glass-border: #e0ded8;
+  --glass-bg: var(--color-surface);
+  --glass-border: var(--color-border);
 }
 
 [data-theme='dark'] {
@@ -64,8 +64,8 @@
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
   --shadow-xl: 0 16px 50px rgba(0, 0, 0, 0.5);
 
-  --glass-bg: #1a1a18;
-  --glass-border: #2a2a28;
+  --glass-bg: var(--color-surface);
+  --glass-border: var(--color-border);
 }
 
 /* Smooth theme transitions */
