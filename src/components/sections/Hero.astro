@@ -1,7 +1,5 @@
 ---
 import Button from '@components/common/Button.astro';
-import FloatingTechLogos from '@components/background/FloatingTechLogos.astro';
-import StaticTechLogos from '@components/background/StaticTechLogos.astro';
 import DynamicText from '@components/ui/DynamicText.astro';
 import { FEATURE_FLAGS } from '@config/constants';
 import { useAstroI18n, getLocalizedUrl } from '@/i18n';
@@ -12,28 +10,25 @@ const cvPath =
     ? '/cv/international/Damian_Meroni_CV_ES_I.pdf'
     : '/cv/international/Damian_Meroni_CV_EN_I.pdf';
 
-// Dynamic words with colors matching technology brands
 const dynamicWords = [
-  { text: i18n.t('hero.dynamicWords.build'), color: '#3178C6' }, // TypeScript blue
-  { text: i18n.t('hero.dynamicWords.create'), color: '#61DAFB' }, // React cyan
-  { text: i18n.t('hero.dynamicWords.develop'), color: '#339933' }, // Node.js green
-  { text: i18n.t('hero.dynamicWords.engineer'), color: '#F7DF1E' }, // JavaScript yellow
-  { text: i18n.t('hero.dynamicWords.craft'), color: '#DD0031' }, // Angular red
-  { text: i18n.t('hero.dynamicWords.architect'), color: '#2496ED' }, // Docker blue
-  { text: i18n.t('hero.dynamicWords.code'), color: '#FF9900' }, // AWS orange
-  { text: i18n.t('hero.dynamicWords.forge'), color: '#4169E1' }, // PostgreSQL blue
-  { text: i18n.t('hero.dynamicWords.shape'), color: '#47A248' }, // MongoDB green
+  { text: i18n.t('hero.dynamicWords.build'), color: '#3178C6' },
+  { text: i18n.t('hero.dynamicWords.create'), color: '#61DAFB' },
+  { text: i18n.t('hero.dynamicWords.develop'), color: '#339933' },
+  { text: i18n.t('hero.dynamicWords.engineer'), color: '#F7DF1E' },
+  { text: i18n.t('hero.dynamicWords.craft'), color: '#DD0031' },
+  { text: i18n.t('hero.dynamicWords.architect'), color: '#2496ED' },
+  { text: i18n.t('hero.dynamicWords.code'), color: '#FF9900' },
+  { text: i18n.t('hero.dynamicWords.forge'), color: '#4169E1' },
+  { text: i18n.t('hero.dynamicWords.shape'), color: '#47A248' },
 ];
 ---
 
-<section class="hero-section">
-  <FloatingTechLogos />
-  <StaticTechLogos />
+<section class="hero-section noise-overlay">
   <div class="hero-gradient"></div>
 
   <div class="container">
     <div class="hero-content">
-      <h1 class="hero-title">
+      <h1 class="hero-title animate-on-scroll">
         <span data-i18n="hero.title.part1">{i18n.t('hero.title.part1')}</span>
         <span class="desktop-space"> </span>
         <br class="mobile-break" />
@@ -42,11 +37,11 @@ const dynamicWords = [
         <span data-i18n="hero.title.part3">{i18n.t('hero.title.part3')}</span>
       </h1>
 
-      <p class="hero-description" data-i18n="hero.description">
+      <p class="hero-description animate-on-scroll" data-i18n="hero.description">
         {i18n.t('hero.description')}
       </p>
 
-      <div class="hero-actions">
+      <div class="hero-actions animate-on-scroll">
         {
           FEATURE_FLAGS.showProjects && (
             <Button href={getLocalizedUrl('/projects', lang)} size="lg">
@@ -104,7 +99,7 @@ const dynamicWords = [
     position: relative;
     min-height: 100vh;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     overflow: hidden;
     padding-top: 8rem;
@@ -114,12 +109,22 @@ const dynamicWords = [
   .hero-gradient {
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(circle at 20% 50%, rgba(217, 70, 239, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 50%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
-    z-index: 2;
+    z-index: 0;
     pointer-events: none;
+    background:
+      radial-gradient(ellipse at 20% 50%, var(--glow-primary) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, var(--glow-accent) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+    animation: mesh-shift 15s ease-in-out infinite alternate;
+  }
+
+  @keyframes mesh-shift {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    100% {
+      transform: scale(1.1) rotate(3deg);
+    }
   }
 
   .hero-content {
@@ -131,10 +136,10 @@ const dynamicWords = [
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     margin-bottom: 1.5rem;
     opacity: 0;
     animation: fade-up 0.8s ease-out forwards;
@@ -151,7 +156,7 @@ const dynamicWords = [
     font-size: 1.125rem;
     line-height: 1.7;
     color: var(--color-text-secondary);
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto 2rem;
     opacity: 0;
     animation: fade-up 0.8s ease-out 0.2s forwards;
@@ -166,7 +171,6 @@ const dynamicWords = [
     animation: fade-up 0.8s ease-out 0.4s forwards;
   }
 
-  /* Make all buttons same width on desktop */
   .hero-actions > :global(*:not(.button-group)) {
     min-width: 250px;
   }
@@ -195,45 +199,20 @@ const dynamicWords = [
     color: var(--color-text);
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 0.75rem;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     white-space: nowrap;
   }
 
-  .cv-download-button::before,
-  .github-button::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-alpha) 0%,
-      var(--color-accent-alpha) 100%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
   .cv-download-button:hover,
   .github-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px var(--glow-primary);
     border-color: var(--color-primary);
-  }
-
-  .cv-download-button:hover::before,
-  .github-button:hover::before {
-    opacity: 1;
-  }
-
-  .cv-download-button > *,
-  .github-button > * {
-    position: relative;
-    z-index: 1;
   }
 
   .cv-icon,
@@ -242,21 +221,6 @@ const dynamicWords = [
     height: 1.4375rem;
   }
 
-  /* Light theme specific styles */
-  :global([data-theme='light']) .cv-download-button,
-  :global([data-theme='light']) .github-button {
-    background: rgba(249, 247, 253, 0.95);
-    border-color: rgba(139, 92, 246, 0.2);
-    color: var(--color-text);
-  }
-
-  :global([data-theme='light']) .cv-download-button:hover,
-  :global([data-theme='light']) .github-button:hover {
-    background: rgba(245, 242, 252, 0.98);
-    border-color: var(--color-primary);
-  }
-
-  /* Hide mobile break on desktop, show desktop space */
   .mobile-break {
     display: none;
   }
@@ -297,7 +261,6 @@ const dynamicWords = [
       height: 1.4375rem;
     }
 
-    /* Show mobile break on mobile, hide desktop space */
     .mobile-break {
       display: block;
     }

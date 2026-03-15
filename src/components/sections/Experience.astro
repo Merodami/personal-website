@@ -1,6 +1,5 @@
 ---
 import Section from '@components/common/Section.astro';
-import Card from '@components/common/Card.astro';
 import Badge from '@components/common/Badge.astro';
 import { useAstroI18n } from '@/i18n';
 
@@ -18,49 +17,147 @@ const experiences = i18n.t<Experience[]>('experience.jobs');
 ---
 
 <Section id="experience">
-  <div class="grid lg:grid-cols-2 gap-12 items-start">
+  <div class="experience-layout">
     <div>
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-i18n="experience.title">
+      <h2 class="experience-title" data-i18n="experience.title">
         {i18n.t('experience.title')}
       </h2>
-      <p class="text-secondary text-lg" data-i18n="about.paragraph1">
+      <p class="experience-subtitle" data-i18n="about.paragraph1">
         {i18n.t('about.paragraph1')}
       </p>
     </div>
 
-    <div class="space-y-6" data-i18n-experience-cards>
+    <div class="experience-list" data-i18n-experience-cards>
       {
         experiences.map((exp) => (
-          <Card hover={false} class="relative">
-            <div class="flex items-start gap-4">
-              <div
-                class="flex-shrink-0 w-2 h-2 rounded-full mt-2"
-                style="background-color: var(--color-primary)"
-              />
-              <div class="flex-grow">
-                <div class="mb-2">
-                  <h3 class="text-xl font-semibold mb-0" style="color: var(--color-primary)">
-                    {exp.company}
-                  </h3>
-                  <div class="text-lg text-primary">{exp.position}</div>
+          <div class="experience-card">
+            <div class="experience-card-inner">
+              <div class="experience-dot" />
+              <div class="experience-content">
+                <div class="experience-header">
+                  <h3 class="experience-company">{exp.company}</h3>
+                  <div class="experience-position">{exp.position}</div>
                 </div>
 
-                <div class="text-sm text-secondary mb-3">
+                <div class="experience-date">
                   {exp.startDate} - {exp.endDate}
                 </div>
 
-                <p class="text-secondary mb-4">{exp.description}</p>
+                <p class="experience-description">{exp.description}</p>
 
-                <div class="flex flex-wrap gap-2">
+                <div class="experience-tech">
                   {exp.technologies.map((tech: string) => (
                     <Badge text={tech} variant="primary" />
                   ))}
                 </div>
               </div>
             </div>
-          </Card>
+          </div>
         ))
       }
     </div>
   </div>
 </Section>
+
+<style>
+  .experience-layout {
+    display: grid;
+    gap: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    .experience-layout {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+  }
+
+  .experience-title {
+    font-size: clamp(1.875rem, 3vw, 2.25rem);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .experience-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .experience-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .experience-card:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .experience-card-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .experience-dot {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 8px var(--glow-primary);
+    margin-top: 0.625rem;
+  }
+
+  .experience-content {
+    flex-grow: 1;
+  }
+
+  .experience-header {
+    margin-bottom: 0.5rem;
+  }
+
+  .experience-company {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0;
+  }
+
+  .experience-position {
+    font-size: 1.125rem;
+    color: var(--color-primary);
+  }
+
+  .experience-date {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .experience-description {
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .experience-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+</style>

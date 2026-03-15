@@ -11,19 +11,11 @@ const { project } = Astro.props;
 ---
 
 <Card class="group h-full flex flex-col project-card">
-  <div
-    class="aspect-video rounded-lg mb-4 overflow-hidden"
-    style="background-color: var(--color-bg-tertiary)"
-  >
-    <img
-      src={project.image}
-      alt={project.title}
-      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-      loading="lazy"
-    />
+  <div class="project-image-wrapper">
+    <img src={project.image} alt={project.title} class="project-image" loading="lazy" />
   </div>
 
-  <h3 class="text-xl font-semibold mb-2 transition-colors">
+  <h3 class="project-title">
     {project.title}
   </h3>
 
@@ -38,13 +30,8 @@ const { project } = Astro.props;
   <div class="flex gap-4">
     {
       project.liveUrl && (
-        <a
-          href={project.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center text-sm font-medium group/link"
-        >
-          <span class="gradient-text">Live Demo</span>
+        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" class="project-link">
+          <span>Live Demo</span>
           <svg
             class="w-4 h-4 ml-1 transition-transform group-hover/link:translate-x-0.5"
             fill="none"
@@ -80,15 +67,44 @@ const { project } = Astro.props;
 </Card>
 
 <style>
-  .project-card h3 {
-    color: var(--color-text);
+  .project-image-wrapper {
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    margin: -1.5rem -1.5rem 1rem -1.5rem;
+    background-color: var(--color-bg-tertiary);
+    aspect-ratio: 16/9;
   }
 
-  .project-card:hover h3 {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover .project-image {
+    transform: scale(1.03);
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .project-link:hover {
+    opacity: 0.8;
   }
 
   .line-clamp-3 {

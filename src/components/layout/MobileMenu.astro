@@ -75,18 +75,26 @@ const translations = {
         ">
           <button id="close-btn" style="
             align-self: flex-end;
-            padding: 8px;
-            background: none;
-            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg, rgba(15, 15, 30, 0.6));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
+            border-radius: 50%;
             cursor: pointer;
             color: var(--color-text, #fff);
             margin-bottom: 40px;
+            transition: all 0.3s ease;
           " aria-label="Close menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
-          
+
           <nav style="
             display: flex;
             flex-direction: column;
@@ -96,13 +104,17 @@ const translations = {
               .map((item) => {
                 const labelKey = item.label.toLowerCase();
                 const translatedLabel = currentTranslations[labelKey] || item.label;
+                const isActive =
+                  item.href === window.mobileMenuData.currentPath ||
+                  (item.href !== '/' && window.mobileMenuData.currentPath.startsWith(item.href));
                 return `
               <a href="${currentLang === 'es' ? '/es' + item.href : item.href}" style="
-                font-size: 24px;
+                font-size: 1.5rem;
                 font-weight: 500;
                 text-decoration: none;
-                color: ${item.href === window.mobileMenuData.currentPath || (item.href !== '/' && window.mobileMenuData.currentPath.startsWith(item.href)) ? 'var(--color-primary, #ff0080)' : 'var(--color-text, #fff)'};
+                color: ${isActive ? 'var(--color-primary, #8B5CF6)' : 'var(--color-text, #fff)'};
                 padding: 10px 0;
+                transition: color 0.3s ease;
               ">
                 ${translatedLabel}
               </a>

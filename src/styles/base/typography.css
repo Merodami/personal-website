@@ -28,6 +28,7 @@
   --text-4xl: clamp(2.5rem, 1.75rem + 3.75vw, 4rem);
   --text-5xl: clamp(3rem, 2rem + 5vw, 5rem);
   --text-6xl: clamp(3.5rem, 2.5rem + 5vw, 6rem);
+  --text-hero: clamp(2.5rem, 5vw, 4rem);
 
   /* Line Heights */
   --leading-none: 1;
@@ -61,7 +62,7 @@ body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: var(--leading-normal);
-  font-weight: var(--font-light);
+  font-weight: var(--font-normal);
   letter-spacing: var(--tracking-normal);
   font-feature-settings: 'cv11', 'ss01', 'ss03';
   text-rendering: optimizeLegibility;
@@ -76,9 +77,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: var(--font-semibold);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 h1 {

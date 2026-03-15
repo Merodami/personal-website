@@ -7,48 +7,109 @@ const { i18n } = useAstroI18n(Astro.url);
 
 <Section id="about">
   <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll" data-i18n="about.title">
+    <h2 class="about-title animate-on-scroll" data-i18n="about.title">
       {i18n.t('about.title')}
     </h2>
 
-    <div class="space-y-4 text-lg leading-relaxed animate-on-scroll animation-delay-100">
+    <div class="about-text animate-on-scroll animation-delay-100">
       <p data-i18n="about.paragraph1">{i18n.t('about.paragraph1')}</p>
       <p data-i18n="about.paragraph2">{i18n.t('about.paragraph2')}</p>
     </div>
 
-    <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 animate-on-scroll animation-delay-200">
-      <div class="text-center">
-        <div class="text-3xl font-bold gradient-text" data-i18n="about.stats.experience">
+    <div class="stats-grid animate-on-scroll animation-delay-200">
+      <div class="stat-panel">
+        <div class="stat-number" data-i18n="about.stats.experience">
           {i18n.t('about.stats.experience')}
         </div>
-        <div class="text-sm text-secondary mt-1" data-i18n="about.stats.experienceLabel">
+        <div class="stat-label" data-i18n="about.stats.experienceLabel">
           {i18n.t('about.stats.experienceLabel')}
         </div>
       </div>
-      <div class="text-center">
-        <div class="text-3xl font-bold gradient-text" data-i18n="about.stats.fullStack">
+      <div class="stat-panel">
+        <div class="stat-number" data-i18n="about.stats.fullStack">
           {i18n.t('about.stats.fullStack')}
         </div>
-        <div class="text-sm text-secondary mt-1" data-i18n="about.stats.fullStackLabel">
+        <div class="stat-label" data-i18n="about.stats.fullStackLabel">
           {i18n.t('about.stats.fullStackLabel')}
         </div>
       </div>
-      <div class="text-center">
-        <div class="text-3xl font-bold gradient-text" data-i18n="about.stats.cloud">
+      <div class="stat-panel">
+        <div class="stat-number" data-i18n="about.stats.cloud">
           {i18n.t('about.stats.cloud')}
         </div>
-        <div class="text-sm text-secondary mt-1" data-i18n="about.stats.cloudLabel">
+        <div class="stat-label" data-i18n="about.stats.cloudLabel">
           {i18n.t('about.stats.cloudLabel')}
         </div>
       </div>
-      <div class="text-center">
-        <div class="text-3xl font-bold gradient-text" data-i18n="about.stats.remote">
+      <div class="stat-panel">
+        <div class="stat-number" data-i18n="about.stats.remote">
           {i18n.t('about.stats.remote')}
         </div>
-        <div class="text-sm text-secondary mt-1" data-i18n="about.stats.remoteLabel">
+        <div class="stat-label" data-i18n="about.stats.remoteLabel">
           {i18n.t('about.stats.remoteLabel')}
         </div>
       </div>
     </div>
   </div>
 </Section>
+
+<style>
+  .about-title {
+    font-size: clamp(1.875rem, 3vw, 2.25rem);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  .stats-grid {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .stat-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .stat-panel:hover {
+    box-shadow: 0 0 16px var(--glow-primary);
+    border-color: var(--color-primary);
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+  }
+</style>

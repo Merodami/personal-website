@@ -8,7 +8,7 @@ const { i18n } = useAstroI18n(Astro.url);
 const featuredProjects = projects.filter((p) => p.featured);
 ---
 
-<Section id="projects" gradient>
+<Section id="projects">
   <div class="text-center mb-12 animate-on-scroll">
     <h2 class="text-3xl md:text-4xl font-bold mb-4">{i18n.t('projects.title')}</h2>
     <p class="text-lg max-w-2xl mx-auto">
@@ -41,3 +41,12 @@ const featuredProjects = projects.filter((p) => p.featured);
     </a>
   </div>
 </Section>
+
+<style>
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>
